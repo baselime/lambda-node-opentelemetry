@@ -11,6 +11,7 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run package:tracer",
     "package:tracer": "esbuild src/tracer.ts --bundle --platform=node --target=node16 --outfile=lambda-wrapper.js --metafile=meta.json"
   },
   "repository": {
