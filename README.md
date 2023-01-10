@@ -22,6 +22,10 @@ Add the following environment variables to your service
 
 You need to make sure the lambda-wrapper file is included in the .zip file that is used by aws-lambda. The exact steps depend on the packaging step of the framework you are using.
 
+
+### SST
+
+
 ### Serverless
 
 By default the serverless framework includes your whole node_module directory in the .zip file. If you are using the `serverless-esbuild` plugin to avoid this then you need to add the following configuration to your project.
