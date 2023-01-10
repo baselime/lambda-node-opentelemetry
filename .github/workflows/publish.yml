@@ -1,0 +1,48 @@
+# Build binaries for macOS and Linux, publish Node.js packages, create release
+name: build-publish-release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish-node-packages:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Build and publish to npm registry
+        continue-on-error: true
+        run: |
+          npm ci
+          npm run build
+          npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: "@baselime"
+
+      - run: echo "registry=https://npm.pkg.github.com/@baselime" >> .npmrc
+
+      - name: Publish to GitHub registry
+        continue-on-error: true
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
