@@ -1,6 +1,6 @@
 {
   "name": "@baselime/tracer-node",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "build/index.js",
   "directories": {
@@ -12,7 +12,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run package:tracer",
-    "package:tracer": "esbuild src/tracer.ts --bundle --platform=node --target=node16 --outfile=lambda-wrapper.js --metafile=meta.json"
+    "package:tracer": "esbuild src/tracer.ts --bundle --platform=node --target=node16 --outfile=lambda-wrapper.js"
   },
   "repository": {
     "type": "git",
