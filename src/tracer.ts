@@ -13,6 +13,7 @@ const {
 } = require("@opentelemetry/instrumentation-aws-sdk");
 import { HttpInstrumentation } from "@opentelemetry/instrumentation-http";
 import { Resource } from "@opentelemetry/resources";
+import { Stream } from "node:stream";
 import { flattenObject } from "./utils";
 
 const provider = new NodeTracerProvider({
@@ -61,10 +62,32 @@ const snsGetter = {
     return carrier[key]?.Value;
   },
 }
+
+async function stream2buffer(stream: Stream): Promise<Buffer> {
+
+  return new Promise < Buffer > ((resolve, reject) => {
+      
+      const _buf = Array <Uint8Array> ();
+
+      stream.on("data", chunk => _buf.push(chunk));
+      stream.on("end", () => resolve(Buffer.concat(_buf)));
+      stream.on("error", err => reject(`error converting stream - ${err}`));
+
+  });
+} 
+
 registerInstrumentations({
   instrumentations: [
     new AwsInstrumentation({ suppressInternalInstrumentation: true }),
-    new HttpInstrumentation({}),
+    new HttpInstrumentation({
+      applyCustomAttributesOnSpan(span, request, response) {
+        const req = stream2buffer(request);
+        console.log('req', req.toString())
+
+        const res = stream2buffer(response);
+        console.log('res', res.toString())
+      }
+    }),
     new AwsLambdaInstrumentation({
       disableAwsContextPropagation: true,
       requestHook: (span, { event, context }) => {
