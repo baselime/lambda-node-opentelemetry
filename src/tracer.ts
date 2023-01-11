@@ -80,11 +80,11 @@ registerInstrumentations({
   instrumentations: [
     new AwsInstrumentation({ suppressInternalInstrumentation: true }),
     new HttpInstrumentation({
-      applyCustomAttributesOnSpan(span, request, response) {
-        const req = stream2buffer(request);
+      async applyCustomAttributesOnSpan(span, request, response) {
+        const req = await stream2buffer(request);
         console.log('req', req.toString())
 
-        const res = stream2buffer(response);
+        const res = await stream2buffer(response);
         console.log('res', res.toString())
       }
     }),
