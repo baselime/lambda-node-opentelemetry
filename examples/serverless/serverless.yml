@@ -1,0 +1,66 @@
+service: tracing
+
+package:
+  individually: true
+  patterns:
+    - 'node_modules/@baselime/tracer-node/lambda-wrapper.js'
+
+plugins:
+  - serverless-esbuild
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  timeout: 10
+  region: eu-west-2
+  architecture: arm64
+  versionFunctions: false
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action: 'dynamodb:updateItem'
+          Resource: !GetAtt DB.Arn
+        - Effect: Allow
+          Action: 'sns:publish'
+          Resource: '*'
+  environment:
+    BASELIME_OTEL_KEY: ${env:BASELIME_OTEL_KEY}
+    BASELIME_NAMESPACE: ${self:service}-${sls:stage}
+    NODE_OPTIONS: --require node_modules/@baselime/tracer-node/lambda-wrapper
+
+functions:
+  hello:
+    handler: src/main.handler
+    events:
+      - schedule: rate(5 minutes)
+    environment:
+      API_URL: !GetAtt HttpApi.ApiEndpoint
+  api:
+    handler: src/api.handler
+    events:
+      - httpApi:
+          method: get
+          path: /hello
+    environment:
+      DB_NAME: !Ref DB
+      TOPIC_ARN: !Ref SNSTopicDispatch
+  dispatcher:
+    handler: src/dispatcher.handler
+    events:
+      - sns: dispatch
+    
+
+resources:
+  Resources:
+    DB:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        BillingMode: PAY_PER_REQUEST
+        AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+        KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+

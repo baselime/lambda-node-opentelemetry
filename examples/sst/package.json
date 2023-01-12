@@ -1,0 +1,29 @@
+{
+  "name": "sst",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "sst start",
+    "build": "sst build",
+    "deploy": "sst deploy",
+    "predeploy": "cd ../.. && npm run build && cd examples/sst && cp ../../lambda-wrapper.js ./",
+    "remove": "sst remove",
+    "console": "sst console",
+    "typecheck": "tsc --noEmit",
+    "test": "sst bind -- vitest run"
+  },
+  "devDependencies": {
+    "aws-cdk-lib": "2.50.0",
+    "@serverless-stack/cli": "^1.18.4",
+    "@serverless-stack/resources": "^1.18.4",
+    "typescript": "^4.9.4",
+    "@tsconfig/node16": "^1.0.3",
+    "vitest": "^0.27.1"
+  },
+  "dependencies": {
+    "@serverless-stack/node": "^1.18.4"
+  },
+  "workspaces": [
+    "services"
+  ]
+}

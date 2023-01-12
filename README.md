@@ -17,7 +17,7 @@ Add the following environment variables to your service
 | Key | Example  | Description  |  
 |---|---|---|
 | BASELIME_OTEL_KEY  |  j45jticf9ui4hj9dfk39fk69dpa | Get this key from your dataset settings  |
-|  BASELIME_SERVICE_NAME | prod-users | The name of the service the traces belong to  |
+|  BASELIME_NAMESPACE | prod-users | The name of the service the traces belong to  |
 | NODE_OPTIONS  |  --require node_modules/@baselime/tracer-node/lambda-wrapper | Preloads the tracing sdk at startup |
 
 You need to make sure the lambda-wrapper file is included in the .zip file that is used by aws-lambda. The exact steps depend on the packaging step of the framework you are using.
@@ -51,5 +51,75 @@ package:
 
 ## Customise traces
 
-[WIP]
+The `@baselime/tracer-node` package also contains a client to enrich the traces with specific information about your systems that is not picked up by the automatic instrumentation.
+
+To start customising your traces import the client library 
+
+```javascript
+import baselime from '@baselime/tracer-node';
+// or for cjs
+const baselime = require('@baselime/tracer-node');
+```
+
+### baselime.label
+
+To add a label to every span in a trace use the baselime.label method. This adds information that will propagate to all the systems that your code interacts with so make sure it does not contain any sensitive information.
+
+```javascript
+
+exports.handler = async (event) => {
+  baselime.label('user_id', event.pathParameters.id)
+}
+```
+### baselime.log
+
+To add a timestamped event into the span use the baselime.log method. It works just like a logger :) 
+
+
+```javascript
+
+exports.handler = async (event) => {
+
+  await linkedAccountToBaselime();
+
+  baselime.log("something amazing just happened")
+}
+```
+
+### baselime.enrich
+
+Enrich a span with additional information
+
+```javascript
+baselime.erich('a.b.c', 4)
+```
+
+### baselime.track
+
+Wrap async functions and add a span to the tree, useful when you want to capture business information as part of a trace
+
+```javascript
+
+// services/customer.js
+const baselime = require('@baselime/tracer-node');
+
+async function create(...) {}
+
+module.exports = {
+
+create: baselime.track('customer.create', create)
+}
+
+// handler.js
+const customer = require('./services/customer');
+
+exports.handler =async (event) => {
+
+  await customer.create(event)
+}
+```
+
+Now you will see a span called customer.create in the trace with all the information about what the customer.create method did.
+
+
 

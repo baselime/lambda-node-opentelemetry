@@ -18,7 +18,7 @@ import { flattenObject } from "./utils";
 
 const provider = new NodeTracerProvider({
   resource: new Resource({
-    "service.name": process.env.BASELIME_SERVICE_NAME,
+    "service.name": process.env.BASELIME_NAMESPACE,
   }),
 });
 

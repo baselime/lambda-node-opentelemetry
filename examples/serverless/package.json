@@ -1,0 +1,20 @@
+{
+  "name": "serverless",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "predeploy": "cd ../.. && npm run build && cd examples/serverless && mkdir -p node_modules/@baselime/tracer-node && cp ../../lambda-wrapper.js node_modules/@baselime/tracer-node/",
+    "deploy": "npx serverless deploy --stage prod"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "esbuild": "^0.16.16",
+    "serverless": "^3.26.0",
+    "serverless-esbuild": "^1.37.0"
+  },
+  "dependencies": {
+    "tiny-json-http": "^7.4.2"
+  }
+}
