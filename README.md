@@ -81,8 +81,7 @@ To add a timestamped event into the span use the baselime.log method. It works j
 exports.handler = async (event) => {
 
   await linkedAccountToBaselime();
-
-  baselime.log("something amazing just happened")
+  baselime.log("something amazing just happened", { type: 'amazign thing', quantity: 42 });
 }
 ```
 
