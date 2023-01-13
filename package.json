@@ -1,6 +1,6 @@
 {
   "name": "@baselime/tracer-node",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "",
   "main": "build/index.js",
   "files": [
@@ -9,10 +9,10 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run package:tracer",
+    "build": "npm run package:tracer && npm run package:lib && npm run package:typedefs",
     "package:typedefs": "npx tsc lib/index.ts --emitDeclarationOnly --declaration --outDir build",
-    "package:lib": "esbuild lib/index.ts --bundle --platform=node --target=node16 --outfile=build/index.js",
-    "package:tracer": "esbuild src/tracer.ts --bundle --platform=node --target=node16 --outfile=lambda-wrapper.js"
+    "package:lib": "esbuild lib/index.ts --bundle --minify --platform=node --target=node16 --outfile=build/index.js",
+    "package:tracer": "esbuild src/tracer.ts --bundle --minify --platform=node --target=node16 --outfile=lambda-wrapper.js"
   },
   "repository": {
     "type": "git",
@@ -26,11 +26,7 @@
   "homepage": "https://github.com/Baselime/tracer-node#readme",
   "devDependencies": {
     "@types/node": "^18.11.18",
-    "esbuild": "^0.16.16"
-  },
-  "dependencies": {
-    "@baselime/tracer-node": "^1.0.0",
-    "@opentelemetry/api": "^1.3.0",
+    "esbuild": "^0.16.16",
     "@opentelemetry/exporter-trace-otlp-http": "^0.34.0",
     "@opentelemetry/instrumentation": "^0.34.0",
     "@opentelemetry/instrumentation-aws-lambda": "^0.34.0",
@@ -39,5 +35,9 @@
     "@opentelemetry/sdk-trace-base": "^1.8.0",
     "@opentelemetry/sdk-trace-node": "^1.8.0",
     "typescript": "^4.9.4"
+  },
+  "dependencies": {
+    "@opentelemetry/api": "^1.3.0"
+   
   }
 }
