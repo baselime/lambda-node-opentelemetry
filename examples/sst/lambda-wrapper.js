@@ -7509,6 +7509,10 @@ var require_shimmer = __commonJS({
     var logger = console.error.bind(console);
     function defineProperty(obj, name, value) {
       var enumerable = !!obj[name] && obj.propertyIsEnumerable(name);
+      if (obj.hasOwnProperty(name)) {
+        obj[name] = value;
+        return;
+      }
       Object.defineProperty(obj, name, {
         configurable: true,
         enumerable,
@@ -28577,7 +28581,7 @@ var {
 } = require_src30();
 var provider = new NodeTracerProvider({
   resource: new import_resources.Resource({
-    "service.name": process.env.BASELIME_SERVICE_NAME
+    "service.name": process.env.BASELIME_NAMESPACE
   })
 });
 var spanProcessor = new BatchSpanProcessor(

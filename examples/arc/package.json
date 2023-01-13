@@ -1,0 +1,13 @@
+{
+  "name": "your-app",
+  "version": "0.0.0",
+  "description": "A fresh new Architect project!",
+  "scripts": {
+    "predeploy": "cd ../.. && npm run build && cd examples/arc && cp ../../lambda-wrapper.js ./",
+    "deploy": "arc deploy",
+    "start": "npx sandbox"
+  },
+  "devDependencies": {
+    "@architect/architect": "^10.8.3"
+  }
+}
