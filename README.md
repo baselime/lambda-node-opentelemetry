@@ -18,7 +18,7 @@ Add the following environment variables to your service
 |---|---|---|
 | BASELIME_OTEL_KEY  |  j45jticf9ui4hj9dfk39fk69dpa | Get this key from your dataset settings  |
 |  BASELIME_NAMESPACE | prod-users | The name of the service the traces belong to  |
-| NODE_OPTIONS  |  --require node_modules/@baselime/tracer-node/lambda-wrapper | Preloads the tracing sdk at startup |
+| NODE_OPTIONS  |  --require @baselime/tracer-node/lambda-wrapper | Preloads the tracing sdk at startup |
 
 You need to make sure the lambda-wrapper file is included in the .zip file that is used by aws-lambda. The exact steps depend on the packaging step of the framework you are using.
 
