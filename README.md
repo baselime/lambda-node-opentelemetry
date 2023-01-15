@@ -51,7 +51,7 @@ Add the following environment variables
 ```yaml
     BASELIME_OTEL_KEY: ${env:BASELIME_OTEL_KEY}
     BASELIME_NAMESPACE: '${self:provider.stage}-${self:provider.service'
-    NODE_OPTIONS: '--require node_modules/@baselime/tracer-node/lambda-wrapper'
+    NODE_OPTIONS: '--require @baselime/tracer-node/lambda-wrapper'
 ```
 
 ## Customise traces
