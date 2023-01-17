@@ -80,23 +80,27 @@ registerInstrumentations({
   instrumentations: [
     new AwsInstrumentation({ suppressInternalInstrumentation: true }),
     new HttpInstrumentation({
-      async applyCustomAttributesOnSpan(span, request, response) {
-        const req = await stream2buffer(request);
-        console.log('req', req.toString())
+      // async applyCustomAttributesOnSpan(span, request, response) {
+      //   const req = await stream2buffer(request);
+      //   console.log('req', req.toString())
 
-        const res = await stream2buffer(response);
-        console.log('res', res.toString())
-      }
+      //   const res = await stream2buffer(response);
+      //   console.log('res', res.toString())
+      // }
     }),
     new AwsLambdaInstrumentation({
       disableAwsContextPropagation: true,
       requestHook: (span, { event, context }) => {
-        span.setAttribute("faas.name", context.functionName);
-        span.setAttributes(flattenObject(event, "faas.event"));
+        span.setAttribute("name", context.functionName);
+        span.setAttributes(flattenObject(event, "event"));
       },
       responseHook: (span, { err, res }) => {
-        if (err instanceof Error) span.setAttribute("faas.error", err.message);
-        if (res) span.setAttributes(flattenObject(res, "faas.res"));
+        if (err instanceof Error) {
+          span.setAttribute("error.message", err.message);
+          span.setAttribute("error.name", err.name);
+          span.setAttribute("error.stack", err.stack);
+        }
+        if (res) span.setAttributes(flattenObject(res, "response"));
       },
       eventContextExtractor: (event) => {
         switch(detectService(event)) {
