@@ -45,7 +45,7 @@ Add the environment variables to your architect project
 ```bash
 arc env -e production --add BASELIME_OTEL_KEY tux-is-the-smartest-baselime-dog
 arc env -e production --add BASELIME_NAMESPACE project-1
-arc env -e production --add -- NODE_OPTIONS '--require @baselime/tracer-node/lambda-wrapper'
+arc env -e production --add -- NODE_OPTIONS '--require @architect/shared/lambda-wrapper'
 ```
 
 > Watch out for the '--' in the NODE_OPTIONS command. This is required to escape options parsing. This totally didn't frustrate me for a whole day! :D
@@ -68,14 +68,14 @@ Example
 ```yaml
 package:
   patterns:
-    - 'node_modules/@baselime/tracer-node/lambda-wrapper.js'
+    - 'node_modules/@baselime/lambda'
 ```
 
 Add the following environment variables
 ```yaml
     BASELIME_OTEL_KEY: ${env:BASELIME_OTEL_KEY}
     BASELIME_NAMESPACE: '${self:provider.stage}-${self:provider.service'
-    NODE_OPTIONS: '--require @baselime/tracer-node/lambda-wrapper'
+    NODE_OPTIONS: '--require @baselime/lambda'
 ```
 
 ### SST
