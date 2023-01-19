@@ -43,8 +43,8 @@ cp node_modules/@baselime/lambda/lambda-wrapper.js src/shared/
 Add the environment variables to your architect project
 
 ```bash
-arc env -e production --add BASELIME_OTEL_KEY <
-arc env -e production --add BASELIME_NAMESPACE VARIABLE_VALUE
+arc env -e production --add BASELIME_OTEL_KEY tux-is-the-smartest-baselime-dog
+arc env -e production --add BASELIME_NAMESPACE project-1
 arc env -e production --add -- NODE_OPTIONS '--require @baselime/tracer-node/lambda-wrapper'
 ```
 
