@@ -1,13 +1,13 @@
 {
   "name": "@baselime/lambda-node-opentelemetry",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "",
   "main": "lambda-wrapper.js",
   "files": [
     "/lambda-wrapper.js"
   ],
   "scripts": {
-    "build": "esbuild src/tracer.ts --bundle --platform=node --target=node16 --outfile=lambda-wrapper.js"
+    "build": "esbuild src/tracer.ts --bundle --minify --platform=node --target=node16 --outfile=lambda-wrapper.js"
   },
   "repository": {
     "type": "git",
