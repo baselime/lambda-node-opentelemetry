@@ -74,7 +74,7 @@ package:
 Add the following environment variables
 ```yaml
     BASELIME_OTEL_KEY: ${env:BASELIME_OTEL_KEY}
-    BASELIME_NAMESPACE: '${self:provider.stage}-${self:provider.service'
+    BASELIME_NAMESPACE: '${self:provider.stage}-${self:provider.service}'
     NODE_OPTIONS: '--require @baselime/lambda-node-opentelemetry'
 ```
 
