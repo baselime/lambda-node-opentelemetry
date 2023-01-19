@@ -1,6 +1,6 @@
 {
   "name": "@baselime/lambda-node-opentelemetry",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "lambda-wrapper.js",
   "files": [
