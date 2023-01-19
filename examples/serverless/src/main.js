@@ -11,7 +11,7 @@ async function track(name, func, args) {
     attributes: attrIn,
   });
   const ctx = trace.setSpan(context.active(), span);
-
+  console.log('ctx',)
   try {
     const result = await context.with(ctx, func, null, args);
     const attrOut = flattenObject(result, `${name}.result`);

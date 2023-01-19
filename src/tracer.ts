@@ -41,6 +41,8 @@ function detectService(event) {
 	if (event.Records && event.Records[0]?.EventSource === "aws:sns") {
 		return "sns";
 	}
+
+	return 'unknown'
 }
 
 const headerGetter = {
