@@ -4,7 +4,7 @@ The `@baselime/lambda-node-opentelemetry` package instruments your lambda functi
 
 The downside of this node tracer is it adds a small performance hit to each lambda invocation. We are working as hard as possible to minimise this but for now if this matters to you use our [x-ray](https://docs.baselime.io/x-ray) integration instead.
 
-# Automatic Instrumentation [WIP]
+## Automatic Instrumentation [WIP]
 
 Lambda Extension coming soon
 
