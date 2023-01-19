@@ -1,18 +1,13 @@
 {
-  "name": "@baselime/tracer-node",
-  "version": "1.0.7",
+  "name": "@baselime/lambda",
+  "version": "0.0.1",
   "description": "",
-  "main": "build/index.js",
+  "main": "lambda-wrapper.js",
   "files": [
-    "/lambda-wrapper.js",
-    "/build/*"
+    "/lambda-wrapper.js"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run package:tracer && npm run package:lib && npm run package:typedefs",
-    "package:typedefs": "npx tsc lib/index.ts --emitDeclarationOnly --declaration --outDir build",
-    "package:lib": "esbuild lib/index.ts --bundle --minify --platform=node --target=node16 --outfile=build/index.js",
-    "package:tracer": "esbuild src/tracer.ts --bundle --minify --platform=node --target=node16 --outfile=lambda-wrapper.js"
+    "build": "esbuild src/tracer.ts --bundle --minify --platform=node --target=node16 --outfile=lambda-wrapper.js"
   },
   "repository": {
     "type": "git",

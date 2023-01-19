@@ -12,12 +12,18 @@ async function track(name, func, args) {
   });
   const ctx = trace.setSpan(context.active(), span);
 
-  const result = await context.with(ctx, func, null, args);
-
-  const attrOut = flattenObject(result, `${name}.result`);
-  span.setAttributes(attrOut);
-  span.end();
-  return result;
+  try {
+    const result = await context.with(ctx, func, null, args);
+    const attrOut = flattenObject(result, `${name}.result`);
+    span.setAttributes(attrOut);
+    span.end();
+    return result;
+  } catch(e) {
+    span.recordException(e);
+    span.setAttributes(flattenObject({ name: e.name, message: e.message, stack: e.stack }, 'error'));
+    span.end();
+    throw e
+  }
 }
 
 function trackAll(name, lib) {
@@ -34,7 +40,7 @@ exports.handler = async (e) => {
   });
 
   await track("tiny.post", tiny.post, {
-    url: "https://eo9ex1o5i2mrla8.m.pipedream.net",
+    url: "https://eokl0ly5zia7pe1.m.pipedream.net",
     data: customer,
   });
 

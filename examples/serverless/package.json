@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "predeploy": "cd ../.. && npm run build && cd examples/serverless && mkdir -p node_modules/@baselime/tracer-node && cp ../../lambda-wrapper.js node_modules/@baselime/tracer-node/",
-    "deploy": "npx serverless deploy --stage prod"
+    "deploy": "npx serverless deploy --stage prod --force"
   },
   "author": "",
   "license": "UNLICENSED",
