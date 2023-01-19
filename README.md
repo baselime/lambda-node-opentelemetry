@@ -2,11 +2,8 @@
 
 The `@baselime/lambda-node-opentelemetry` package instruments your lambda functions and automatically ships OTEL compatible trace data to Baselime. This is the most powerful and flexible way to instrument your node service.
 
-The downside of this node tracer is it adds a small performance hit to each lambda invocation. We are working as hard as possible to minimise this but for now if this matters to you use our [x-ray](https://docs.baselime.io/x-ray) integration instead.
+The downside of this node tracer is it adds a small performance hit to each lambda invocation. We are working as hard as possible to minimise this but for now if this matters to you use our [x-ray](https://docs.baselime.io/sending-data/xray/) integration instead.
 
-## Automatic Instrumentation [WIP]
-
-Lambda Extension coming soon
 
 ## Manual Installation
 
@@ -106,6 +103,10 @@ app.setDefaultFunctionProps({
   },
 });
 ```
+
+## Automatic Instrumentation [WIP]
+
+Lambda Extension coming soon
 
 ## Send data to another OpenTelemetry Backend
 

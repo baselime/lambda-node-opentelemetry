@@ -1,7 +1,8 @@
 {
   "name": "@baselime/lambda-node-opentelemetry",
-  "version": "0.0.6",
-  "description": "",
+  "version": "0.0.7",
+  "description": "Open Telemetry auto tracer for Node.JS based aws lambda functions ",
+  "keywords": ["nodejs", "aws-lambda", "serverless", "opentelemetry"],
   "main": "lambda-wrapper.js",
   "files": [
     "/lambda-wrapper.js"
@@ -14,7 +15,7 @@
     "url": "git+https://github.com/Baselime/tracer-node.git"
   },
   "author": "",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Baselime/tracer-node/issues"
   },
