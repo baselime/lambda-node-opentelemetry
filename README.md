@@ -1,8 +1,8 @@
-# 🎸 Lambda Tracer for node
+# 🎸 Lambda Opentelemetry for Node.JS
 
-The `@baselime/lambda` package instruments your lambda functions and automatically ships OTEL compatible trace data to Baselime. This is the most powerful and flexible way to instrument your node service.
+The `@baselime/lambda-node-opentelemetry` package instruments your lambda functions and automatically ships OTEL compatible trace data to Baselime. This is the most powerful and flexible way to instrument your node service.
 
-The downside of this node tracer is it adds a small performance hit to each lambda invocation. We are working as hard as possible to minimise this but for now if this matters to you use our [https://docs.baselime.io/x-ray](x-ray) integration instead.
+The downside of this node tracer is it adds a small performance hit to each lambda invocation. We are working as hard as possible to minimise this but for now if this matters to you use our [x-ray](https://docs.baselime.io/x-ray) integration instead.
 
 # Automatic Instrumentation [WIP]
 
@@ -10,10 +10,10 @@ Lambda Extension coming soon
 
 ## Manual Installation
 
-Install the `@baselime/lambda` package
+Install the `@baselime/lambda-node-opentelemetry` package
 
 ```bash
-npm install @baselime/lambda
+npm install @baselime/lambda-node-opentelemetry
 ```
 
 Add the following environment variables to your service
@@ -22,7 +22,7 @@ Add the following environment variables to your service
 | ------------------ | ------------------------------- | ----------------------------------------------------------------------------------- |
 | BASELIME_OTEL_KEY  | nora-is-the-cutest-baselime-dog | Get this key from the [cli](https://github.com/Baselime/cli) running `baselime iam` |
 | BASELIME_NAMESPACE | prod-users                      | The name of the service the traces belong to                                        |
-| NODE_OPTIONS       | --require @baselime/lambda      | Preloads the tracing sdk at startup                                                 |
+| NODE_OPTIONS       | --require @baselime/lambda-node-opentelemetry      | Preloads the tracing sdk at startup                                                 |
 
 Get the baselime key using our [cli](https://github.com/Baselime/cli) 
 
@@ -37,7 +37,7 @@ You need to make sure the lambda-wrapper file is included in the .zip file that 
 Copy the lambda-wrapper.js file from our node modules to the shared folder of your architect project, this way it is automatically included in all of your lambdas bundles.
 
 ```bash
-cp node_modules/@baselime/lambda/lambda-wrapper.js src/shared/
+cp node_modules/@baselime/lambda-node-opentelemetry/lambda-wrapper.js src/shared/
 ```
 
 Add the environment variables to your architect project
@@ -60,7 +60,7 @@ https://www.serverless.com/framework/docs/providers/aws/guide/packaging
 Add the following line to the `package.patterns` block of your serverless.yml
 
 ```yaml
-- 'node_modules/@baselime/lambda/lambda-wrapper.js'
+- 'node_modules/@baselime/lambda-node-opentelemetry/lambda-wrapper.js'
 ```
 
 Example
@@ -68,14 +68,14 @@ Example
 ```yaml
 package:
   patterns:
-    - 'node_modules/@baselime/lambda'
+    - 'node_modules/@baselime/lambda-node-opentelemetry'
 ```
 
 Add the following environment variables
 ```yaml
     BASELIME_OTEL_KEY: ${env:BASELIME_OTEL_KEY}
     BASELIME_NAMESPACE: '${self:provider.stage}-${self:provider.service'
-    NODE_OPTIONS: '--require @baselime/lambda'
+    NODE_OPTIONS: '--require @baselime/lambda-node-opentelemetry'
 ```
 
 ### SST
@@ -85,7 +85,7 @@ Add the following environment variables
 Copy the lambda-wrapper file to your srcPath directory
 
 ```bash
-cp node_modules/@baselime/lambda/lambda-wrapper.js services
+cp node_modules/@baselime/lambda-node-opentelemetry/lambda-wrapper.js services
 ```
 
 Then add the default props to include the wrapper in your bundle and add your environment variables
@@ -106,3 +106,7 @@ app.setDefaultFunctionProps({
   },
 });
 ```
+
+## Send data to another OpenTelemetry Backend
+
+Add the environment variable `COLLECTOR_URL` to send the spans somewhere else.

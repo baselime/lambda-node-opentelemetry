@@ -13,7 +13,6 @@ const {
 } = require("@opentelemetry/instrumentation-aws-sdk");
 import { HttpInstrumentation } from "@opentelemetry/instrumentation-http";
 import { Resource } from "@opentelemetry/resources";
-import { Stream } from "node:stream";
 import { flattenObject } from "./utils";
 
 const provider = new NodeTracerProvider({
@@ -24,7 +23,7 @@ const provider = new NodeTracerProvider({
 
 const spanProcessor = new BatchSpanProcessor(
 	new OTLPTraceExporter({
-		url: "https://otel.baselime.cc/v1",
+		url: process.env.COLLECTOR_URL || "https://otel.baselime.io/v1",
 		headers: {
 			"x-api-key": process.env.BASELIME_OTEL_KEY,
 		},
@@ -63,37 +62,21 @@ const snsGetter = {
 	},
 };
 
-async function stream2buffer(stream: Stream): Promise<Buffer> {
-	return new Promise<Buffer>((resolve, reject) => {
-		const _buf = Array<Uint8Array>();
-
-		stream.on("data", (chunk) => _buf.push(chunk));
-		stream.on("end", () => resolve(Buffer.concat(_buf)));
-		stream.on("error", (err) => reject(`error converting stream - ${err}`));
-	});
-}
-
 registerInstrumentations({
 	instrumentations: [
 		new AwsInstrumentation({
 			suppressInternalInstrumentation: true,
 			responseHook: (span, { response }) => {
-				// if (err instanceof Error) {
-				// 	span.setAttribute("error.message", err.message);
-				// 	span.setAttribute("error.name", err.name);
-				// 	span.setAttribute("error.stack", err.stack);
-				// }
-				if (response) span.setAttributes(flattenObject({ request: response.request, response: response.data }));
+				if (response)
+					span.setAttributes(
+						flattenObject({
+							request: response.request,
+							response: response.data,
+						}),
+					);
 			},
 		}),
-		new HttpInstrumentation({
-			// async applyCustomAttributesOnSpan(span, request, response) {
-			//   const req = await stream2buffer(request);
-			//   console.log('req', req.toString())
-			//   const res = await stream2buffer(response);
-			//   console.log('res', res.toString())
-			// }
-		}),
+		new HttpInstrumentation({}),
 		new AwsLambdaInstrumentation({
 			disableAwsContextPropagation: true,
 			requestHook: (span, { event, context }) => {
@@ -124,7 +107,6 @@ registerInstrumentations({
 							snsGetter,
 						);
 				}
-				return api.propagation.extract(api.context.active(), {}, headerGetter);
 			},
 		}),
 	],
