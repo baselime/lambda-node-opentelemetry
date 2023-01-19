@@ -10,7 +10,7 @@
   "author": "",
   "license": "UNLICENSED",
   "devDependencies": {
-    "@baselime/lambda-node-opentelemetry": "^0.0.3",
+    "@baselime/lambda-node-opentelemetry": "^0.0.4",
     "esbuild": "^0.16.16",
     "serverless": "^3.26.0",
     "serverless-esbuild": "^1.37.0"

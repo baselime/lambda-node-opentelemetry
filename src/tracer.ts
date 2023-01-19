@@ -107,6 +107,7 @@ registerInstrumentations({
 							snsGetter,
 						);
 				}
+				return api.propagation.extract(api.context.active(), {}, headerGetter);
 			},
 		}),
 	],
