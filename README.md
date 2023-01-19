@@ -93,16 +93,16 @@ Then add the default props to include the wrapper in your bundle and add your en
 
 ```javascript
 app.setDefaultFunctionProps({
-		runtime: "nodejs16.x",
-		srcPath: "services",
-    environment: {
-          NODE_OPTIONS: '--require lambda-wrapper.js',
-          BASELIME_NAMESPACE: stack.stackName,
-          BASELIME_OTEL_KEY: process.env.BASELIME_OTEL_KEY
-    },
-		bundle: {
-			format: "esm",
-			copyFiles: [{ from: "./lambda-wrapper.js", to: "./lambda-wrapper.js" }],
-		},
-	});
+  runtime: "nodejs16.x",
+  srcPath: "services",
+  environment: {
+    NODE_OPTIONS: '--require lambda-wrapper.js',
+    BASELIME_NAMESPACE: stack.stackName,
+    BASELIME_OTEL_KEY: process.env.BASELIME_OTEL_KEY
+  },
+  bundle: {
+    format: "esm",
+    copyFiles: [{ from: "./lambda-wrapper.js", to: "./lambda-wrapper.js" }],
+  },
+});
 ```
