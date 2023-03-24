@@ -14,7 +14,9 @@ const {
 import { HttpInstrumentation } from "@opentelemetry/instrumentation-http";
 import { Resource } from "@opentelemetry/resources";
 import { flattenObject } from "./utils";
-
+if(process.env.OTEL_LOG_LEVEL === "DEBUG") {
+	api.diag.setLogger(new api.DiagConsoleLogger(), api.DiagLogLevel.ALL);
+}
 const provider = new NodeTracerProvider({
 	resource: new Resource({
 		"service.name": process.env.BASELIME_NAMESPACE,
