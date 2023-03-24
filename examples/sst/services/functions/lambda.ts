@@ -8,4 +8,4 @@ const handler: APIGatewayProxyHandlerV2 = async (event) => {
   };
 };
 
-module.exports = handler;
+exports.handler = handler;

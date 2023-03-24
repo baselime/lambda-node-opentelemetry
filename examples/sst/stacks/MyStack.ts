@@ -10,7 +10,7 @@ export function MyStack({ stack }: StackContext) {
         environment: {
           NODE_OPTIONS: '--require lambda-wrapper.js',
           BASELIME_NAMESPACE: stack.stackName,
-          BASELIME_OTEL_KEY: process.env.BASELIME_OTEL_KEY
+          BASELIME_OTEL_KEY: '0DKPIPGv262riM9RbGlgi8nhzHUl2CFi7ka8mqmN'
         },
         bundle: {
           copyFiles: [{ from: "./lambda-wrapper.js", to: "./lambda-wrapper.js" }]
