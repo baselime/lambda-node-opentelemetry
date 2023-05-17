@@ -150,7 +150,7 @@ Resources:
           ARC_STATIC_BUCKET:
             Ref: StaticBucket
           ARC_STATIC_SPA: false
-          BASELIME_NAMESPACE: arc-example
+          BASELIME_SERVICE: arc-example
           BASELIME_OTEL_KEY: fViVVRCY3LNmHAkySOZj1I2bWiJRufo7ltTW1Fka
           NODE_OPTIONS: node_modules/@architect/shared/lambda-wrapper.js
       Role:

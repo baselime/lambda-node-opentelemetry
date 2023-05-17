@@ -18,7 +18,7 @@ Add the following environment variables to your service
 | Key                | Example                         | Description                                                                         |
 | ------------------ | ------------------------------- | ----------------------------------------------------------------------------------- |
 | BASELIME_OTEL_KEY  | nora-is-the-cutest-baselime-dog | Get this key from the [cli](https://github.com/Baselime/cli) running `baselime iam` |
-| BASELIME_NAMESPACE | prod-users                      | The name of the service the traces belong to                                        |
+| BASELIME_SERVICE   | prod-users                      | The name of the service the traces belong to                                        |
 | NODE_OPTIONS       | --require @baselime/lambda-node-opentelemetry      | Preloads the tracing sdk at startup                                                 |
 
 Get the baselime key using our [cli](https://github.com/Baselime/cli) 
@@ -44,7 +44,7 @@ Add the environment variables to your architect project
 
 ```bash
 arc env -e production --add BASELIME_OTEL_KEY tux-is-the-smartest-baselime-dog
-arc env -e production --add BASELIME_NAMESPACE project-1
+arc env -e production --add BASELIME_SERVICE project-1
 arc env -e production --add -- NODE_OPTIONS '--require @architect/shared/lambda-wrapper'
 ```
 
@@ -74,7 +74,7 @@ package:
 Add the following environment variables
 ```yaml
     BASELIME_OTEL_KEY: ${env:BASELIME_OTEL_KEY}
-    BASELIME_NAMESPACE: '${self:provider.stage}-${self:provider.service}'
+    BASELIME_SERVICE: '${self:provider.stage}-${self:provider.service}'
     NODE_OPTIONS: '--require @baselime/lambda-node-opentelemetry'
 ```
 
@@ -97,7 +97,7 @@ app.setDefaultFunctionProps({
   srcPath: "services",
   environment: {
     NODE_OPTIONS: '--require lambda-wrapper.js',
-    BASELIME_NAMESPACE: stack.stackName,
+    BASELIME_SERVICE: stack.stackName,
     BASELIME_OTEL_KEY: process.env.BASELIME_OTEL_KEY
   },
   bundle: {
