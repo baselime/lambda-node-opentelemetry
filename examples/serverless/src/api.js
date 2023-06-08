@@ -1,10 +1,17 @@
 const Dynamodb = require('aws-sdk/clients/dynamodb')
 const SNS = require('aws-sdk/clients/sns')
+const EventBridge = require('aws-sdk/clients/eventbridge');
 const dynamo = new Dynamodb();
 const sns = new SNS();
+const eventbridge = new EventBridge();
 exports.handler = async (event) => {
     await sns.publish({ TopicArn: process.env.TOPIC_ARN, Message: 'wow much payload' }).promise()
-
+    await eventbridge.putEvents({
+        Entries: [{
+            Source: 'baselime',
+            Detail: 'too many chickens'
+        }]
+    }).promise()
     const random = Math.random()
 
     if(random > 0.5) {

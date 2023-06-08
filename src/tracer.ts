@@ -14,6 +14,7 @@ const {
 import { HttpInstrumentation } from "@opentelemetry/instrumentation-http";
 import { Resource } from "@opentelemetry/resources";
 import { flattenObject } from "./utils";
+
 if(process.env.OTEL_LOG_LEVEL === "debug") {
 	console.log("debug logging enabled")
 	api.diag.setLogger(new api.DiagConsoleLogger(), api.DiagLogLevel.ALL);
@@ -83,7 +84,7 @@ registerInstrumentations({
 		}),
 		new HttpInstrumentation({}),
 		new AwsLambdaInstrumentation({
-			disableAwsContextPropagation: true,
+			// disableAwsContextPropagation: true,
 			requestHook: (span, { event, context }) => {
 				span.setAttribute("name", context.functionName);
 				span.setAttributes(flattenObject(event, "event"));

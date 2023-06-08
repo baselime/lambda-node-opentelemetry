@@ -24,6 +24,9 @@ provider:
         - Effect: Allow
           Action: 'sns:publish'
           Resource: '*'
+        - Effect: Allow
+          Action: 'events:PutEvents'
+          Resource: '*'
   environment:
     BASELIME_OTEL_KEY: ${env:BASELIME_OTEL_KEY}
     BASELIME_NAMESPACE: ${self:service}-${sls:stage}
@@ -36,6 +39,13 @@ functions:
       - schedule: rate(5 minutes)
     environment:
       API_URL: !GetAtt HttpApi.ApiEndpoint
+  wait-for-it:
+    handler: src/eventbridge.handler
+    events:
+      - eventBridge:
+          pattern:
+            source:
+              - baselime
   api:
     handler: src/api.handler
     events:
