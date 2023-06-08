@@ -84,7 +84,7 @@ registerInstrumentations({
 		}),
 		new HttpInstrumentation({}),
 		new AwsLambdaInstrumentation({
-			// disableAwsContextPropagation: true,
+			disableAwsContextPropagation: true,
 			requestHook: (span, { event, context }) => {
 				span.setAttribute("name", context.functionName);
 				span.setAttributes(flattenObject(event, "event"));
