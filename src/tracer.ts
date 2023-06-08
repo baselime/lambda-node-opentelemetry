@@ -21,7 +21,7 @@ if(process.env.OTEL_LOG_LEVEL === "debug") {
 }
 const provider = new NodeTracerProvider({
 	resource: new Resource({
-		"service.name": process.env.BASELIME_NAMESPACE,
+		"service.name": process.env.BASELIME_SERVICE,
 	}),
 });
 

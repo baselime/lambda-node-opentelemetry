@@ -1,8 +1,11 @@
-# 🎸 Lambda Opentelemetry for Node.JS
+# Lambda Opentelemetry for Node.JS
+[![Documentation][docs_badge]][docs]
+[![Latest Release][release_badge]][release]
+[![License][license_badge]][license]
 
 The `@baselime/lambda-node-opentelemetry` package instruments your lambda functions and automatically ships OTEL compatible trace data to Baselime. This is the most powerful and flexible way to instrument your node service.
 
-The downside of this node tracer is it adds a small performance hit to each lambda invocation. We are working as hard as possible to minimise this but for now if this matters to you use our [x-ray](https://docs.baselime.io/sending-data/xray/) integration instead.
+The downside of this node tracer is it adds a small performance hit to each lambda invocation. We are working as hard as possible to minimise this but for now if this matters to you use our [x-ray](https://baselime.io/docs/sending-data/xray/) integration instead.
 
 
 ## Manual Installation
@@ -18,7 +21,7 @@ Add the following environment variables to your service
 | Key                | Example                         | Description                                                                         |
 | ------------------ | ------------------------------- | ----------------------------------------------------------------------------------- |
 | BASELIME_OTEL_KEY  | nora-is-the-cutest-baselime-dog | Get this key from the [cli](https://github.com/Baselime/cli) running `baselime iam` |
-| BASELIME_NAMESPACE | prod-users                      | The name of the service the traces belong to                                        |
+| BASELIME_SERVICE   | prod-users                      | The name of the service the traces belong to                                        |
 | NODE_OPTIONS       | --require @baselime/lambda-node-opentelemetry      | Preloads the tracing sdk at startup                                                 |
 
 Get the baselime key using our [cli](https://github.com/Baselime/cli) 
@@ -44,7 +47,7 @@ Add the environment variables to your architect project
 
 ```bash
 arc env -e production --add BASELIME_OTEL_KEY tux-is-the-smartest-baselime-dog
-arc env -e production --add BASELIME_NAMESPACE project-1
+arc env -e production --add BASELIME_SERVICE project-1
 arc env -e production --add -- NODE_OPTIONS '--require @architect/shared/lambda-wrapper'
 ```
 
@@ -74,7 +77,7 @@ package:
 Add the following environment variables
 ```yaml
     BASELIME_OTEL_KEY: ${env:BASELIME_OTEL_KEY}
-    BASELIME_NAMESPACE: '${self:provider.stage}-${self:provider.service}'
+    BASELIME_SERVICE: '${self:provider.stage}-${self:provider.service}'
     NODE_OPTIONS: '--require @baselime/lambda-node-opentelemetry'
 ```
 
@@ -97,7 +100,7 @@ app.setDefaultFunctionProps({
   srcPath: "services",
   environment: {
     NODE_OPTIONS: '--require lambda-wrapper.js',
-    BASELIME_NAMESPACE: stack.stackName,
+    BASELIME_SERVICE: stack.stackName,
     BASELIME_OTEL_KEY: process.env.BASELIME_OTEL_KEY
   },
   bundle: {
@@ -109,8 +112,25 @@ app.setDefaultFunctionProps({
 
 ## Automatic Instrumentation [WIP]
 
-Lambda Extension coming soon
+WIP.
 
 ## Send data to another OpenTelemetry Backend
 
 Add the environment variable `COLLECTOR_URL` to send the spans somewhere else.
+
+## License
+
+&copy; Baselime Limited, 2023
+
+Distributed under MIT License (`The MIT License`).
+
+See [LICENSE](LICENSE) for more information.
+
+<!-- Badges -->
+
+[docs]: https://baselime.io/docs/
+[docs_badge]: https://img.shields.io/badge/docs-reference-blue.svg?style=flat-square
+[release]: https://github.com/baselime/lambda-node-opentelemetry/releases/latest
+[release_badge]: https://img.shields.io/github/release/baselime/lambda-node-opentelemetry.svg?style=flat-square&ghcache=unused
+[license]: https://opensource.org/licenses/MIT
+[license_badge]: https://img.shields.io/github/license/baselime/lambda-node-opentelemetry.svg?color=blue&style=flat-square&ghcache=unused

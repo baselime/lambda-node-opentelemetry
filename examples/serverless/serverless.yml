@@ -29,7 +29,7 @@ provider:
           Resource: '*'
   environment:
     BASELIME_OTEL_KEY: ${env:BASELIME_OTEL_KEY}
-    BASELIME_NAMESPACE: ${self:service}-${sls:stage}
+    BASELIME_SERVICE: ${self:service}-${sls:stage}
     NODE_OPTIONS: --require node_modules/@baselime/lambda-node-opentelemetry/lambda-wrapper.js
     COLLECTOR_URL: https://otel.baselime.cc/v1
 functions:
