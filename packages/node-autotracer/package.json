@@ -1,0 +1,36 @@
+{
+  "name": "@baselime/lambda-node-opentelemetry",
+  "version": "0.0.11",
+  "description": "OpenTelemetry auto tracer for Node.JS based AWS Lambda functions",
+  "keywords": ["nodejs", "aws-lambda", "serverless", "opentelemetry"],
+  "main": "lambda-wrapper.js",
+  "files": [
+    "/lambda-wrapper.js"
+  ],
+  "scripts": {
+    "build": "esbuild src/tracer.ts --bundle --minify --platform=node --target=node16 --outfile=lambda-wrapper.js && cp lambda-wrapper.js layer-dir/lambda-wrapper.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Baselime/tracer-node.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Baselime/tracer-node/issues"
+  },
+  "homepage": "https://github.com/Baselime/tracer-node#readme",
+  "devDependencies": {
+    "@opentelemetry/api": "^1.4.1",
+    "@opentelemetry/exporter-trace-otlp-http": "^0.39.1",
+    "@opentelemetry/instrumentation": "^0.39.1",
+    "@opentelemetry/instrumentation-aws-lambda": "^0.35.2",
+    "@opentelemetry/instrumentation-aws-sdk": "^0.34.2",
+    "@opentelemetry/instrumentation-http": "^0.39.1",
+    "@opentelemetry/sdk-trace-base": "^1.13.0",
+    "@opentelemetry/sdk-trace-node": "^1.13.0",
+    "@types/node": "^20.1.7",
+    "esbuild": "^0.17.19",
+    "typescript": "^5.0.4"
+  }
+}

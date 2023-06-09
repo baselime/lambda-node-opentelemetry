@@ -1,0 +1,14 @@
+{
+  "name": "@sst/core",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "sst bind vitest",
+    "typecheck": "tsc -noEmit"
+  },
+  "devDependencies": {
+    "vitest": "^0.32.0",
+    "@types/node": "^20.2.5",
+    "sst": "^2.12.0"
+  }
+}

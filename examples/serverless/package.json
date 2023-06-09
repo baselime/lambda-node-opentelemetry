@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "predeploy": "cd ../.. && npm run build && cd examples/serverless && mkdir -p node_modules/@baselime/lambda-node-opentelemetry && cp ../../lambda-wrapper.js node_modules/@baselime/lambda-node-opentelemetry/",
+    "predeploy": "cd ../../packages/node-autotracer && npm run build && cd ../../examples/serverless && mkdir -p node_modules/@baselime/lambda-node-opentelemetry && cp ../../packages/node-autotracer/lambda-wrapper.js node_modules/@baselime/lambda-node-opentelemetry/",
     "deploy": "npx serverless deploy --stage prod"
   },
   "author": "",

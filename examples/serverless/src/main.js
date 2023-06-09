@@ -1,5 +1,5 @@
 const tiny = require("tiny-json-http");
-const { context, trace } = require("@opentelemetry/api");
+const { context, trace, } = require("@opentelemetry/api");
 const { flattenObject } = require("./utils");
 
 async function track(name, func, args) {
@@ -38,7 +38,7 @@ exports.handler = async (e) => {
   const { body: customer } = await track("tiny.get", tiny.get, {
     url: `${process.env.API_URL}/hello`,
   });
-
+  
   await track("tiny.post", tiny.post, {
     url: "https://eokl0ly5zia7pe1.m.pipedream.net",
     data: customer,

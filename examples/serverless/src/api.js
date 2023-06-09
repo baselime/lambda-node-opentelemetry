@@ -1,9 +1,15 @@
 const Dynamodb = require('aws-sdk/clients/dynamodb')
 const SNS = require('aws-sdk/clients/sns')
 const EventBridge = require('aws-sdk/clients/eventbridge');
+const { trace } = require('@opentelemetry/api');
 const dynamo = new Dynamodb();
 const sns = new SNS();
 const eventbridge = new EventBridge();
+
+function log(name, data) {
+    const activeSpan = trace.getActiveSpan();
+    activeSpan?.addEvent(name, data);
+}
 exports.handler = async (event) => {
     await sns.publish({ TopicArn: process.env.TOPIC_ARN, Message: 'wow much payload' }).promise()
     await eventbridge.putEvents({
@@ -13,7 +19,7 @@ exports.handler = async (event) => {
         }]
     }).promise()
     const random = Math.random()
-
+    log('random', { random });
     if(random > 0.5) {
         const response = await dynamo.updateItem({
             TableName: 'this-table-does-not-exist',
@@ -48,6 +54,7 @@ exports.handler = async (event) => {
             ':c': { N: '1' }
         }
     }).promise()
+    log('response', { response });
     return {
         statusCode: 200,
         body: JSON.stringify({
