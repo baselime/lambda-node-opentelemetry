@@ -24,8 +24,7 @@ jobs:
 
       - name: Build and publish to npm registry
         continue-on-error: true
-        run: |
-          cd packages/node-autotracer
+        run:
           npm ci
           npm run build
           npm publish --access public
@@ -42,8 +41,7 @@ jobs:
 
       - name: Publish to GitHub registry
         continue-on-error: true
-        run: | 
-          cd packages/node-autotracer
+        run: 
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

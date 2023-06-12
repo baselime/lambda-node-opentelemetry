@@ -7,7 +7,7 @@ package:
 
 plugins:
   - serverless-esbuild
-
+    
 provider:
   name: aws
   runtime: nodejs16.x
@@ -28,9 +28,9 @@ provider:
           Action: 'events:PutEvents'
           Resource: '*'
   environment:
-    BASELIME_OTEL_KEY: ${env:BASELIME_OTEL_KEY}
-    BASELIME_SERVICE: ${self:service}-${sls:stage}
+    BASELIME_KEY: ${env:BASELIME_KEY}
     NODE_OPTIONS: --require node_modules/@baselime/lambda-node-opentelemetry/lambda-wrapper.js
+    OTEL_LOG_LEVEL: debug
     COLLECTOR_URL: https://otel.baselime.cc/v1
 functions:
   hello:

@@ -23,6 +23,7 @@ const provider = new NodeTracerProvider({
 	resource: new Resource({
 		"service.name": process.env.BASELIME_SERVICE,
 		"faas.name": process.env.AWS_LAMBDA_FUNCTION_NAME,
+		'aws.region': process.env.AWS_REGION || 'unknown',
 	}),
 });
 
@@ -30,7 +31,7 @@ const spanProcessor = new BatchSpanProcessor(
 	new OTLPTraceExporter({
 		url: process.env.COLLECTOR_URL || "https://otel.baselime.io/v1",
 		headers: {
-			"x-api-key": process.env.BASELIME_OTEL_KEY,
+			"x-api-key": process.env.BASELIME_KEY || process.env.BASELIME_OTEL_KEY,
 		},
 	}),
 );
@@ -87,6 +88,7 @@ registerInstrumentations({
 		new AwsLambdaInstrumentation({
 			disableAwsContextPropagation: true,
 			requestHook: (span, { event, context }) => {
+				// span.setAttributes({ 'aws.account': context.invokedFunctionArn.split(":")[4] });
 				span.setAttribute("name", context.functionName);
 				span.setAttributes(flattenObject(event, "event"));
 			},

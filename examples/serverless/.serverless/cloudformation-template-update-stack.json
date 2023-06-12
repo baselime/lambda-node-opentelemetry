@@ -205,7 +205,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/tracing/prod/1686313167137-2023-06-09T12:19:27.137Z/hello.zip"
+          "S3Key": "serverless/tracing/prod/1686594684446-2023-06-12T18:31:24.446Z/hello.zip"
         },
         "Handler": "src/main.handler",
         "Runtime": "nodejs16.x",
@@ -217,9 +217,9 @@
         ],
         "Environment": {
           "Variables": {
-            "BASELIME_OTEL_KEY": "zakbQcPvJOaIKxv8jacnxr7weYdxmvT7ia2qw5pj",
-            "BASELIME_SERVICE": "tracing-prod",
+            "BASELIME_KEY": "zakbQcPvJOaIKxv8jacnxr7weYdxmvT7ia2qw5pj",
             "NODE_OPTIONS": "--require node_modules/@baselime/lambda-node-opentelemetry/lambda-wrapper.js",
+            "OTEL_LOG_LEVEL": "debug",
             "COLLECTOR_URL": "https://otel.baselime.cc/v1",
             "API_URL": {
               "Fn::GetAtt": [
@@ -247,7 +247,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/tracing/prod/1686313167137-2023-06-09T12:19:27.137Z/wait-for-it.zip"
+          "S3Key": "serverless/tracing/prod/1686594684446-2023-06-12T18:31:24.446Z/wait-for-it.zip"
         },
         "Handler": "src/eventbridge.handler",
         "Runtime": "nodejs16.x",
@@ -259,9 +259,9 @@
         ],
         "Environment": {
           "Variables": {
-            "BASELIME_OTEL_KEY": "zakbQcPvJOaIKxv8jacnxr7weYdxmvT7ia2qw5pj",
-            "BASELIME_SERVICE": "tracing-prod",
+            "BASELIME_KEY": "zakbQcPvJOaIKxv8jacnxr7weYdxmvT7ia2qw5pj",
             "NODE_OPTIONS": "--require node_modules/@baselime/lambda-node-opentelemetry/lambda-wrapper.js",
+            "OTEL_LOG_LEVEL": "debug",
             "COLLECTOR_URL": "https://otel.baselime.cc/v1"
           }
         },
@@ -283,7 +283,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/tracing/prod/1686313167137-2023-06-09T12:19:27.137Z/api.zip"
+          "S3Key": "serverless/tracing/prod/1686594684446-2023-06-12T18:31:24.446Z/api.zip"
         },
         "Handler": "src/api.handler",
         "Runtime": "nodejs16.x",
@@ -295,9 +295,9 @@
         ],
         "Environment": {
           "Variables": {
-            "BASELIME_OTEL_KEY": "zakbQcPvJOaIKxv8jacnxr7weYdxmvT7ia2qw5pj",
-            "BASELIME_SERVICE": "tracing-prod",
+            "BASELIME_KEY": "zakbQcPvJOaIKxv8jacnxr7weYdxmvT7ia2qw5pj",
             "NODE_OPTIONS": "--require node_modules/@baselime/lambda-node-opentelemetry/lambda-wrapper.js",
+            "OTEL_LOG_LEVEL": "debug",
             "COLLECTOR_URL": "https://otel.baselime.cc/v1",
             "DB_NAME": {
               "Ref": "DB"
@@ -325,7 +325,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/tracing/prod/1686313167137-2023-06-09T12:19:27.137Z/dispatcher.zip"
+          "S3Key": "serverless/tracing/prod/1686594684446-2023-06-12T18:31:24.446Z/dispatcher.zip"
         },
         "Handler": "src/dispatcher.handler",
         "Runtime": "nodejs16.x",
@@ -337,9 +337,9 @@
         ],
         "Environment": {
           "Variables": {
-            "BASELIME_OTEL_KEY": "zakbQcPvJOaIKxv8jacnxr7weYdxmvT7ia2qw5pj",
-            "BASELIME_SERVICE": "tracing-prod",
+            "BASELIME_KEY": "zakbQcPvJOaIKxv8jacnxr7weYdxmvT7ia2qw5pj",
             "NODE_OPTIONS": "--require node_modules/@baselime/lambda-node-opentelemetry/lambda-wrapper.js",
+            "OTEL_LOG_LEVEL": "debug",
             "COLLECTOR_URL": "https://otel.baselime.cc/v1"
           }
         },

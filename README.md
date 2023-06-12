@@ -7,6 +7,57 @@ The `@baselime/lambda-node-opentelemetry` package instruments your lambda functi
 
 The downside of this node tracer is it adds a small performance hit to each lambda invocation. We are working as hard as possible to minimise this but for now if this matters to you use our [x-ray](https://baselime.io/docs/sending-data/xray/) integration instead.
 
+## Adding the OTEL Layer
+
+The layer is the easiest way to add the open telemetry tracing integration to your lambda functions.
+
+## SST
+
+```typescript
+import { LayerVersion } from "aws-cdk-lib/aws-lambda";
+
+const baselime = LayerVersion.fromLayerVersionArn(
+  stack,
+  "BaselimeLayer",
+  `arn:aws:lambda:${stack.region}:097948374213:layer:BASElIME-node:1`
+);
+
+if (!scope.local) {
+  stack.addDefaultFunctionLayers([baselime]);
+  stack.addDefaultFunctionEnv({
+    AWS_LAMBDA_EXEC_WRAPPER: '/opt/baselime',
+    BASELIME_OTEL_KEY: process.env.BASELIME_KEY
+  });
+}
+```
+
+## Serverless
+
+```yml
+provider:
+  ...
+  layers:
+    - arn:aws:lambda:${opt:region}:097948374213:layer:BASElIME-node:1
+  environment:
+    AWS_LAMBDA_EXEC_WRAPPER: '/opt/baselime',
+    BASELIME_OTEL_KEY: ${env:BASELIME_KEY}
+```
+
+## Architect
+
+```
+// app.arc
+@aws
+layers
+  arn:aws:lambda:{{ region }}:097948374213:layer:BASElIME-node:1
+```
+
+Add the environment variables to your architect project
+
+```bash
+arc env -e production --add BASELIME_OTEL_KEY tux-is-the-smartest-baselime-dog
+arc env -e production --add AWS_LAMBDA_EXEC_WRAPPER /opt/baselime
+```
 
 ## Manual Installation
 
