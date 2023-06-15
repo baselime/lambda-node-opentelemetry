@@ -25,8 +25,8 @@ jobs:
       - name: Build and publish to npm registry
         continue-on-error: true
         run:
-          npm ci
-          npm run build
+          npm ci &&
+          npm run build &&
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
