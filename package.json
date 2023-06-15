@@ -1,6 +1,6 @@
 {
   "name": "@baselime/lambda-node-opentelemetry",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "OpenTelemetry auto tracer for Node.JS based AWS Lambda functions",
   "keywords": [
     "nodejs",
@@ -14,8 +14,10 @@
     "index.js"
   ],
   "scripts": {
-    "build": "esbuild src/lambda-wrapper.ts src/index.ts --bundle --minify --platform=node --target=node16 --outdir=dist && mkdir layer-dir/node_modules/@baselime/lambda-node-opentelemetry && cp -r dist/* layer-dir/node_modules/@baselime/lambda-node-opentelemetry && cp -r dist/* .",
-    "deploy": "sst deploy"
+    "build": "esbuild src/lambda-wrapper.ts src/index.ts --bundle --minify --platform=node --target=node16 --outdir=dist && mkdir -p layer-dir/node_modules/@baselime/lambda-node-opentelemetry && cp -r dist/* layer-dir/node_modules/@baselime/lambda-node-opentelemetry && cp -r dist/* .",
+    "deploy": "sst deploy",
+    "deploy:uat": "npm run build && npx tsx multi-region-deploy.ts uat",
+    "deploy:prod": "npm run build && npx tsx multi-region-deploy.ts prod"
   },
   "repository": {
     "type": "git",
