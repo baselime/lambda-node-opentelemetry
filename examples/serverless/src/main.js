@@ -1,5 +1,7 @@
 const tiny = require("tiny-json-http");
 const { context, trace, } = require("@opentelemetry/api");
+const { wrap } = require("@baselime/lambda-node-opentelemetry");
+
 const { flattenObject } = require("./utils");
 
 async function track(name, func, args) {
@@ -34,7 +36,7 @@ function trackAll(name, lib) {
   return tracedLib;
 }
 
-exports.handler = async (e) => {
+exports.handler = wrap(async (e) => {
   const { body: customer } = await track("tiny.get", tiny.get, {
     url: `${process.env.API_URL}/hello`,
   });
@@ -45,4 +47,4 @@ exports.handler = async (e) => {
   });
 
   return customer;
-};
+});

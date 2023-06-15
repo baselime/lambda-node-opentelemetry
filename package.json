@@ -1,6 +1,6 @@
 {
   "name": "@baselime/lambda-node-opentelemetry",
-  "version": "0.0.13",
+  "version": "0.1.0",
   "description": "OpenTelemetry auto tracer for Node.JS based AWS Lambda functions",
   "keywords": [
     "nodejs",
@@ -8,12 +8,13 @@
     "serverless",
     "opentelemetry"
   ],
-  "main": "lambda-wrapper.js",
+  "main": "index.js",
   "files": [
-    "/lambda-wrapper.js"
+    "lambda-wrapper.js",
+    "index.js"
   ],
   "scripts": {
-    "build": "esbuild src/tracer.ts --bundle --minify --platform=node --target=node16 --outfile=lambda-wrapper.js && cp lambda-wrapper.js layer-dir/lambda-wrapper.js",
+    "build": "esbuild src/lambda-wrapper.ts src/index.ts --bundle --minify --platform=node --target=node16 --outdir=dist && cp -r dist/* layer-dir/node_modules/@baselime/lambda-node-opentelemetry && cp -r dist/* .",
     "deploy": "sst deploy"
   },
   "repository": {

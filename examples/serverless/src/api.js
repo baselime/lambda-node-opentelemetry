@@ -1,16 +1,13 @@
-const Dynamodb = require('aws-sdk/clients/dynamodb')
-const SNS = require('aws-sdk/clients/sns')
-const EventBridge = require('aws-sdk/clients/eventbridge');
-const { trace } = require('@opentelemetry/api');
+import Dynamodb from 'aws-sdk/clients/dynamodb';
+import SNS from 'aws-sdk/clients/sns';
+import EventBridge from 'aws-sdk/clients/eventbridge';
+import { wrap } from '@baselime/lambda-node-opentelemetry';
+
 const dynamo = new Dynamodb();
 const sns = new SNS();
 const eventbridge = new EventBridge();
 
-function log(name, data) {
-    const activeSpan = trace.getActiveSpan();
-    activeSpan?.addEvent(name, data);
-}
-exports.handler = async (event) => {
+export const handler = wrap(async (event) => {
     await sns.publish({ TopicArn: process.env.TOPIC_ARN, Message: 'wow much payload' }).promise()
     await eventbridge.putEvents({
         Entries: [{
@@ -18,9 +15,8 @@ exports.handler = async (event) => {
             Detail: 'too many chickens'
         }]
     }).promise()
-    const random = Math.random()
-    log('random', { random });
-    if(random > 0.5) {
+    const random = Math.random();
+    if(random < 0.3) {
         const response = await dynamo.updateItem({
             TableName: 'this-table-does-not-exist',
             ReturnValues: 'ALL_NEW',
@@ -54,11 +50,10 @@ exports.handler = async (event) => {
             ':c': { N: '1' }
         }
     }).promise()
-    log('response', { response });
     return {
         statusCode: 200,
         body: JSON.stringify({
             data: response
         })
     }
-}
+});

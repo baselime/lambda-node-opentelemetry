@@ -205,7 +205,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/tracing/prod/1686594684446-2023-06-12T18:31:24.446Z/hello.zip"
+          "S3Key": "serverless/tracing/prod/1686776763404-2023-06-14T21:06:03.404Z/hello.zip"
         },
         "Handler": "src/main.handler",
         "Runtime": "nodejs16.x",
@@ -247,7 +247,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/tracing/prod/1686594684446-2023-06-12T18:31:24.446Z/wait-for-it.zip"
+          "S3Key": "serverless/tracing/prod/1686776763404-2023-06-14T21:06:03.404Z/wait-for-it.zip"
         },
         "Handler": "src/eventbridge.handler",
         "Runtime": "nodejs16.x",
@@ -283,7 +283,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/tracing/prod/1686594684446-2023-06-12T18:31:24.446Z/api.zip"
+          "S3Key": "serverless/tracing/prod/1686776763404-2023-06-14T21:06:03.404Z/api.zip"
         },
         "Handler": "src/api.handler",
         "Runtime": "nodejs16.x",
@@ -325,7 +325,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/tracing/prod/1686594684446-2023-06-12T18:31:24.446Z/dispatcher.zip"
+          "S3Key": "serverless/tracing/prod/1686776763404-2023-06-14T21:06:03.404Z/dispatcher.zip"
         },
         "Handler": "src/dispatcher.handler",
         "Runtime": "nodejs16.x",
