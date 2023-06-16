@@ -1,6 +1,6 @@
 {
   "name": "@baselime/lambda-node-opentelemetry",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "OpenTelemetry auto tracer for Node.JS based AWS Lambda functions",
   "keywords": [
     "nodejs",
