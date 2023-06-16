@@ -140,7 +140,7 @@ import { LayerVersion } from "aws-cdk-lib/aws-lambda";
 const baselime = LayerVersion.fromLayerVersionArn(
   stack,
   "BaselimeLayer",
-  `arn:aws:lambda:${stack.region}:097948374213:layer:BASElIME-node:2`
+  `arn:aws:lambda:${stack.region}:097948374213:layer:baselime-node:2`
 );
 
 if (!scope.local) {
@@ -158,7 +158,7 @@ if (!scope.local) {
 provider:
   ...
   layers:
-    - arn:aws:lambda:${opt:region}:097948374213:layer:BASElIME-node:2
+    - arn:aws:lambda:${opt:region}:097948374213:layer:baselime-node:2
   environment:
     AWS_LAMBDA_EXEC_WRAPPER: '/opt/baselime',
     BASELIME_KEY: ${env:BASELIME_KEY}
