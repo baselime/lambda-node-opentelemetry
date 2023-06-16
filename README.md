@@ -130,6 +130,7 @@ app.setDefaultFunctionProps({
 
 ## Automatic Instrumentation
 
+WIP - you still need to manually apply baselime.wrap(handler). This will be automated in future versions.
 
 ## SST
 
@@ -139,7 +140,7 @@ import { LayerVersion } from "aws-cdk-lib/aws-lambda";
 const baselime = LayerVersion.fromLayerVersionArn(
   stack,
   "BaselimeLayer",
-  `arn:aws:lambda:${stack.region}:097948374213:layer:BASElIME-node:1`
+  `arn:aws:lambda:${stack.region}:097948374213:layer:BASElIME-node:2`
 );
 
 if (!scope.local) {
@@ -157,7 +158,7 @@ if (!scope.local) {
 provider:
   ...
   layers:
-    - arn:aws:lambda:${opt:region}:097948374213:layer:BASElIME-node:1
+    - arn:aws:lambda:${opt:region}:097948374213:layer:BASElIME-node:2
   environment:
     AWS_LAMBDA_EXEC_WRAPPER: '/opt/baselime',
     BASELIME_KEY: ${env:BASELIME_KEY}
@@ -169,7 +170,7 @@ provider:
 // app.arc
 @aws
 layers
-  arn:aws:lambda:{{ region }}:097948374213:layer:BASElIME-node:1
+  arn:aws:lambda:{{ region }}:097948374213:layer:BASElIME-node:2
 ```
 
 Add the environment variables to your architect project
