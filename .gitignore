@@ -4,9 +4,14 @@ node_modules
 # sst
 .sst
 .build
-
+.serverless
+dist
 # opennext
 .open-next
+
+# published
+index.js
+lambda-wrapper.js
 
 # misc
 .DS_Store

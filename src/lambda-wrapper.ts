@@ -11,7 +11,7 @@ import {
 import { HttpInstrumentation } from "@opentelemetry/instrumentation-http";
 import { Resource } from "@opentelemetry/resources";
 import { flattenObject } from "./utils";
-
+import {existsSync} from "node:fs";
 if(process.env.OTEL_LOG_LEVEL === "debug") {
 	console.log("debug logging enabled")
 	api.diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.ALL);
@@ -25,9 +25,15 @@ const provider = new NodeTracerProvider({
 	}),
 });
 
+let collectorURL: string = process.env.COLLECTOR_URL || "https://otel.baselime.io/v1"
+
+if(existsSync('/opt/extensions/baselime')) { 
+	collectorURL = 'http://sandbox:4323';
+}
+
 const spanProcessor = new BatchSpanProcessor(
 	new OTLPTraceExporter({
-		url: process.env.COLLECTOR_URL || "https://otel.baselime.io/v1",
+		url: collectorURL,
 		headers: {
 			"x-api-key": process.env.BASELIME_KEY || process.env.BASELIME_OTEL_KEY,
 		},
