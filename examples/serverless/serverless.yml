@@ -16,7 +16,7 @@ provider:
   architecture: arm64
   versionFunctions: false
   layers:
-   - arn:aws:lambda:eu-west-2:374211872663:layer:baselime-telemetry-extension-arm64:9
+   - arn:aws:lambda:eu-west-2:097948374213:layer:baselime-extension-arm64:1
   iam:
     role:
       statements:

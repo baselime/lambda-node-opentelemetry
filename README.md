@@ -23,6 +23,12 @@ export const handler = baselime.wrap(main);
 
 ```
 
+For production systems you should remove the latency overhead of sending open telemetry data by adding the baselime-extension layer.
+
+```javascript
+`arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:1`
+```
+
 ## Manual Installation
 
 Install the `@baselime/lambda-node-opentelemetry` package
