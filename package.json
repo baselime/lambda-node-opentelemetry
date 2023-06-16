@@ -14,7 +14,7 @@
     "index.js"
   ],
   "scripts": {
-    "build": "esbuild src/lambda-wrapper.ts src/index.ts --bundle --minify --platform=node --target=node16 --outdir=dist && mkdir -p layer-dir/node_modules/@baselime/lambda-node-opentelemetry && cp -r dist/* layer-dir/node_modules/@baselime/lambda-node-opentelemetry && cp -r dist/* .",
+    "build": "esbuild src/lambda-wrapper.ts src/index.ts --bundle --minify --platform=node --target=node16 --outdir=dist && mkdir -p layer-dir/nodejs/node_modules/@baselime/lambda-node-opentelemetry && cp -r dist/* layer-dir/nodejs/node_modules/@baselime/lambda-node-opentelemetry && cp -r dist/* .",
     "deploy": "sst deploy",
     "deploy:uat": "npm run build && npx tsx multi-region-deploy.ts uat",
     "deploy:prod": "npm run build && npx tsx multi-region-deploy.ts prod"

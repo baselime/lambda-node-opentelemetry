@@ -6,7 +6,7 @@ export function API({ stack }: StackContext) {
   const baselime = LayerVersion.fromLayerVersionArn(
     stack,
     "BaselimeLayer",
-    `arn:aws:lambda:eu-west-2:374211872663:layer:BASElIME-node:8`
+    `arn:aws:lambda:eu-west-2:097948374213:layer:baselime-node:2`
   );
   
   if (!(stack.node.scope as App)?.local) {
@@ -15,8 +15,9 @@ export function API({ stack }: StackContext) {
       AWS_LAMBDA_EXEC_WRAPPER: '/opt/baselime',
       BASELIME_KEY: process.env.BASELIME_KEY as string,
       COLLECTOR_URL: 'https://otel.baselime.cc/v1',
-      // OTEL_LOG_LEVEL: 'debug'
+      OTEL_LOG_LEVEL: 'debug'
     });
+    
   }
 
   const bus = new EventBus(stack, "bus", {
