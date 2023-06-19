@@ -29,7 +29,13 @@ export function API({ stack }: StackContext) {
   const api = new Api(stack, "api", {
     defaults: {
       function: {
+        
         bind: [bus],
+        nodejs: {
+          esbuild: {
+            external: ["@baselime/lambda-node-opentelemetry"]
+          }
+        }
       },
     },
     routes: {

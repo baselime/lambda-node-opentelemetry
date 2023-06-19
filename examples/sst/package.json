@@ -20,8 +20,5 @@
   },
   "workspaces": [
     "packages/*"
-  ],
-  "dependencies": {
-    "@baselime/lambda-node-opentelemetry": "^0.1.4"
-  }
+  ]
 }

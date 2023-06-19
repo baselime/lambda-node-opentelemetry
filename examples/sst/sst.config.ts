@@ -13,8 +13,9 @@ export default {
       timeout: 20,
       memorySize: 512,
       tracing: 'pass_through',
+      runtime: "nodejs18.x",
       nodejs: {
-        format: "cjs"
+        format: "esm"
       }
     });
     app.stack(API);
