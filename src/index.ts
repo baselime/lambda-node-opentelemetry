@@ -1,7 +1,11 @@
-import api, { trace, context, propagation, Context as OtelContext, ROOT_CONTEXT } from "@opentelemetry/api";
+import api, { trace, context, propagation, Context as OtelContext, ROOT_CONTEXT, Attributes } from "@opentelemetry/api";
 import { Handler } from "aws-lambda";
 import { flattenObject } from './utils';
 import { Context } from 'aws-lambda';
+
+declare const global : {
+	baselimeLambdaFlush: () => void;
+}
 
 export function wrap(handler: Handler) {
 
@@ -9,7 +13,6 @@ export function wrap(handler: Handler) {
     const tracer = trace.getTracer('@baselime/baselime-lambda-wrapper', '1');
 
     const parent = determinParent(event);
-    console.log(parent);
     const span = tracer.startSpan(lambda_context.functionName, {
       attributes: flattenObject({
         event,
@@ -26,26 +29,25 @@ export function wrap(handler: Handler) {
             id: lambda_context.invokedFunctionArn.split(":")[4],
           }
         }
-      }),
+      }) as Attributes,
     }, parent);
     const ctx = trace.setSpan(context.active(), span);
     
     try {
       const result = await context.with(ctx, handler as (args: any[]) => any, null, event, lambda_context);
-      span.setAttributes(flattenObject(result, 'result'));
+      span.setAttributes(flattenObject(result, 'result') as Attributes);
       span.end();
       return result;
     } catch (e) {
       const err = e as Error;
       span.recordException(err);
-      span.setAttributes(flattenObject({ name: err.name, message: err.message, stack: err.stack }, 'error'));
+      span.setAttributes(flattenObject({ name: err.name, message: err.message, stack: err.stack }, 'error') as Attributes);
       span.end();
       throw e
     } finally {
-      // ts-ignore
-      if (baselimeLambdaFlush) {
-        console.log('flushing');
-        baselimeLambdaFlush();
+      
+      if (global.baselimeLambdaFlush) {
+        global.baselimeLambdaFlush();
       }
 
     }
@@ -108,7 +110,6 @@ function extractContext(event: any) {
         headerGetter,
       );
     case "sns":
-      console.log(event.Records[0].Sns.MessageAttributes);
       return propagation.extract(
         api.context.active(),
         event.Records[0].Sns.MessageAttributes,

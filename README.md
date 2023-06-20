@@ -130,9 +130,15 @@ app.setDefaultFunctionProps({
 
 ## Automatic Instrumentation
 
-WIP - you still need to manually apply baselime.wrap(handler). This will be automated in future versions.
+### Manual Setup
 
-## SST
+1. Add the baselime-node layer - `arn:aws:lambda:${region:097948374213:layer:baselime-node:2`
+2. Add the baselime-extension layer - `arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:1`
+3. Set the handler to `/opt/nodejs/node_modules/@baselime/lambda-node-opentelemetry/handler.handler`
+4. Set the BASELIME_ORIGINAL_HANDLER environment variable to the original path of your lambda
+5. Set the BASELIME_KEY environment variable with the value of your environments baselime api key
+
+### SST
 
 ```typescript
 import { LayerVersion } from "aws-cdk-lib/aws-lambda";
@@ -152,7 +158,7 @@ if (!scope.local) {
 }
 ```
 
-## Serverless
+### Serverless
 
 ```yml
 provider:
@@ -164,7 +170,7 @@ provider:
     BASELIME_KEY: ${env:BASELIME_KEY}
 ```
 
-## Architect
+### Architect
 
 ```
 // app.arc

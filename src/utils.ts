@@ -3,7 +3,7 @@
  * @param ob Object                 The object to flatten
  * @param prefix String (Optional)  The prefix to add before each key, also used for recursion
  **/
-export function flattenObject(ob, prefix = "", result = {}) {
+export function flattenObject(ob: Record<string, unknown>, prefix = "", result: Record<string, unknown> = {}) {
     // Preserve empty objects and arrays, they are lost otherwise
     if (
       prefix &&
@@ -21,7 +21,7 @@ export function flattenObject(ob, prefix = "", result = {}) {
       if (Object.prototype.hasOwnProperty.call(ob, i)) {
         if (typeof ob[i] === "object" && ob[i] !== null) {
           // Recursion on deeper objects
-          flattenObject(ob[i], prefix + i, result);
+          flattenObject(ob[i] as {}, prefix + i, result);
         } else {
           result[prefix + i] = ob[i];
         }

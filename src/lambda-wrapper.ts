@@ -1,4 +1,4 @@
-import api, { DiagConsoleLogger, DiagLogLevel } from "@opentelemetry/api";
+import api, { Attributes, DiagConsoleLogger, DiagLogLevel } from "@opentelemetry/api";
 import { BatchSpanProcessor } from "@opentelemetry/sdk-trace-base";
 import {
 	OTLPTraceExporter,
@@ -11,9 +11,9 @@ import {
 import { HttpInstrumentation } from "@opentelemetry/instrumentation-http";
 import { Resource } from "@opentelemetry/resources";
 import { flattenObject } from "./utils";
-import {existsSync} from "node:fs";
-if(process.env.OTEL_LOG_LEVEL === "debug") {
-	console.log("debug logging enabled")
+import { existsSync } from "node:fs";
+
+if (process.env.OTEL_LOG_LEVEL === "debug") {
 	api.diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.ALL);
 }
 
@@ -27,7 +27,7 @@ const provider = new NodeTracerProvider({
 
 let collectorURL: string = process.env.COLLECTOR_URL || "https://otel.baselime.io/v1"
 
-if(existsSync('/opt/extensions/baselime')) { 
+if (existsSync('/opt/extensions/baselime')) {
 	collectorURL = 'http://sandbox:4323';
 }
 
@@ -47,13 +47,13 @@ const instrumentations: Instrumentation[] = [
 	new AwsInstrumentation({
 		suppressInternalInstrumentation: true,
 		responseHook: (span, { response }) => {
-			if (response)
-				span.setAttributes(
-					flattenObject({
-						request: response.request,
-						response: response.data,
-					}),
-				);
+			if (response) {
+				const awsApiReqData = {
+					request: response.request,
+					response: response.data,
+				};
+			span.setAttributes(flattenObject(awsApiReqData) as Attributes);
+			}
 		},
 	}),
 	new HttpInstrumentation({}),
@@ -62,6 +62,11 @@ const instrumentations: Instrumentation[] = [
 registerInstrumentations({
 	instrumentations
 });
+
+declare const global : {
+	baselimeLambdaFlush: () => void;
+}
+
 
 global['baselimeLambdaFlush'] = () => {
 	provider.forceFlush();
