@@ -132,7 +132,7 @@ app.setDefaultFunctionProps({
 
 ### Manual Setup
 
-1. Add the baselime-node layer - `arn:aws:lambda:${region:097948374213:layer:baselime-node:2`
+1. Add the baselime-node layer - `arn:aws:lambda:${region:097948374213:layer:baselime-node:3`
 2. Add the baselime-extension layer - `arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:1`
 3. Set the handler to `/opt/nodejs/node_modules/@baselime/lambda-node-opentelemetry/handler.handler`
 4. Set the BASELIME_ORIGINAL_HANDLER environment variable to the original path of your lambda
@@ -146,7 +146,7 @@ import { LayerVersion } from "aws-cdk-lib/aws-lambda";
 const baselime = LayerVersion.fromLayerVersionArn(
   stack,
   "BaselimeLayer",
-  `arn:aws:lambda:${stack.region}:097948374213:layer:baselime-node:2`
+  `arn:aws:lambda:${stack.region}:097948374213:layer:baselime-node:3`
 );
 
 if (!scope.local) {
@@ -164,7 +164,7 @@ if (!scope.local) {
 provider:
   ...
   layers:
-    - arn:aws:lambda:${opt:region}:097948374213:layer:baselime-node:2
+    - arn:aws:lambda:${opt:region}:097948374213:layer:baselime-node:3
   environment:
     AWS_LAMBDA_EXEC_WRAPPER: '/opt/baselime',
     BASELIME_KEY: ${env:BASELIME_KEY}
@@ -176,7 +176,7 @@ provider:
 // app.arc
 @aws
 layers
-  arn:aws:lambda:{{ region }}:097948374213:layer:BASElIME-node:2
+  arn:aws:lambda:{{ region }}:097948374213:layer:BASElIME-node:3
 ```
 
 Add the environment variables to your architect project
