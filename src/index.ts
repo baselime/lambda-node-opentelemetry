@@ -2,13 +2,13 @@ import api, { trace, context, propagation, Context as OtelContext, ROOT_CONTEXT,
 import { Handler } from "aws-lambda";
 import { flattenObject } from './utils';
 import { Context } from 'aws-lambda';
+export * as logger from './logger';
 
 declare const global : {
 	baselimeLambdaFlush: () => void;
 }
 
 export function wrap(handler: Handler) {
-
   return async (event: any, lambda_context: Context) => {
     const tracer = trace.getTracer('@baselime/baselime-lambda-wrapper', '1');
 
@@ -118,3 +118,4 @@ function extractContext(event: any) {
   }
   return propagation.extract(api.context.active(), {}, headerGetter);
 }
+

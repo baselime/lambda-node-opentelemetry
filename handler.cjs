@@ -1,4 +1,4 @@
-const { loadSync } = require('../src/loader');
+const { loadSync } = require('./loader');
 
 exports.handler = function (...args) {
 

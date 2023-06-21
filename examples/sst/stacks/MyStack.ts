@@ -1,5 +1,6 @@
 import { StackContext, Api, EventBus, App } from "sst/constructs";
 import { LayerVersion } from "aws-cdk-lib/aws-lambda";
+import { Tags } from "aws-cdk-lib";
 
 
 function magicShit(api) {
@@ -10,7 +11,7 @@ export function API({ stack }: StackContext) {
   const baselime = LayerVersion.fromLayerVersionArn(
     stack,
     "BaselimeLayer",
-    `arn:aws:lambda:eu-west-2:374211872663:layer:baselime-node:7`
+    `arn:aws:lambda:eu-west-2:374211872663:layer:baselime-node:8`
   );
   
   if (!(stack.node.scope as App)?.local) {
@@ -19,8 +20,9 @@ export function API({ stack }: StackContext) {
       AWS_LAMBDA_EXEC_WRAPPER: '/opt/baselime',
       BASELIME_KEY: process.env.BASELIME_KEY as string,
       COLLECTOR_URL: 'https://otel.baselime.cc/v1',
-      OTEL_LOG_LEVEL: 'debug',
-      BASELIME_ORIGINAL_HANDLER: 'packages/functions/src/todo.handler',
+     
+      BASELIME_ACTUAL_HANDLER: 'packages/functions/src/todo.handler',
+      
     });
     
   }
@@ -48,7 +50,7 @@ export function API({ stack }: StackContext) {
     },
   });
 
-  magicShit(api);
+  Tags.of(api).add("baselime:tracing", "true");
 
   bus.subscribe("todo.created", {
     handler: "packages/functions/src/events/todo-created.handler",

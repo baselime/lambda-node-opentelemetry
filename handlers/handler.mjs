@@ -1,5 +1,5 @@
-import { load } from '../src/loader.js';
-import { wrap } from '../src/index.js';
+import { load } from './loader.js';
+import { wrap } from './index.js';
 
 export const handler = async function (...args) {
     const actualHandler = process.env.BASELIME_ACTUAL_HANDLER;

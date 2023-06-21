@@ -29,6 +29,29 @@ For production systems you should remove the latency overhead of sending open te
 `arn:aws:lambda:${region}:097948374213:layer:baselime-extension-${'x86_64' || 'arm64'}:1`
 ```
 
+## Adding Custom Events
+
+Our simple but powerful OTEL compatible logging extension lets you add context rich events to your traces. These events can be useful to show more detailed context on errors, add steps that you want recorded for a business process or simply add extra debug information.
+
+```javascript
+const { logger } = require("@baselime/lambda-node-opentelemetry");
+
+logger.info("This is an informational message", {
+  operation: "copy-paste-replace",
+  count: 9000,
+});
+```
+
+The extension provides an object that includes four logging functions - info, warn, debug, and error - enabling you to log messages with varying levels of severity. By setting the LOG_LEVEL environment variable, you can control the visibility of the logs.
+
+```javascript
+const { logger } = require("@baselime/lambda-node-opentelemetry");
+
+logger.info("This is an informational message", { payload: { foo: "bar" } });
+logger.warn("This is a warning message", { payload: { foo: "bar" } });
+logger.debug("This is a debug message", { payload: { foo: "bar" } });
+logger.error("This is an error message", { payload: { foo: "bar" } });
+```
 ## Manual Installation
 
 Install the `@baselime/lambda-node-opentelemetry` package

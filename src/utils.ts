@@ -3,7 +3,7 @@
  * @param ob Object                 The object to flatten
  * @param prefix String (Optional)  The prefix to add before each key, also used for recursion
  **/
-export function flattenObject(ob: Record<string, unknown>, prefix = "", result: Record<string, unknown> = {}) {
+export function flattenObject(ob: Record<string, unknown>, prefix = "", result: Record<string, unknown> = {}): Record<string, string | number | boolean> {
     // Preserve empty objects and arrays, they are lost otherwise
     if (
       prefix &&
