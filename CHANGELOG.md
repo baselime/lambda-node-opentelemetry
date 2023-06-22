@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - publish via CI
 - Fix: auto-loader paths
 
+ 
+ The latest layer is: `arn:aws:lambda:${your-region-here}:097948374213:layer:baselime-node:4`
+
 ## [0.1.6] 2023-07-21
 
 - Add esm auto loading
