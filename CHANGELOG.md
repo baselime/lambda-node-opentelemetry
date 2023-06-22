@@ -5,12 +5,21 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased]
+## [0.1.6] 2023-07-22
+
+- publish via CI
+- Fix: auto-loader paths
 
 ## [0.1.6] 2023-07-21
 
 - Add esm auto loading
 - Add logging extension
+
+ 
+ The latest layer is: `arn:aws:lambda:${your-region-here}:374211872663:layer:baselime-node:8`
+
+ 
+ The latest layer is: `arn:aws:lambda:${your-region-here}:374211872663:layer:baselime-node:9`
 
 ## [0.1.4] 2023-07-16
 
