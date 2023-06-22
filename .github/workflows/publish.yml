@@ -31,21 +31,6 @@ jobs:
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '16.x'
-          registry-url: 'https://npm.pkg.github.com'
-          scope: "@baselime"
-
-      - run: echo "registry=https://npm.pkg.github.com/@baselime" >> .npmrc
-
-      - name: Publish to GitHub registry
-        continue-on-error: true
-        run: 
-          npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
