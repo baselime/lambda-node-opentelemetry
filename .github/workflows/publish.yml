@@ -11,6 +11,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+      id-token: write
 
     steps:
       - name: Checkout
@@ -45,6 +46,13 @@ jobs:
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-region: eu-west-1
+          role-to-assume: arn:aws:iam::097948374213:role/github-actions-deploy
+      - name: Deploy Layer
+        run: npm run deploy:prod
 
   create-release:
     needs: [publish-node-packages]
@@ -92,40 +100,40 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                 
-  notify-community:
-    needs: [create-release]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Get version from tag
-        id: tag_name
-        run: |
-          echo ::set-output name=current_version::${GITHUB_REF#refs/tags/v}
-      - name: Post to the community Slack channel
-        uses: slackapi/slack-github-action@v1.23.0
-        with:
-          channel-id: 'C04KT9JNRHS'
-          payload: |
-            {
-              "text": "[Release] Baselime Lambda Opentelemetry for Node.JS v${{ steps.tag_name.outputs.current_version }}",
-              "blocks": [
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "*[Release] Baselime Lambda Opentelemetry for Node.JS v${{ steps.tag_name.outputs.current_version }}*"
-                  }
-                },
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "<https://github.com/Baselime/lambda-node-opentelemetry/releases/tag/v${{ steps.tag_name.outputs.current_version }}|https://github.com/Baselime/lambda-node-opentelemetry/releases/tag/v${{ steps.tag_name.outputs.current_version }}>"
-                  }
-                }
-              ]
-            }
-        env:
-          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+  # notify-community:
+  #   needs: [create-release]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v2
+  #     - name: Get version from tag
+  #       id: tag_name
+  #       run: |
+  #         echo ::set-output name=current_version::${GITHUB_REF#refs/tags/v}
+  #     - name: Post to the community Slack channel
+  #       uses: slackapi/slack-github-action@v1.23.0
+  #       with:
+  #         channel-id: 'C04KT9JNRHS'
+  #         payload: |
+  #           {
+  #             "text": "[Release] Baselime Lambda Opentelemetry for Node.JS v${{ steps.tag_name.outputs.current_version }}",
+  #             "blocks": [
+  #               {
+  #                 "type": "section",
+  #                 "text": {
+  #                   "type": "mrkdwn",
+  #                   "text": "*[Release] Baselime Lambda Opentelemetry for Node.JS v${{ steps.tag_name.outputs.current_version }}*"
+  #                 }
+  #               },
+  #               {
+  #                 "type": "section",
+  #                 "text": {
+  #                   "type": "mrkdwn",
+  #                   "text": "<https://github.com/Baselime/lambda-node-opentelemetry/releases/tag/v${{ steps.tag_name.outputs.current_version }}|https://github.com/Baselime/lambda-node-opentelemetry/releases/tag/v${{ steps.tag_name.outputs.current_version }}>"
+  #                 }
+  #               }
+  #             ]
+  #           }
+  #       env:
+  #         SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
 
