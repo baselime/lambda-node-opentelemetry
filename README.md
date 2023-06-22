@@ -52,6 +52,10 @@ logger.warn("This is a warning message", { payload: { foo: "bar" } });
 logger.debug("This is a debug message", { payload: { foo: "bar" } });
 logger.error("This is an error message", { payload: { foo: "bar" } });
 ```
+
+It shares the same interface as `@baselime/lambda-logger` so if you are moving from cloudwatch to open telemetry this makes the transision seamless.
+
+
 ## Manual Installation
 
 Install the `@baselime/lambda-node-opentelemetry` package
