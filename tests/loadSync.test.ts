@@ -1,5 +1,5 @@
 import { describe, expect, expectTypeOf, it } from 'vitest';
-import { load } from '../src/loader';
+import { loadSync } from '../src/loader';
 import path from 'node:path';
  
 describe('load()', () => {
@@ -7,7 +7,7 @@ describe('load()', () => {
         const taskRoot = path.resolve(__dirname, 'data');
         const originalHandler = 'original-handler.handler';
 
-        const handler = await load(taskRoot, originalHandler);
+        const handler = loadSync(taskRoot, originalHandler)
         expect(handler).toBeInstanceOf(Function);
       
     })
