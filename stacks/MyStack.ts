@@ -1,6 +1,7 @@
 import { StackContext, Api } from "sst/constructs";
 import { Architecture, Code, LayerVersion, Runtime } from "aws-cdk-lib/aws-lambda";
 import { RemovalPolicy } from "aws-cdk-lib";
+import { StringParameter } from "aws-cdk-lib/aws-ssm";
 export function LAYER({ stack }: StackContext) {
 
   const layer = new LayerVersion(stack, "layer", {
@@ -12,6 +13,9 @@ export function LAYER({ stack }: StackContext) {
     removalPolicy: RemovalPolicy.RETAIN,
   });
 
+  new StringParameter(stack, `/${stack.stage}/baselime/otel/tracer/node`, {
+    stringValue: layer.layerVersionArn,
+  });
   
   layer.addPermission("layerPermission", {
     accountId: "*",
