@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
  The latest layer is: `arn:aws:lambda:${your-region-here}:097948374213:layer:baselime-node:6`
 
+
 ## [0.1.11] 2023-07-22
 
 - publish via CI

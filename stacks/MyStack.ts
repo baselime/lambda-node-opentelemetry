@@ -13,7 +13,8 @@ export function LAYER({ stack }: StackContext) {
     removalPolicy: RemovalPolicy.RETAIN,
   });
 
-  new StringParameter(stack, `/${stack.stage}/baselime/otel/tracer/node`, {
+  const parameter = new StringParameter(stack, `/${stack.stage}/baselime/otel/tracer/node`, {
+    parameterName: `/${stack.stage}/baselime/otel/tracer/node`,
     stringValue: layer.layerVersionArn,
   });
   
@@ -22,5 +23,6 @@ export function LAYER({ stack }: StackContext) {
   });
   stack.addOutputs({
     layerArn: layer.layerVersionArn,
+    parameterName: parameter.parameterName,
   });
 }
