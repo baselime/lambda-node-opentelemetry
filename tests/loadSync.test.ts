@@ -5,7 +5,7 @@ import path from 'node:path';
 describe('load()', () => {
     it('should load a file', async () => {
         const taskRoot = path.resolve(__dirname, 'data');
-        const originalHandler = 'original-handler.handler';
+        const originalHandler = './src/original-handler.handler';
 
         const handler = loadSync(taskRoot, originalHandler)
         expect(handler).toBeInstanceOf(Function);

@@ -3,6 +3,6 @@ export const handler = async () => {
   
   return {
     statusCode: 200,
-    body: JSON.stringify({ MESSAGE:[{ id: 1, text: "TODO 1" }]}),
+    body: JSON.stringify({ MESSAGE:[{ id: 1, text: "TODO 12" }]}),
   }
 }

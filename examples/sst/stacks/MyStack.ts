@@ -8,25 +8,6 @@ function magicShit(api) {
 }
 export function API({ stack }: StackContext) {
 
-  const baselime = LayerVersion.fromLayerVersionArn(
-    stack,
-    "BaselimeLayer",
-    `arn:aws:lambda:eu-west-2:374211872663:layer:baselime-node:8`
-  );
-  
-  if (!(stack.node.scope as App)?.local) {
-    stack.addDefaultFunctionLayers([baselime]);
-    stack.addDefaultFunctionEnv({
-      AWS_LAMBDA_EXEC_WRAPPER: '/opt/baselime',
-      BASELIME_KEY: process.env.BASELIME_KEY as string,
-      COLLECTOR_URL: 'https://otel.baselime.cc/v1',
-     
-      BASELIME_ACTUAL_HANDLER: 'packages/functions/src/todo.handler',
-      
-    });
-    
-  }
-
   const bus = new EventBus(stack, "bus", {
     defaults: {
       retries: 10,

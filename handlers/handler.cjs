@@ -1,7 +1,7 @@
 const { loadSync } = require('./loader');
 const { wrap } = require('./index');
 
-exports.handler = async function (...args) {
+exports.handler = function (...args) {
     const actualHandler = process.env.BASELIME_ACTUAL_HANDLER;
     const taskRoot = process.env.LAMBDA_TASK_ROOT;
 
@@ -13,7 +13,7 @@ exports.handler = async function (...args) {
         throw Error('BASELIME_ACTUAL_HANDLER is not defined');
     }
 
-    const handler = await loadSync(taskRoot, actualHandler);
+    const handler = loadSync(taskRoot, actualHandler);
 
     const [event, context] = args
     return wrap(handler)(event, context);
