@@ -42,7 +42,7 @@ export function loadSync(taskRoot: string, originalHandler: string) {
     const functionName = pathDetails.ext.slice(1);
 
     const functionPath = path.resolve(taskRoot, pathDetails.dir, pathDetails.name);
-
+    console.log(functionPath)
     const lambda =_tryRequire(functionPath + '.js') || _tryRequire(functionPath + '.cjs')
 
     if (!lambda) {
