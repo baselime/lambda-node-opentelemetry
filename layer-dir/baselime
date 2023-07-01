@@ -10,5 +10,4 @@
   args=("${args[@]:0:$#-1}" "${extra_args[@]}" "${args[@]: -1}")
 
   # start the runtime with the extra options
-  echo "Starting runtime with extra options: ${extra_args[@]}"
   exec "${args[@]}"
