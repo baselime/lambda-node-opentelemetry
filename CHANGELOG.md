@@ -9,9 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Make sure flushing is not canceled
   
- 
- The latest layer is: `arn:aws:lambda:${your-region-here}:374211872663:layer:baselime-node:16`
-
+ The latest layer is: `arn:aws:lambda:${your-region-here}:097948374213:layer:baselime-node:9`
 ## [0.1.12] 2023-06-28
 
 - publish via CI
