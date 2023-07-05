@@ -70,6 +70,8 @@ declare const global : {
 
 global['baselimeLambdaFlush'] = async () => {
 	try {
+
+		// TODO figure out why this is 20ms on cold start vs 3 ms on regular invocation
 		await provider.forceFlush();
 	} catch(e) {
 		console.log(e)

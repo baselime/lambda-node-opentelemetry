@@ -12,7 +12,9 @@ dist
 # published
 index.js
 lambda-wrapper.js
-
+handler.cjs
+handler.mjs
+loader.js
 # misc
 .DS_Store
 
