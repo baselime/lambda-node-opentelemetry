@@ -2,8 +2,6 @@ service: tracing
 
 package:
   individually: true
-  patterns:
-    - 'node_modules/@baselime/lambda-node-opentelemetry'
 
 plugins:
   - serverless-esbuild
@@ -15,8 +13,6 @@ provider:
   region: eu-west-2
   architecture: arm64
   versionFunctions: false
-  layers:
-   - arn:aws:lambda:eu-west-2:097948374213:layer:baselime-extension-arm64:1
   iam:
     role:
       statements:
@@ -29,12 +25,8 @@ provider:
         - Effect: Allow
           Action: 'events:PutEvents'
           Resource: '*'
-  environment:
-    BASELIME_KEY: ${env:BASELIME_KEY}
-    NODE_OPTIONS: --require node_modules/@baselime/lambda-node-opentelemetry/lambda-wrapper.js
-    OTEL_LOG_LEVEL: debug
-    COLLECTOR_URL: https://otel.baselime.cc/v1
-    DISPATCH_POST_URI: https://lambda-extension.baselime.cc
+  tags:
+    'baselime:tracing': true
 functions:
   hello:
     handler: src/main.handler

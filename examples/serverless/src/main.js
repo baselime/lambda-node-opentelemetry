@@ -1,6 +1,5 @@
 const tiny = require("tiny-json-http");
 const { context, trace, } = require("@opentelemetry/api");
-const { wrap } = require("@baselime/lambda-node-opentelemetry");
 
 const { flattenObject } = require("./utils");
 
@@ -36,15 +35,16 @@ function trackAll(name, lib) {
   return tracedLib;
 }
 
-exports.handler = wrap(async (e) => {
+exports.handler = async (e, context) => {
+  context.callbackWaitForEmptyEventLoop = false;
   const { body: customer } = await track("tiny.get", tiny.get, {
     url: `${process.env.API_URL}/hello`,
   });
   
-  await track("tiny.post", tiny.post, {
-    url: "https://eokl0ly5zia7pe1.m.pipedream.net",
-    data: customer,
-  });
+  // await track("tiny.post", tiny.post, {
+  //   url: "https://eokl0ly5zia7pe1.m.pipedream.net",
+  //   data: customer,
+  // });
 
   return customer;
-});
+};

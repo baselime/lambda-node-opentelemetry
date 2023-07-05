@@ -68,6 +68,10 @@ declare const global : {
 }
 
 
-global['baselimeLambdaFlush'] = () => {
-	provider.forceFlush();
+global['baselimeLambdaFlush'] = async () => {
+	try {
+		await provider.forceFlush();
+	} catch(e) {
+		console.log(e)
+	}
 };

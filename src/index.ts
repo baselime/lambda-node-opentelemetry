@@ -5,7 +5,7 @@ import { Context } from 'aws-lambda';
 export * as logger from './logger';
 
 declare const global : {
-	baselimeLambdaFlush: () => void;
+	baselimeLambdaFlush: () => Promise<void>;
 }
 
 export function wrap(handler: Handler) {
@@ -45,11 +45,9 @@ export function wrap(handler: Handler) {
       span.end();
       throw e
     } finally {
-      
       if (global.baselimeLambdaFlush) {
-        global.baselimeLambdaFlush();
+        await global.baselimeLambdaFlush();
       }
-
     }
   }
 }
@@ -118,4 +116,3 @@ function extractContext(event: any) {
   }
   return propagation.extract(api.context.active(), {}, headerGetter);
 }
-

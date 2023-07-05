@@ -1,8 +1,8 @@
-const { wrap } = require('@baselime/lambda-node-opentelemetry');
 
-exports.handler = wrap(async (event) => {
+exports.handler = async (event, context) => {
+    context.callbackWaitForEmptyEventLoop = false;
     console.log(event.Records[0].Sns)
     return {
       message: 'req processed'
     }
-});
+};
