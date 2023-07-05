@@ -5,44 +5,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [0.1.13] 2023-07-05
 
+- Make sure flushing is not canceled
+  
 ## [0.1.12] 2023-06-28
 
 - publish via CI
 - Fix: auto-loader paths
 
  The latest layer is: `arn:aws:lambda:${your-region-here}:097948374213:layer:baselime-node:6`
-
-
- 
- The latest layer is: `arn:aws:lambda:${your-region-here}:374211872663:layer:baselime-node:11`
-
- 
- The latest layer is: `arn:aws:lambda:${your-region-here}:374211872663:layer:baselime-node:12`
-
- 
- The latest layer is: `arn:aws:lambda:${your-region-here}:374211872663:layer:baselime-node:12`
-
- 
- The latest layer is: `arn:aws:lambda:${your-region-here}:097948374213:layer:baselime-node:7`
-
- 
- The latest layer is: `arn:aws:lambda:${your-region-here}:374211872663:layer:baselime-node:13`
-
- 
- The latest layer is: `arn:aws:lambda:${your-region-here}:097948374213:layer:baselime-node:8`
-
- 
- The latest layer is: `arn:aws:lambda:${your-region-here}:097948374213:layer:baselime-node:8`
-
- 
- The latest layer is: `arn:aws:lambda:${your-region-here}:374211872663:layer:baselime-node:13`
-
- 
- The latest layer is: `arn:aws:lambda:${your-region-here}:374211872663:layer:baselime-node:14`
-
- 
- The latest layer is: `arn:aws:lambda:${your-region-here}:374211872663:layer:baselime-node:15`
 
 ## [0.1.11] 2023-07-22
 
