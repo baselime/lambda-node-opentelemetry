@@ -1,7 +1,7 @@
 import api, { Attributes, DiagConsoleLogger, DiagLogLevel } from "@opentelemetry/api";
 import { BatchSpanProcessor } from "@opentelemetry/sdk-trace-base";
 import {
-	OTLPTraceExporter,
+	OTLPTraceExporter, 
 } from "@opentelemetry/exporter-trace-otlp-http";
 import { NodeTracerProvider } from "@opentelemetry/sdk-trace-node";
 import { Instrumentation, registerInstrumentations } from "@opentelemetry/instrumentation";
@@ -12,7 +12,7 @@ import { HttpInstrumentation } from "@opentelemetry/instrumentation-http";
 import { Resource } from "@opentelemetry/resources";
 import { flattenObject } from "./utils";
 import { existsSync } from "node:fs";
-
+import { arch } from "node:os"
 if (process.env.OTEL_LOG_LEVEL === "debug") {
 	api.diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.ALL);
 }
@@ -21,7 +21,11 @@ const provider = new NodeTracerProvider({
 	resource: new Resource({
 		"service.name": process.env.BASELIME_SERVICE,
 		"faas.name": process.env.AWS_LAMBDA_FUNCTION_NAME,
-		'aws.region': process.env.AWS_REGION || 'unknown',
+		"faas.max_memory": process.env.AWS_LAMBDA_FUNCTION_MEMORY_SIZE,
+		"faas.architecture": arch(),
+		"faas.version": process.env.AWS_LAMBDA_FUNCTION_VERSION,
+		'cloud.region': process.env.AWS_REGION || 'unknown',
+		"cloud.provider": "aws",
 	}),
 });
 
@@ -31,9 +35,13 @@ if (existsSync('/opt/extensions/baselime')) {
 	collectorURL = 'http://sandbox:4323';
 }
 
+enum CompressionAlgorithm {
+	GZIP = "gzip",
+}
 const spanProcessor = new BatchSpanProcessor(
 	new OTLPTraceExporter({
-		url: collectorURL,
+		url: `${collectorURL}/${process.env.AWS_LAMBDA_FUNCTION_NAME}`,
+		compression: CompressionAlgorithm.GZIP,
 		headers: {
 			"x-api-key": process.env.BASELIME_KEY || process.env.BASELIME_OTEL_KEY,
 		},
