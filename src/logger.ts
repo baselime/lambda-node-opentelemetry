@@ -1,5 +1,5 @@
 import { trace, context } from '@opentelemetry/api';
-import { flattenObject } from 'utils';
+import { flatten } from 'flat';
 const levels = ['debug', 'info', 'warn', 'error', 'fatal'];
 
 function _log(level: string, message: string, data: Record<string, unknown>) {
@@ -9,7 +9,7 @@ function _log(level: string, message: string, data: Record<string, unknown>) {
     }
 
     const span = trace.getSpan(context.active());
-    span?.addEvent(message, flattenObject(data));
+    span?.addEvent(message, flatten(data));
 }
 
 const LOG_LEVEL = process.env.LOG_LEVEL || "INFO";

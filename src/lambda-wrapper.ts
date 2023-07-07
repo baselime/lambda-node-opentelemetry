@@ -1,7 +1,7 @@
 import api, { Attributes, DiagConsoleLogger, DiagLogLevel } from "@opentelemetry/api";
 import { BatchSpanProcessor } from "@opentelemetry/sdk-trace-base";
 import {
-	OTLPTraceExporter, 
+	OTLPTraceExporter,
 } from "@opentelemetry/exporter-trace-otlp-http";
 import { NodeTracerProvider } from "@opentelemetry/sdk-trace-node";
 import { Instrumentation, registerInstrumentations } from "@opentelemetry/instrumentation";
@@ -10,7 +10,7 @@ import {
 } from "@opentelemetry/instrumentation-aws-sdk";
 import { HttpInstrumentation } from "@opentelemetry/instrumentation-http";
 import { Resource } from "@opentelemetry/resources";
-import { flattenObject } from "./utils";
+import { flatten } from "flat";
 import { existsSync } from "node:fs";
 import { arch } from "node:os"
 if (process.env.OTEL_LOG_LEVEL === "debug") {
@@ -32,7 +32,7 @@ const provider = new NodeTracerProvider({
 let collectorURL: string = process.env.COLLECTOR_URL || "https://otel.baselime.io/v1"
 
 if (existsSync('/opt/extensions/baselime')) {
-	collectorURL = 'http://sandbox:4323';
+	collectorURL = 'http://sandbox:4323/otel';
 }
 
 enum CompressionAlgorithm {
@@ -40,7 +40,7 @@ enum CompressionAlgorithm {
 }
 const spanProcessor = new BatchSpanProcessor(
 	new OTLPTraceExporter({
-		url: `${collectorURL}/${process.env.AWS_LAMBDA_FUNCTION_NAME}`,
+		url: collectorURL,
 		compression: CompressionAlgorithm.GZIP,
 		headers: {
 			"x-api-key": process.env.BASELIME_KEY || process.env.BASELIME_OTEL_KEY,
@@ -60,7 +60,7 @@ const instrumentations: Instrumentation[] = [
 					request: response.request,
 					response: response.data,
 				};
-			span.setAttributes(flattenObject(awsApiReqData) as Attributes);
+				span.setAttributes(flatten(awsApiReqData) as Attributes);
 			}
 		},
 	}),
@@ -71,7 +71,7 @@ registerInstrumentations({
 	instrumentations
 });
 
-declare const global : {
+declare const global: {
 	baselimeLambdaFlush: () => void;
 }
 
@@ -81,7 +81,7 @@ global['baselimeLambdaFlush'] = async () => {
 
 		// TODO figure out why this is 20ms on cold start vs 3 ms on regular invocation
 		await provider.forceFlush();
-	} catch(e) {
+	} catch (e) {
 		console.log(e)
 	}
 };

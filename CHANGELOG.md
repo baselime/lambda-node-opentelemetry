@@ -5,16 +5,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [0.1.14] 2023-07-07
+
+- Add lots of aws lambda resource spans
+- GZIP
+
 ## [0.1.13] 2023-07-05
 
 - Make sure flushing is not canceled
-  
- The latest layer is: `arn:aws:lambda:${your-region-here}:097948374213:layer:baselime-node:9`
- 
- The latest layer is: `arn:aws:lambda:${your-region-here}:374211872663:layer:baselime-node:17`
-
- 
- The latest layer is: `arn:aws:lambda:${your-region-here}:374211872663:layer:baselime-node:18`
 
 ## [0.1.12] 2023-06-28
 
