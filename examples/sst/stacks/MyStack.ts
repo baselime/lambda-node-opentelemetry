@@ -14,6 +14,7 @@ export function API({ stack }: StackContext) {
   const api = new Api(stack, "api", {
     defaults: {
       function: {
+        permissions: ["lambda:ListFunctions"],
         environment: {
           BEEP: "YARP"
         },
@@ -29,7 +30,7 @@ export function API({ stack }: StackContext) {
       "GET /": "packages/functions/src/todo.handler",
     },
   });
-
+  api.attachPermissions(["lambda:ListFunctions"]);
   Tags.of(api).add("baselime:tracing", "true");
 
   bus.subscribe("todo.created", {

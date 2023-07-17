@@ -20,5 +20,8 @@
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "@aws-sdk/client-lambda": "^3.370.0"
+  }
 }

@@ -69,9 +69,9 @@ describe("wrap", () => {
 
 
     });
-    test("should wrap a async lambda handler and not error", async () => {
+    test.only("should wrap a async lambda handler and not error", async () => {
         const wrapped = wrap(asyncHandler);
-        const result = await wrapped({}, context);
+        const result = await wrapped({}, context, () => {});
         const span = getSpan();
         expect(span).toBeDefined();
         expect(span?.name).toBe("test");

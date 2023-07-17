@@ -1,10 +1,13 @@
-import { APIGatewayProxyEventV2, Callback, Context } from "aws-lambda";
+import { LambdaClient, ListFunctionsCommand } from "@aws-sdk/client-lambda";
 
-export const handler = (a: APIGatewayProxyEventV2, b: Context, c: Callback) => {
+export const handler = async () => {
   console.log("TODO LIST", JSON.stringify({ MESSAGE: [{ id: 1, text: "TODO 1" }] }));
-
-  c(null, {
+  const client = new LambdaClient({});
+  const command = new ListFunctionsCommand({});
+  const response = await client.send(command);
+  console.log("response", response)
+  return {
     statusCode: 200,
-    body: JSON.stringify({ MESSAGE: [{ id: 1, text: "TODO 12" }] }),
-  })
+    body: JSON.stringify({ MESSAGE: [{ id: 1, text: "TODO 1" }] }),
+  }
 }

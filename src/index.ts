@@ -56,7 +56,8 @@ export function wrap(handler: Handler) {
     const ctx = trace.setSpan(context.active(), span);
 
     try {
-      if(callback) {
+      if(callback && handler.constructor.name !== "AsyncFunction") {
+        console.log("promisify handler");
         handler = promisify(handler);
       }
       const result = await context.with(ctx, handler as (args: any[]) => any, null, event, lambda_context);
