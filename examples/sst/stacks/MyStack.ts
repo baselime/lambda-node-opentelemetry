@@ -3,9 +3,6 @@ import { LayerVersion } from "aws-cdk-lib/aws-lambda";
 import { Tags } from "aws-cdk-lib";
 
 
-function magicShit(api) {
-  console.log(api)
-}
 export function API({ stack }: StackContext) {
 
   const bus = new EventBus(stack, "bus", {
@@ -17,7 +14,9 @@ export function API({ stack }: StackContext) {
   const api = new Api(stack, "api", {
     defaults: {
       function: {
-        
+        environment: {
+          BEEP: "YARP"
+        },
         bind: [bus],
         nodejs: {
           esbuild: {

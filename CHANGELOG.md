@@ -5,10 +5,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [0.1.15] 2023-07-17
+
+- Add support for callback based lambda functions
+
+
 ## [0.1.14] 2023-07-07
 
 - Add lots of aws lambda resource spans
 - GZIP
+
+ 
+ The latest layer is: `arn:aws:lambda:${your-region-here}:097948374213:layer:baselime-node:8`
 
 ## [0.1.13] 2023-07-05
 

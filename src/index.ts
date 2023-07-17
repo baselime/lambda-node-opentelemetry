@@ -1,7 +1,8 @@
 import api, { trace, context, propagation, Context as OtelContext, ROOT_CONTEXT, Attributes } from "@opentelemetry/api";
-import { Handler, DynamoDBStreamEvent, S3Event } from "aws-lambda";
+import { Handler, DynamoDBStreamEvent, S3Event, Callback } from "aws-lambda";
 import { flatten } from "flat"
 import { Context } from 'aws-lambda';
+import { promisify } from 'node:util';
 export * as logger from './logger';
 
 declare const global: {
@@ -17,7 +18,7 @@ type FaasDocument = {
 let coldstart = true;
 
 export function wrap(handler: Handler) {
-  return async (event: any, lambda_context: Context) => {
+  return async function (event: any, lambda_context: Context, callback?: Callback) {
     const tracer = trace.getTracer('@baselime/baselime-lambda-wrapper', '1');
     const service = detectService(event);
     const trigger = triggerToServiceType(service);
@@ -55,6 +56,9 @@ export function wrap(handler: Handler) {
     const ctx = trace.setSpan(context.active(), span);
 
     try {
+      if(callback) {
+        handler = promisify(handler);
+      }
       const result = await context.with(ctx, handler as (args: any[]) => any, null, event, lambda_context);
       span.setAttributes(flatten({ result }) as Attributes);
       span.end();
