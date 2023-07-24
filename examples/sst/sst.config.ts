@@ -1,5 +1,6 @@
 import { SSTConfig } from "sst";
 import { API } from "./stacks/MyStack";
+import { Tags } from "aws-cdk-lib/core";
 
 export default {
   config(_input) {
@@ -9,15 +10,7 @@ export default {
     };
   },
   stacks(app) {
-    app.setDefaultFunctionProps({
-      timeout: 20,
-      memorySize: 512,
-      tracing: 'pass_through',
-      runtime: "nodejs18.x",
-      nodejs: {
-        format: "esm"
-      }
-    });
     app.stack(API);
+    Tags.of(app).add("baselime:tracing", "true");
   }
 } satisfies SSTConfig;

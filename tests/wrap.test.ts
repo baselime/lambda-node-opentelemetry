@@ -55,7 +55,7 @@ const context = {
 }
 describe("wrap", () => {
     const { getSpan } = setupOtelTestHarness()
-    test("should wrap a callback lambda handler and not error", async () => {
+    test.only("should wrap a callback lambda handler and not error", async () => {
         const wrapped = wrap(callbackHandler);
         await wrapped({}, context, (err, result) => {
             expect(result).toBe("callback lambda go brrr");
@@ -69,7 +69,7 @@ describe("wrap", () => {
 
 
     });
-    test.only("should wrap a async lambda handler and not error", async () => {
+    test("should wrap a async lambda handler and not error", async () => {
         const wrapped = wrap(asyncHandler);
         const result = await wrapped({}, context, () => {});
         const span = getSpan();

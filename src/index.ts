@@ -56,7 +56,7 @@ export function wrap(handler: Handler) {
     const ctx = trace.setSpan(context.active(), span);
 
     try {
-      if(callback && handler.constructor.name !== "AsyncFunction") {
+      if(callback && handler.constructor.name !== "AsyncFunction" && handler.length === 3) {
         console.log("promisify handler");
         handler = promisify(handler);
       }

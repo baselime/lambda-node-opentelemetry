@@ -1,13 +1,18 @@
-import { LambdaClient, ListFunctionsCommand } from "@aws-sdk/client-lambda";
+import { ApiHandler } from "sst/node/api";
+import { Todo } from "@sst/core/todo";
 
-export const handler = async () => {
-  console.log("TODO LIST", JSON.stringify({ MESSAGE: [{ id: 1, text: "TODO 1" }] }));
-  const client = new LambdaClient({});
-  const command = new ListFunctionsCommand({});
-  const response = await client.send(command);
-  console.log("response", response)
+export const create = ApiHandler(async (_evt) => {
+  await Todo.create();
+
   return {
     statusCode: 200,
-    body: JSON.stringify({ MESSAGE: [{ id: 1, text: "TODO 1" }] }),
-  }
-}
+    body: "Todo created",
+  };
+});
+
+export const list = ApiHandler(async (_evt) => {
+  return {
+    statusCode: 200,
+    body: JSON.stringify(Todo.list()),
+  };
+});

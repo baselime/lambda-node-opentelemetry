@@ -5,10 +5,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+
+## [0.1.17] 2023-07-24
+
+- fix callback support
+
 ## [0.1.16] 2023-07-17
 
 - fix
-
  
  The latest layer is: `arn:aws:lambda:${your-region-here}:097948374213:layer:baselime-node:12`
 
