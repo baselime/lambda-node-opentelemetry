@@ -10,6 +10,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - fix callback support
 
+ 
+ The latest layer is: `arn:aws:lambda:${your-region-here}:097948374213:layer:baselime-node:13`
+
 ## [0.1.16] 2023-07-17
 
 - fix
