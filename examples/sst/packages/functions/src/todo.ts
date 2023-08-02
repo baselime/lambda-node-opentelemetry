@@ -11,6 +11,7 @@ export const create = ApiHandler(async (_evt) => {
 });
 
 export const list = ApiHandler(async (_evt) => {
+  await Todo.create();
   return {
     statusCode: 200,
     body: JSON.stringify(Todo.list()),

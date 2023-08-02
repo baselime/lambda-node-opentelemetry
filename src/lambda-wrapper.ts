@@ -1,4 +1,4 @@
-import api, { Attributes, DiagConsoleLogger, DiagLogLevel } from "@opentelemetry/api";
+import api, { Attributes, DiagConsoleLogger, DiagLogLevel, TextMapPropagator } from "@opentelemetry/api";
 import { BatchSpanProcessor } from "@opentelemetry/sdk-trace-base";
 import {
 	OTLPTraceExporter,
@@ -13,6 +13,7 @@ import { Resource } from "@opentelemetry/resources";
 import { flatten } from "flat";
 import { existsSync } from "node:fs";
 import { arch } from "node:os"
+import { ClientRequest } from "node:http";
 if (process.env.OTEL_LOG_LEVEL === "debug") {
 	api.diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.ALL);
 }
@@ -27,6 +28,7 @@ const provider = new NodeTracerProvider({
 		'cloud.region': process.env.AWS_REGION || 'unknown',
 		"cloud.provider": "aws",
 	}),
+	forceFlushTimeoutMillis: 500,
 });
 
 let collectorURL: string = process.env.COLLECTOR_URL || "https://otel.baselime.io/v1"
@@ -38,6 +40,8 @@ if (existsSync('/opt/extensions/baselime')) {
 enum CompressionAlgorithm {
 	GZIP = "gzip",
 }
+
+console.log(`Using collector URL: ${collectorURL}`);
 const spanProcessor = new BatchSpanProcessor(
 	new OTLPTraceExporter({
 		url: collectorURL,
@@ -53,7 +57,7 @@ provider.register();
 
 const instrumentations: Instrumentation[] = [
 	new AwsInstrumentation({
-		suppressInternalInstrumentation: true,
+		suppressInternalInstrumentation: process.env.AWS_SDK_INTERNALS === 'true' ? false : true,
 		responseHook: (span, { response }) => {
 			if (response) {
 				const awsApiReqData = {
@@ -64,7 +68,19 @@ const instrumentations: Instrumentation[] = [
 			}
 		},
 	}),
-	new HttpInstrumentation({}),
+	new HttpInstrumentation({
+		requestHook: (span, request) => {
+			if (request instanceof ClientRequest) {
+				const headers = request.getHeaders();
+				const httpReqData = {
+					request: {
+						headers,
+					},
+				};
+				span.setAttributes(flatten(httpReqData) as Attributes);
+			}
+		},
+	}),
 ]
 
 registerInstrumentations({

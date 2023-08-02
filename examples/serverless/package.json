@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "predeploy": "cd ../../ && npm run build && cd examples/serverless && mkdir -p node_modules/@baselime/lambda-node-opentelemetry && cp -r ../../dist/* node_modules/@baselime/lambda-node-opentelemetry/",
+    "aaaa": "cd ../../ && npm run build && cd examples/serverless && mkdir -p node_modules/@baselime/lambda-node-opentelemetry && cp -r ../../dist/* node_modules/@baselime/lambda-node-opentelemetry/",
     "deploy": "npx serverless deploy --stage prod"
   },
   "author": "",

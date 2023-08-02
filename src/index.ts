@@ -36,7 +36,18 @@ export function wrap(handler: Handler) {
     const span = tracer.startSpan(lambda_context.functionName, {
       attributes: flatten({
         event,
-        context: lambda_context,
+        context: {
+          callbackWaitsForEmptyEventLoop: lambda_context.callbackWaitsForEmptyEventLoop,
+          functionName: lambda_context.functionName,
+          functionVersion: lambda_context.functionVersion,
+          invokedFunctionArn: lambda_context.invokedFunctionArn,
+          memoryLimitInMB: lambda_context.memoryLimitInMB,
+          awsRequestId: lambda_context.awsRequestId,
+          logGroupName: lambda_context.logGroupName,
+          logStreamName: lambda_context.logStreamName,
+          identity: lambda_context.identity,
+          clientContext: lambda_context.clientContext
+        },
         faas: {
           execution: lambda_context.awsRequestId,
           runtime: 'nodejs',
@@ -56,7 +67,7 @@ export function wrap(handler: Handler) {
     const ctx = trace.setSpan(context.active(), span);
 
     try {
-      if(callback && handler.constructor.name !== "AsyncFunction" && handler.length === 3) {
+      if (callback && handler.constructor.name !== "AsyncFunction" && handler.length === 3) {
         console.log("promisify handler");
         handler = promisify(handler);
       }
