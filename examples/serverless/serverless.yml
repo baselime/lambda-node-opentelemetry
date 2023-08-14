@@ -27,6 +27,7 @@ provider:
           Resource: '*'
   tags:
     'baselime:tracing': true
+    'baselime:version': 5
 functions:
   hello:
     handler: src/main.handler

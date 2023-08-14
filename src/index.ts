@@ -37,7 +37,6 @@ export function wrap(handler: Handler) {
       attributes: flatten({
         event,
         context: {
-          callbackWaitsForEmptyEventLoop: lambda_context.callbackWaitsForEmptyEventLoop,
           functionName: lambda_context.functionName,
           functionVersion: lambda_context.functionVersion,
           invokedFunctionArn: lambda_context.invokedFunctionArn,
@@ -67,10 +66,7 @@ export function wrap(handler: Handler) {
     const ctx = trace.setSpan(context.active(), span);
 
     try {
-      // if (callback && handler.constructor.name !== "AsyncFunction" && handler.length === 3) {
-      //   console.log("promisify handler");
-      //   handler = promisify(handler);
-      // }
+
       const result = await context.with(ctx, async (e, lc, cb) => {
         const unkownResult = handler(e, lc, (err, res) => {
           if (err) {
@@ -80,20 +76,21 @@ export function wrap(handler: Handler) {
           }
 
           if (res) {
-            span.setAttributes(({ result: res }) as Attributes);
+            span.setAttributes(flatten({ result: res }));
           }
           if (cb) {
-            cb(err, res)
+            span.end();
+            cb(err, res);
           }
-          span.end();
         });
-
         if (unkownResult) {
           return await unkownResult
         }
       }, null, event, lambda_context, callback);
+      if (result) {
+        span.setAttributes(flatten({ result }));
+      }
 
-      span.setAttributes(({ result }) as Attributes);
       span.end();
       return result;
     } catch (e) {
