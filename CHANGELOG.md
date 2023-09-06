@@ -5,10 +5,15 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [0.2.0] 2023-08-07
 
+- fix importing of cjs from esm loader
+  
 ## [0.1.19] 2023-08-06
 
 - Improve diagnostics on import error
+ 
+ The latest layer is: `arn:aws:lambda:${your-region-here}:097948374213:layer:baselime-node:1`
 
 ## [0.1.18] 2023-07-24
 
