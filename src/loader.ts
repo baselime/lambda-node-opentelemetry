@@ -27,7 +27,7 @@ export async function load(taskRoot: string, originalHandler: string) {
 
     const functionPath = path.resolve(taskRoot, pathDetails.dir, pathDetails.name);
     
-    const lambda = await _tryImport(functionPath + '.js') || await _tryImport(functionPath + '.mjs')
+    const lambda = await _tryImport(functionPath + '.js') || await _tryImport(functionPath + '.mjs') || _tryRequire(functionPath + '.js') || _tryRequire(functionPath + '.cjs')
 
     if (!lambda) {
         throw Error(`Could not load ${functionPath}.js or ${functionPath}.mjs`);
