@@ -4,6 +4,7 @@ async function _tryImport(path:string) {
     try {
         return await import(path);
     } catch(err) {
+        console.error(err)
         return false;
     }
 }
@@ -12,6 +13,7 @@ function _tryRequire(path: string) {
     try {
         return require(path);
     } catch(err) {
+        console.error(err)
         return false;
     }
 }
@@ -24,7 +26,7 @@ export async function load(taskRoot: string, originalHandler: string) {
     const functionName = pathDetails.ext.slice(1);
 
     const functionPath = path.resolve(taskRoot, pathDetails.dir, pathDetails.name);
-
+    
     const lambda = await _tryImport(functionPath + '.js') || await _tryImport(functionPath + '.mjs')
 
     if (!lambda) {

@@ -11,4 +11,13 @@ describe('load()', () => {
         expect(handler).toBeInstanceOf(Function);
       
     })
+
+    it('should load with no path', async () => {
+        const taskRoot = path.resolve(__dirname, 'data');
+        const originalHandler = 'index.main';
+
+        const handler = await load(taskRoot, originalHandler);
+        expect(handler).toBeInstanceOf(Function);
+      
+    })
 });

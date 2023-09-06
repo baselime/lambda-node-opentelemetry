@@ -11,8 +11,13 @@ if (!stage) {
 }
 
 function deployToRegion(region: string) {
-    const result = execSync(`npm run deploy -- --stage ${stage} --region ${region}`)
-    console.log(result.toString())
+    try {
+        const result = execSync(`npm run deploy -- --stage ${stage} --region ${region}`)
+        console.log(result.toString())
+    } catch(error) {
+        console.log(error)
+    }
+   
 }
 
 async function addLayerToChangeLog() {
