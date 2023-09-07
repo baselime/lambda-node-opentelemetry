@@ -3,15 +3,20 @@
 [![Latest Release][release_badge]][release]
 [![License][license_badge]][license]
 
-The `@baselime/lambda-node-opentelemetry` package instruments your lambda functions and automatically ships OTEL compatible trace data to Baselime. This is the most powerful and flexible way to instrument your node service.
+The `@baselime/lambda-node-opentelemetry` package instruments your Node.js AWS Lambda functions with OpenTelemetry and automatically sends tracing data to Baselime. This is the most powerful and flexible way to instrument your serverless functions.
 
 ![Trace Timeline](trace-timeline.png)
 
+## Installation
+
+### Automatic Installation
+
+Once you've connected your AWS account to Baselime, add the `baselime:tracing` tag to any of your Node.js AWS Lambda functions and it will be automatically instrumented with OpenTelemetry.
+
+### Manual Installation
+
+To manually install this instrumentation, follow the steps in our [docs](https://baselime.io/docs/sending-data/opentelemetry/aws-lambda/node.js/).
 This can be applied completely automatically to your lambda functions using our automatic instrumentation.
-
-To enroll a lambda tag it with `baselime:tracing` `true`
-
-If you would rather instrument the lambda manually follow this [guide](./ManualInstrumentation)
 
 ## License
 
