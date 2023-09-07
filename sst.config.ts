@@ -1,5 +1,5 @@
 import { SSTConfig } from "sst";
-import { LAYER } from "./stacks/MyStack";
+import { LAYER } from "./stacks/Layer";
 
 export default {
   config(_input) {
