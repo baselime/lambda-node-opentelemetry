@@ -111,13 +111,13 @@ jobs:
           channel-id: 'C04KT9JNRHS'
           payload: |
             {
-              "text": "[Release] Baselime Lambda Opentelemetry for Node.JS v${{ steps.tag_name.outputs.current_version }}",
+              "text": "[Release] Baselime Opentelemetry for Node.JS Lambda v${{ steps.tag_name.outputs.current_version }}",
               "blocks": [
                 {
                   "type": "section",
                   "text": {
                     "type": "mrkdwn",
-                    "text": "*[Release] Baselime Lambda Opentelemetry for Node.JS v${{ steps.tag_name.outputs.current_version }}*"
+                    "text": "*[Release] Baselime Opentelemetry for Node.JS Lambda v${{ steps.tag_name.outputs.current_version }}*"
                   }
                 },
                 {
