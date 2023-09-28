@@ -10,28 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - Add better loading diagnostics
 - 
  
- The latest layer is: `arn:aws:lambda:${your-region-here}:374211872663:layer:baselime-node:34`
-
- 
- The latest layer is: `arn:aws:lambda:${your-region-here}:374211872663:layer:baselime-node:35`
-
- 
- The latest layer is: `arn:aws:lambda:${your-region-here}:374211872663:layer:baselime-node:36`
-
- 
- The latest layer is: `arn:aws:lambda:${your-region-here}:374211872663:layer:baselime-node:37`
-
- 
- The latest layer is: `arn:aws:lambda:${your-region-here}:374211872663:layer:baselime-node:38`
-
- 
- The latest layer is: `arn:aws:lambda:${your-region-here}:374211872663:layer:baselime-node:40`
-
- 
- The latest layer is: `arn:aws:lambda:${your-region-here}:374211872663:layer:baselime-node:54`
-
- 
- The latest layer is: `arn:aws:lambda:${your-region-here}:374211872663:layer:baselime-node:55`
+ The latest layer is: `arn:aws:lambda:${your-region-here}:097948374213:layer:baselime-node:20`
 
 ## [0.2.0] 2023-08-07
 
