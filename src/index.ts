@@ -2,7 +2,6 @@ import api, { trace, context, propagation, Context as OtelContext, ROOT_CONTEXT,
 import { Handler, DynamoDBStreamEvent, S3Event, Callback } from "aws-lambda";
 import { flatten } from "flat"
 import { Context } from 'aws-lambda';
-import { promisify } from 'node:util';
 export * as logger from './logger';
 
 declare const global: {

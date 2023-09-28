@@ -1,0 +1,15 @@
+{
+  "name": "@benchmarking/functions",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "sst bind vitest",
+    "typecheck": "tsc -noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.7.0",
+    "@types/aws-lambda": "^8.10.122",
+    "vitest": "^0.34.5",
+    "sst": "^2.26.6"
+  }
+}

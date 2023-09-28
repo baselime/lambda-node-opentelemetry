@@ -1,5 +1,5 @@
 import { execSync } from "child_process";
-import config from "./multiRegion.json";
+import { config } from "./multiRegion.js";
 import { readFile, writeFile } from "fs/promises";
 
 console.log(config)
@@ -14,10 +14,10 @@ function deployToRegion(region: string) {
     try {
         const result = execSync(`npm run deploy -- --stage ${stage} --region ${region}`)
         console.log(result.toString())
-    } catch(error) {
+    } catch (error) {
         console.log(error)
     }
-   
+
 }
 
 async function addLayerToChangeLog() {
@@ -32,7 +32,7 @@ async function addLayerToChangeLog() {
     const changeLog = await readFile('./CHANGELOG.md', 'utf8');
 
     const changeLogSections = changeLog.split('##')
-   
+
     changeLogSections[1] = `${changeLogSections[1]} \n The latest layer is: \`${layerStringForUser}\`\n\n`
     console.log(changeLogSections.join('##'))
 

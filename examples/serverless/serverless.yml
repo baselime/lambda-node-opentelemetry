@@ -13,6 +13,9 @@ provider:
   region: eu-west-2
   architecture: arm64
   versionFunctions: false
+  tracing:
+    lambda: true
+    apiGateway: true
   iam:
     role:
       statements:
@@ -27,7 +30,6 @@ provider:
           Resource: '*'
   tags:
     'baselime:tracing': true
-    'baselime:version': 5
 functions:
   hello:
     handler: src/main.handler

@@ -8,16 +8,18 @@
     "serverless",
     "opentelemetry"
   ],
-  "main": "index.js",
   "files": [
     "lambda-wrapper.js",
     "index.js"
   ],
+  "type": "module",
   "scripts": {
     "tsc": "tsc --p ./tsconfig.json",
-    "build:handler": "mkdir -p dist && cp -r handlers/* dist",
+    "build:handler": "npm run build:esm && npm run build:cjs",
+    "build:esm": "esbuild src/handler.mjs --bundle --minify --platform=node --target=node18 --outfile=dist/handler.mjs --metafile=meta.json --format=esm",
+    "build:cjs": "esbuild src/handler.cjs --bundle --minify --platform=node --target=node18 --outfile=dist/handler.cjs --metafile=meta.json --format=cjs",
     "distribute": "mkdir -p layer-dir/nodejs/node_modules/@baselime/lambda-node-opentelemetry && cp -r dist/* layer-dir/nodejs/node_modules/@baselime/lambda-node-opentelemetry && cp -r dist/* .",
-    "build:tracer": "esbuild src/lambda-wrapper.ts src/index.ts src/loader.ts --bundle --minify --platform=node --target=node16 --outdir=dist",
+    "build:tracer": "esbuild src/lambda-wrapper.ts --bundle --minify --platform=node --target=node18 --outdir=dist --metafile=meta.json",
     "build": "npm run build:handler && npm run build:tracer && npm run distribute",
     "deploy": "sst deploy",
     "deploy:uat": "npm run build && npx tsx multi-region-deploy.ts uat",
@@ -43,7 +45,7 @@
     "constructs": "10.1.156",
     "esbuild": "^0.17.19",
     "sst": "^2.12.0",
-    "typescript": "^5.1.3",
+    "typescript": "^5.2.2",
     "vite": "^4.3.9",
     "vitest": "^0.32.2"
   },

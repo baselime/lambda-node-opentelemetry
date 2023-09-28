@@ -1,4 +1,4 @@
-import api, { Attributes, DiagConsoleLogger, DiagLogLevel, TextMapPropagator } from "@opentelemetry/api";
+import api, { Attributes, DiagConsoleLogger, DiagLogLevel } from "@opentelemetry/api";
 import { BatchSpanProcessor } from "@opentelemetry/sdk-trace-base";
 import {
 	OTLPTraceExporter,
@@ -11,9 +11,10 @@ import {
 import { HttpInstrumentation } from "@opentelemetry/instrumentation-http";
 import { Resource } from "@opentelemetry/resources";
 import { flatten } from "flat";
-import { existsSync } from "node:fs";
-import { arch } from "node:os"
-import { ClientRequest } from "node:http";
+import { existsSync } from "fs";
+import { arch } from "os"
+import { ClientRequest } from "http";
+
 if (process.env.OTEL_LOG_LEVEL === "debug") {
 	api.diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.ALL);
 }
@@ -41,7 +42,6 @@ enum CompressionAlgorithm {
 	GZIP = "gzip",
 }
 
-console.log(`Using collector URL: ${collectorURL}`);
 const spanProcessor = new BatchSpanProcessor(
 	new OTLPTraceExporter({
 		url: collectorURL,
@@ -50,6 +50,10 @@ const spanProcessor = new BatchSpanProcessor(
 			"x-api-key": process.env.BASELIME_KEY || process.env.BASELIME_OTEL_KEY,
 		},
 	}),
+	{
+		maxQueueSize: 100,
+		maxExportBatchSize: 5,
+	}
 );
 
 provider.addSpanProcessor(spanProcessor);
