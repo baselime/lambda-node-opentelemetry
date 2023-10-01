@@ -15,14 +15,14 @@ export function API({ stack }: StackContext) {
   const api = new Api(stack, "api", {
     routes: {
       "GET /no-tracing": { function: { handler: "packages/functions/src/lambda.handler" } },
-      "GET /both": { function: { handler: "packages/functions/src/lambda.handler", layers: ["arn:aws:lambda:eu-west-2:374211872663:layer:baselime-extension-arm64:11", "arn:aws:lambda:eu-west-2:374211872663:layer:baselime-node:55"] } },
-      "GET /tracing": { function: { handler: "packages/functions/src/lambda.handler", layers: ["arn:aws:lambda:eu-west-2:374211872663:layer:baselime-node:55"] } },
+      "GET /both": { function: { handler: "packages/functions/src/lambda.handler", layers: ["arn:aws:lambda:eu-west-2:374211872663:layer:baselime-extension-arm64:11", "arn:aws:lambda:eu-west-2:374211872663:layer:baselime-node:56"] } },
+      "GET /tracing": { function: { handler: "packages/functions/src/lambda.handler", layers: ["arn:aws:lambda:eu-west-2:374211872663:layer:baselime-node:56"] } },
       "GET /extension": { function: { handler: "packages/functions/src/lambda.handler", layers: ["arn:aws:lambda:eu-west-2:374211872663:layer:baselime-extension-arm64:11"] } },
       "GET /combined": { function: { handler: "packages/functions/src/lambda.handler", layers: ["arn:aws:lambda:eu-west-2:374211872663:layer:baselime-node-combined:7"] } },
       "GET /tracing-activated": {
         function: {
           // todo set handler to /opt/nodejs/node_modules/@baselime/lambda-node-opentelemetry/handler.handler when deployed
-          handler: "packages/functions/src/lambda.handler", layers: ["arn:aws:lambda:eu-west-2:374211872663:layer:baselime-node:55"], environment: environment("packages/functions/src/lambda.handler")
+          handler: "packages/functions/src/lambda.handler", layers: ["arn:aws:lambda:eu-west-2:374211872663:layer:baselime-node:56"], environment: environment("packages/functions/src/lambda.handler")
         }
       },
       "GET /combined-activated": {
@@ -32,7 +32,7 @@ export function API({ stack }: StackContext) {
       },
       "GET /both-activated": {
         function: {
-          handler: "packages/functions/src/lambda.handler", layers: ["arn:aws:lambda:eu-west-2:374211872663:layer:baselime-extension-arm64:11", "arn:aws:lambda:eu-west-2:374211872663:layer:baselime-node:55"], environment: environment("packages/functions/src/lambda.handler")
+          handler: "packages/functions/src/lambda.handler", layers: ["arn:aws:lambda:eu-west-2:374211872663:layer:baselime-extension-arm64:11", "arn:aws:lambda:eu-west-2:374211872663:layer:baselime-node:56"], environment: environment("packages/functions/src/lambda.handler")
         }
       },
     },

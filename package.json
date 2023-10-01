@@ -19,7 +19,7 @@
     "build:esm": "esbuild src/handler.mjs --bundle --minify --platform=node --target=node18 --outfile=dist/handler.mjs --metafile=meta.json --format=esm",
     "build:cjs": "esbuild src/handler.cjs --bundle --minify --platform=node --target=node18 --outfile=dist/handler.cjs --metafile=meta.json --format=cjs",
     "distribute": "mkdir -p layer-dir/nodejs/node_modules/@baselime/lambda-node-opentelemetry && cp -r dist/* layer-dir/nodejs/node_modules/@baselime/lambda-node-opentelemetry && cp -r dist/* .",
-    "build:tracer": "esbuild src/lambda-wrapper.ts --bundle --minify --platform=node --target=node18 --outdir=dist --metafile=meta.json",
+    "build:tracer": "esbuild src/lambda-wrapper.ts --bundle --minify --platform=node --target=node18 --format=esm --splitting --outdir=dist --metafile=meta.json",
     "build": "npm run build:handler && npm run build:tracer && npm run distribute",
     "deploy": "sst deploy",
     "deploy:uat": "npm run build && npx tsx multi-region-deploy.ts uat",

@@ -6074,6 +6074,11 @@
           "path": "node_modules/require-in-the-middle/package.json",
           "kind": "require-call",
           "original": "./package.json"
+        },
+        {
+          "path": "<runtime>",
+          "kind": "import-statement",
+          "external": true
         }
       ],
       "format": "cjs"
@@ -6182,6 +6187,11 @@
           "path": "node_modules/require-in-the-middle/index.js",
           "kind": "require-call",
           "original": "require-in-the-middle"
+        },
+        {
+          "path": "<runtime>",
+          "kind": "import-statement",
+          "external": true
         }
       ],
       "format": "cjs"
@@ -7426,6 +7436,11 @@
           "path": "node_modules/require-in-the-middle/index.js",
           "kind": "require-call",
           "original": "require-in-the-middle"
+        },
+        {
+          "path": "<runtime>",
+          "kind": "import-statement",
+          "external": true
         }
       ],
       "format": "cjs"
@@ -8919,17 +8934,17 @@
         },
         {
           "path": "fs",
-          "kind": "require-call",
+          "kind": "import-statement",
           "external": true
         },
         {
           "path": "os",
-          "kind": "require-call",
+          "kind": "import-statement",
           "external": true
         },
         {
           "path": "http",
-          "kind": "require-call",
+          "kind": "import-statement",
           "external": true
         }
       ],
@@ -9111,7 +9126,7 @@
           "bytesInOutput": 5610
         },
         "node_modules/@opentelemetry/core/build/src/platform/node/environment.js": {
-          "bytesInOutput": 267
+          "bytesInOutput": 261
         },
         "node_modules/@opentelemetry/core/build/src/platform/node/globalThis.js": {
           "bytesInOutput": 162
@@ -9123,7 +9138,7 @@
           "bytesInOutput": 442
         },
         "node_modules/@opentelemetry/core/build/src/platform/node/performance.js": {
-          "bytesInOutput": 164
+          "bytesInOutput": 158
         },
         "node_modules/@opentelemetry/core/build/src/version.js": {
           "bytesInOutput": 117
@@ -9273,40 +9288,40 @@
           "bytesInOutput": 368
         },
         "node_modules/@opentelemetry/resources/build/src/platform/node/machine-id/execAsync.js": {
-          "bytesInOutput": 185
+          "bytesInOutput": 173
         },
         "node_modules/@opentelemetry/resources/build/src/platform/node/machine-id/getMachineId-darwin.js": {
           "bytesInOutput": 436
         },
         "node_modules/@opentelemetry/resources/build/src/platform/node/machine-id/getMachineId-linux.js": {
-          "bytesInOutput": 370
+          "bytesInOutput": 364
         },
         "node_modules/@opentelemetry/resources/build/src/platform/node/machine-id/getMachineId-bsd.js": {
-          "bytesInOutput": 457
+          "bytesInOutput": 451
         },
         "node_modules/@opentelemetry/resources/build/src/platform/node/machine-id/getMachineId-win.js": {
-          "bytesInOutput": 562
+          "bytesInOutput": 556
         },
         "node_modules/@opentelemetry/resources/build/src/platform/node/machine-id/getMachineId-unsupported.js": {
           "bytesInOutput": 227
         },
         "node_modules/@opentelemetry/resources/build/src/platform/node/machine-id/getMachineId.js": {
-          "bytesInOutput": 439
+          "bytesInOutput": 433
         },
         "node_modules/@opentelemetry/resources/build/src/platform/node/HostDetectorSync.js": {
-          "bytesInOutput": 533
+          "bytesInOutput": 527
         },
         "node_modules/@opentelemetry/resources/build/src/platform/node/HostDetector.js": {
           "bytesInOutput": 212
         },
         "node_modules/@opentelemetry/resources/build/src/platform/node/OSDetectorSync.js": {
-          "bytesInOutput": 369
+          "bytesInOutput": 363
         },
         "node_modules/@opentelemetry/resources/build/src/platform/node/OSDetector.js": {
           "bytesInOutput": 206
         },
         "node_modules/@opentelemetry/resources/build/src/platform/node/ProcessDetectorSync.js": {
-          "bytesInOutput": 997
+          "bytesInOutput": 991
         },
         "node_modules/@opentelemetry/resources/build/src/platform/node/ProcessDetector.js": {
           "bytesInOutput": 221
@@ -9405,7 +9420,7 @@
           "bytesInOutput": 242
         },
         "node_modules/@opentelemetry/otlp-exporter-base/build/src/platform/node/util.js": {
-          "bytesInOutput": 2657
+          "bytesInOutput": 2627
         },
         "node_modules/@opentelemetry/otlp-exporter-base/build/src/platform/node/OTLPExporterNodeBase.js": {
           "bytesInOutput": 986
@@ -9624,13 +9639,13 @@
           "bytesInOutput": 416
         },
         "node_modules/@opentelemetry/context-async-hooks/build/src/AbstractAsyncHooksContextManager.js": {
-          "bytesInOutput": 1921
+          "bytesInOutput": 1915
         },
         "node_modules/@opentelemetry/context-async-hooks/build/src/AsyncHooksContextManager.js": {
-          "bytesInOutput": 1142
+          "bytesInOutput": 1136
         },
         "node_modules/@opentelemetry/context-async-hooks/build/src/AsyncLocalStorageContextManager.js": {
-          "bytesInOutput": 592
+          "bytesInOutput": 586
         },
         "node_modules/@opentelemetry/context-async-hooks/build/src/index.js": {
           "bytesInOutput": 428
@@ -9744,7 +9759,7 @@
           "bytesInOutput": 526
         },
         "node_modules/@opentelemetry/sdk-trace-node/node_modules/yallist/iterator.js": {
-          "bytesInOutput": 145
+          "bytesInOutput": 146
         },
         "node_modules/@opentelemetry/sdk-trace-node/node_modules/yallist/yallist.js": {
           "bytesInOutput": 4657
@@ -9963,7 +9978,7 @@
           "bytesInOutput": 959
         },
         "node_modules/resolve/lib/homedir.js": {
-          "bytesInOutput": 445
+          "bytesInOutput": 439
         },
         "node_modules/resolve/lib/caller.js": {
           "bytesInOutput": 199
@@ -9972,7 +9987,7 @@
           "bytesInOutput": 1006
         },
         "node_modules/resolve/lib/node-modules-paths.js": {
-          "bytesInOutput": 550
+          "bytesInOutput": 544
         },
         "node_modules/resolve/lib/normalize-options.js": {
           "bytesInOutput": 61
@@ -9993,7 +10008,7 @@
           "bytesInOutput": 834
         },
         "node_modules/resolve/lib/async.js": {
-          "bytesInOutput": 4461
+          "bytesInOutput": 4454
         },
         "node_modules/resolve/lib/core.json": {
           "bytesInOutput": 4914
@@ -10005,7 +10020,7 @@
           "bytesInOutput": 71
         },
         "node_modules/resolve/lib/sync.js": {
-          "bytesInOutput": 2971
+          "bytesInOutput": 2975
         },
         "node_modules/resolve/index.js": {
           "bytesInOutput": 89
@@ -10014,7 +10029,7 @@
           "bytesInOutput": 1396
         },
         "node_modules/debug/src/common.js": {
-          "bytesInOutput": 2081
+          "bytesInOutput": 2084
         },
         "node_modules/debug/src/browser.js": {
           "bytesInOutput": 2565
@@ -10023,43 +10038,43 @@
           "bytesInOutput": 181
         },
         "node_modules/supports-color/index.js": {
-          "bytesInOutput": 1544
+          "bytesInOutput": 1532
         },
         "node_modules/debug/src/node.js": {
-          "bytesInOutput": 1977
+          "bytesInOutput": 1965
         },
         "node_modules/debug/src/index.js": {
           "bytesInOutput": 138
         },
         "node_modules/module-details-from-path/index.js": {
-          "bytesInOutput": 297
+          "bytesInOutput": 291
         },
         "node_modules/require-in-the-middle/package.json": {
           "bytesInOutput": 1142
         },
         "node_modules/require-in-the-middle/index.js": {
-          "bytesInOutput": 3389
+          "bytesInOutput": 3353
         },
         "node_modules/@opentelemetry/instrumentation/build/src/platform/node/ModuleNameTrie.js": {
           "bytesInOutput": 827
         },
         "node_modules/@opentelemetry/instrumentation/build/src/platform/node/RequireInTheMiddleSingleton.js": {
-          "bytesInOutput": 870
+          "bytesInOutput": 864
         },
         "node_modules/import-in-the-middle/lib/register.js": {
           "bytesInOutput": 422
         },
         "node_modules/import-in-the-middle/index.js": {
-          "bytesInOutput": 924
+          "bytesInOutput": 912
         },
         "node_modules/@opentelemetry/instrumentation/build/src/platform/node/instrumentation.js": {
-          "bytesInOutput": 3483
+          "bytesInOutput": 3453
         },
         "node_modules/@opentelemetry/instrumentation/build/src/platform/node/instrumentationNodeModuleDefinition.js": {
           "bytesInOutput": 287
         },
         "node_modules/@opentelemetry/instrumentation/build/src/platform/node/instrumentationNodeModuleFile.js": {
-          "bytesInOutput": 293
+          "bytesInOutput": 287
         },
         "node_modules/@opentelemetry/instrumentation/build/src/platform/node/types.js": {
           "bytesInOutput": 79
@@ -10269,16 +10284,16 @@
           "bytesInOutput": 827
         },
         "node_modules/@opentelemetry/instrumentation-aws-sdk/node_modules/@opentelemetry/instrumentation/build/src/platform/node/RequireInTheMiddleSingleton.js": {
-          "bytesInOutput": 870
+          "bytesInOutput": 864
         },
         "node_modules/@opentelemetry/instrumentation-aws-sdk/node_modules/@opentelemetry/instrumentation/build/src/platform/node/instrumentation.js": {
-          "bytesInOutput": 2524
+          "bytesInOutput": 2500
         },
         "node_modules/@opentelemetry/instrumentation-aws-sdk/node_modules/@opentelemetry/instrumentation/build/src/platform/node/instrumentationNodeModuleDefinition.js": {
           "bytesInOutput": 287
         },
         "node_modules/@opentelemetry/instrumentation-aws-sdk/node_modules/@opentelemetry/instrumentation/build/src/platform/node/instrumentationNodeModuleFile.js": {
-          "bytesInOutput": 293
+          "bytesInOutput": 287
         },
         "node_modules/@opentelemetry/instrumentation-aws-sdk/node_modules/@opentelemetry/instrumentation/build/src/platform/node/types.js": {
           "bytesInOutput": 79
@@ -10305,7 +10320,7 @@
           "bytesInOutput": 1310
         },
         "node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/aws-sdk.js": {
-          "bytesInOutput": 8434
+          "bytesInOutput": 8439
         },
         "node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/types.js": {
           "bytesInOutput": 79
@@ -10458,13 +10473,13 @@
           "bytesInOutput": 288
         },
         "node_modules/@opentelemetry/instrumentation-http/build/src/utils.js": {
-          "bytesInOutput": 7941
+          "bytesInOutput": 7935
         },
         "node_modules/@opentelemetry/instrumentation-http/build/src/version.js": {
           "bytesInOutput": 117
         },
         "node_modules/@opentelemetry/instrumentation-http/build/src/http.js": {
-          "bytesInOutput": 10714
+          "bytesInOutput": 10702
         },
         "node_modules/@opentelemetry/instrumentation-http/build/src/types.js": {
           "bytesInOutput": 79
@@ -10476,10 +10491,10 @@
           "bytesInOutput": 1676
         },
         "src/lambda-wrapper.ts": {
-          "bytesInOutput": 1615
+          "bytesInOutput": 1622
         }
       },
-      "bytes": 430823
+      "bytes": 430776
     }
   }
 }
