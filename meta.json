@@ -8628,7 +8628,7 @@
       "format": "cjs"
     },
     "src/lambda-wrapper.ts": {
-      "bytes": 2827,
+      "bytes": 4094,
       "imports": [
         {
           "path": "node_modules/@opentelemetry/api/build/src/index.js",
@@ -8687,6 +8687,11 @@
         },
         {
           "path": "http",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "querystring",
           "kind": "import-statement",
           "external": true
         },
@@ -8934,6 +8939,11 @@
         },
         {
           "path": "http",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "querystring",
           "kind": "require-call",
           "external": true
         }
@@ -9749,7 +9759,7 @@
           "bytesInOutput": 526
         },
         "node_modules/@opentelemetry/sdk-trace-node/node_modules/yallist/iterator.js": {
-          "bytesInOutput": 145
+          "bytesInOutput": 146
         },
         "node_modules/@opentelemetry/sdk-trace-node/node_modules/yallist/yallist.js": {
           "bytesInOutput": 4657
@@ -10481,10 +10491,10 @@
           "bytesInOutput": 1676
         },
         "src/lambda-wrapper.ts": {
-          "bytesInOutput": 1596
+          "bytesInOutput": 2233
         }
       },
-      "bytes": 430804
+      "bytes": 431442
     }
   }
 }

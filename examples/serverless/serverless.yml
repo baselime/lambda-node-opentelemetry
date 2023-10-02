@@ -13,9 +13,6 @@ provider:
   region: eu-west-2
   architecture: arm64
   versionFunctions: false
-  tracing:
-    lambda: true
-    apiGateway: true
   iam:
     role:
       statements:
@@ -30,11 +27,13 @@ provider:
           Resource: '*'
   tags:
     'baselime:tracing': true
+  environment:
+    AWS_SDK_INTERNALS: true
 functions:
   hello:
     handler: src/main.handler
     events:
-      - schedule: rate(5 minutes)
+      - schedule: rate(1 minute)
     environment:
       API_URL: !GetAtt HttpApi.ApiEndpoint
   wait-for-it:

@@ -12,14 +12,13 @@ async function track(name, func, args) {
     attributes: attrIn,
   });
   const ctx = trace.setSpan(context.active(), span);
-  console.log('ctx',)
   try {
     const result = await context.with(ctx, func, null, args);
     const attrOut = flattenObject(result, `${name}.result`);
     span.setAttributes(attrOut);
     span.end();
     return result;
-  } catch(e) {
+  } catch (e) {
     span.recordException(e);
     span.setAttributes(flattenObject({ name: e.name, message: e.message, stack: e.stack }, 'error'));
     span.end();
@@ -36,15 +35,16 @@ function trackAll(name, lib) {
 }
 
 exports.handler = async (e, context) => {
-  context.callbackWaitForEmptyEventLoop = false;
-  const { body: customer } = await track("tiny.get", tiny.get, {
+  const { body: customer } = await tiny.get({
     url: `${process.env.API_URL}/hello`,
   });
-  
-  // await track("tiny.post", tiny.post, {
-  //   url: "https://eokl0ly5zia7pe1.m.pipedream.net",
-  //   data: customer,
-  // });
+
+  await tiny.get({ url: 'https://react-rum.vercel.app/' });
+
+  await track("tiny.post", tiny.post, {
+    url: "https://enokbdj7ebl2r.x.pipedream.net",
+    data: customer,
+  });
 
   return customer;
 };

@@ -14,6 +14,7 @@ import { flatten } from "flat";
 import { existsSync } from "fs";
 import { arch } from "os"
 import { ClientRequest } from "http";
+import { parse } from 'querystring'
 import { logger } from "index";
 
 if (process.env.OTEL_LOG_LEVEL === "debug") {
@@ -70,14 +71,50 @@ const instrumentations: Instrumentation[] = [
 	}),
 	new HttpInstrumentation({
 		requestHook: (span, request) => {
+
 			if (request instanceof ClientRequest) {
-				const headers = request.getHeaders();
-				const httpReqData = {
-					request: {
-						headers,
-					},
+				const requestBodyChunks: string[] = [];
+				const oldWrite = request.write.bind(request);
+				request.write = (data: any) => {
+					console.log('request body chunk:', decodeURIComponent(data.toString()));
+					requestBodyChunks.push(decodeURIComponent(data.toString()));
+					return oldWrite(data);
 				};
-				span.setAttributes(flatten(httpReqData) as Attributes);
+				const oldEnd = request.end.bind(request);
+				request.end = (data: any) => {
+					if (data) {
+						requestBodyChunks.push(decodeURIComponent(data.toString()));
+					}
+					console.log('request body:', requestBodyChunks.join(), request);
+					const headers = request.getHeaders();
+
+					const body: string = requestBodyChunks.join();
+					let requestData: unknown
+					if (headers['content-type'] && typeof headers['content-type'] === 'string') {
+						if (headers['content-type'].includes('application/json') || headers['content-type'].includes('application/x-amz-json')) {
+							try {
+								requestData = JSON.parse(body);
+							} catch (e) {
+								console.error(e)
+								requestData = body;
+							}
+						} else if (headers['content-type'].includes('application/x-www-form-urlencoded')) {
+							requestData = parse(body)
+						} else {
+							requestData = body;
+						}
+					}
+
+					const httpReqData = {
+						request: {
+							headers,
+							body: requestData,
+						},
+					};
+					span.setAttributes(flatten(httpReqData) as Attributes);
+					return oldEnd(data);
+				};
+
 			}
 		},
 	}),
