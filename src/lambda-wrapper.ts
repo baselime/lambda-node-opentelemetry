@@ -14,6 +14,7 @@ import { flatten } from "flat";
 import { existsSync } from "fs";
 import { arch } from "os"
 import { ClientRequest } from "http";
+import { logger } from "index";
 
 if (process.env.OTEL_LOG_LEVEL === "debug") {
 	api.diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.ALL);
@@ -38,14 +39,9 @@ if (existsSync('/opt/extensions/baselime')) {
 	collectorURL = 'http://sandbox:4323/otel';
 }
 
-enum CompressionAlgorithm {
-	GZIP = "gzip",
-}
-
 const spanProcessor = new BatchSpanProcessor(
 	new OTLPTraceExporter({
 		url: collectorURL,
-		compression: CompressionAlgorithm.GZIP,
 		headers: {
 			"x-api-key": process.env.BASELIME_KEY || process.env.BASELIME_OTEL_KEY,
 		},
