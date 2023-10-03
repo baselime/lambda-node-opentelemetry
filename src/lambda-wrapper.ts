@@ -40,6 +40,7 @@ if (existsSync('/opt/extensions/baselime')) {
 	collectorURL = 'http://sandbox:4323/otel';
 }
 
+
 const spanProcessor = new BatchSpanProcessor(
 	new OTLPTraceExporter({
 		url: collectorURL,

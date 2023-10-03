@@ -100,9 +100,9 @@ export function wrap(handler: Handler) {
       throw e
     } finally {
       if (global.baselimeLambdaFlush) {
-        console.time('baselimeLambdaFlush');
+        console.time('Baselime Trace Export');
         await global.baselimeLambdaFlush();
-        console.timeEnd('baselimeLambdaFlush');
+        console.timeEnd('Baselime Trace Export');
       }
     }
   }

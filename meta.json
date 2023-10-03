@@ -8628,7 +8628,7 @@
       "format": "cjs"
     },
     "src/lambda-wrapper.ts": {
-      "bytes": 4094,
+      "bytes": 4066,
       "imports": [
         {
           "path": "node_modules/@opentelemetry/api/build/src/index.js",
@@ -10491,10 +10491,10 @@
           "bytesInOutput": 1676
         },
         "src/lambda-wrapper.ts": {
-          "bytesInOutput": 2233
+          "bytesInOutput": 2215
         }
       },
-      "bytes": 431442
+      "bytes": 431424
     }
   }
 }

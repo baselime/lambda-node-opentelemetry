@@ -13,6 +13,8 @@ dist
 index.js
 lambda-wrapper.js
 loader.js
+./handler.cjs
+./handler.mjs
 # misc
 .DS_Store
 
