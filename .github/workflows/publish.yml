@@ -38,17 +38,7 @@ jobs:
           role-to-assume: arn:aws:iam::097948374213:role/github-actions-deploy
       - name: Deploy Layer
         run: npm run deploy:prod
-      - name: Commit files
-        run: |
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git commit -a -m "Update Changelog"
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
-
+      
   create-release:
     needs: [publish-node-packages]
 
