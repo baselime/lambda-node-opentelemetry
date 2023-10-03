@@ -1,7 +1,9 @@
 {
   "name": "@baselime/lambda-node-opentelemetry",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "description": "OpenTelemetry auto tracer for Node.JS based AWS Lambda functions",
+  "types": "index.d.ts",
+  "main": "index.js",
   "keywords": [
     "nodejs",
     "aws-lambda",
@@ -10,17 +12,18 @@
   ],
   "files": [
     "lambda-wrapper.js",
-    "index.js"
+    "index.js",
+    "index.d.ts"
   ],
   "type": "module",
   "scripts": {
-    "tsc": "tsc --p ./tsconfig.json",
+    "tsc": "tsc  --declaration --emitDeclarationOnly --p ./tsconfig.json",
     "build:handler": "npm run build:esm && npm run build:cjs",
     "build:esm": "esbuild src/handler.mjs --bundle --minify --platform=node --target=node18 --outfile=dist/handler.mjs --metafile=meta.json --format=esm",
     "build:cjs": "esbuild src/handler.cjs --bundle --minify --platform=node --target=node18 --outfile=dist/handler.cjs --metafile=meta.json --format=cjs",
     "distribute": "mkdir -p layer-dir/nodejs/node_modules/@baselime/lambda-node-opentelemetry && cp -r dist/* layer-dir/nodejs/node_modules/@baselime/lambda-node-opentelemetry && cp -r dist/* .",
     "build:tracer": "esbuild src/lambda-wrapper.ts src/index.ts --bundle --minify --platform=node --target=node18 --format=cjs --outdir=dist --metafile=meta.json",
-    "build": "npm run build:handler && npm run build:tracer && npm run distribute",
+    "build": "npm run build:handler && npm run build:tracer && npm run tsc && npm run distribute",
     "deploy": "sst deploy",
     "deploy:uat": "npm run build && npx tsx multi-region-deploy.ts uat",
     "deploy:prod": "npm run build && npx tsx multi-region-deploy.ts prod",
