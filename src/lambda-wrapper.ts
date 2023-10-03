@@ -72,11 +72,10 @@ const instrumentations: Instrumentation[] = [
 	new HttpInstrumentation({
 		requestHook: (span, request) => {
 
-			if (request instanceof ClientRequest) {
+			if (request instanceof ClientRequest && request.host !== 'sandbox' && request.host !== 'console.baselime.cc') {
 				const requestBodyChunks: string[] = [];
 				const oldWrite = request.write.bind(request);
 				request.write = (data: any) => {
-					console.log('request body chunk:', decodeURIComponent(data.toString()));
 					requestBodyChunks.push(decodeURIComponent(data.toString()));
 					return oldWrite(data);
 				};
@@ -85,7 +84,6 @@ const instrumentations: Instrumentation[] = [
 					if (data) {
 						requestBodyChunks.push(decodeURIComponent(data.toString()));
 					}
-					console.log('request body:', requestBodyChunks.join(), request);
 					const headers = request.getHeaders();
 
 					const body: string = requestBodyChunks.join();
