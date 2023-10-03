@@ -72,7 +72,7 @@ const instrumentations: Instrumentation[] = [
 	new HttpInstrumentation({
 		requestHook: (span, request) => {
 
-			if (request instanceof ClientRequest && request.host !== 'sandbox' && request.host !== 'console.baselime.cc') {
+			if (request instanceof ClientRequest && request.host !== 'sandbox' && request.host.includes('otel.baselime')) {
 				const requestBodyChunks: string[] = [];
 				const oldWrite = request.write.bind(request);
 				request.write = (data: any) => {
