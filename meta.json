@@ -8628,7 +8628,7 @@
       "format": "cjs"
     },
     "src/lambda-wrapper.ts": {
-      "bytes": 4066,
+      "bytes": 4019,
       "imports": [
         {
           "path": "node_modules/@opentelemetry/api/build/src/index.js",
@@ -8699,6 +8699,53 @@
           "path": "index",
           "kind": "import-statement",
           "external": true
+        }
+      ],
+      "format": "esm"
+    },
+    "src/logger.ts": {
+      "bytes": 1607,
+      "imports": [
+        {
+          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "kind": "import-statement",
+          "original": "@opentelemetry/api"
+        },
+        {
+          "path": "node_modules/flat/index.js",
+          "kind": "import-statement",
+          "original": "flat"
+        }
+      ],
+      "format": "esm"
+    },
+    "src/index.ts": {
+      "bytes": 7127,
+      "imports": [
+        {
+          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "kind": "import-statement",
+          "original": "@opentelemetry/api"
+        },
+        {
+          "path": "aws-lambda",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "node_modules/flat/index.js",
+          "kind": "import-statement",
+          "original": "flat"
+        },
+        {
+          "path": "aws-lambda",
+          "kind": "import-statement",
+          "external": true
+        },
+        {
+          "path": "src/logger.ts",
+          "kind": "import-statement",
+          "original": "./logger"
         }
       ],
       "format": "esm"
@@ -10491,10 +10538,168 @@
           "bytesInOutput": 1676
         },
         "src/lambda-wrapper.ts": {
-          "bytesInOutput": 2215
+          "bytesInOutput": 2179
         }
       },
-      "bytes": 431424
+      "bytes": 431388
+    },
+    "dist/index.js": {
+      "imports": [],
+      "exports": [],
+      "entryPoint": "src/index.ts",
+      "inputs": {
+        "node_modules/@opentelemetry/api/build/src/platform/node/globalThis.js": {
+          "bytesInOutput": 162
+        },
+        "node_modules/@opentelemetry/api/build/src/platform/node/index.js": {
+          "bytesInOutput": 409
+        },
+        "node_modules/@opentelemetry/api/build/src/platform/index.js": {
+          "bytesInOutput": 409
+        },
+        "node_modules/@opentelemetry/api/build/src/version.js": {
+          "bytesInOutput": 116
+        },
+        "node_modules/@opentelemetry/api/build/src/internal/semver.js": {
+          "bytesInOutput": 782
+        },
+        "node_modules/@opentelemetry/api/build/src/internal/global-utils.js": {
+          "bytesInOutput": 1101
+        },
+        "node_modules/@opentelemetry/api/build/src/diag/ComponentLogger.js": {
+          "bytesInOutput": 549
+        },
+        "node_modules/@opentelemetry/api/build/src/diag/types.js": {
+          "bytesInOutput": 310
+        },
+        "node_modules/@opentelemetry/api/build/src/diag/internal/logLevelLogger.js": {
+          "bytesInOutput": 552
+        },
+        "node_modules/@opentelemetry/api/build/src/api/diag.js": {
+          "bytesInOutput": 1296
+        },
+        "node_modules/@opentelemetry/api/build/src/baggage/internal/baggage-impl.js": {
+          "bytesInOutput": 587
+        },
+        "node_modules/@opentelemetry/api/build/src/baggage/internal/symbol.js": {
+          "bytesInOutput": 177
+        },
+        "node_modules/@opentelemetry/api/build/src/baggage/utils.js": {
+          "bytesInOutput": 497
+        },
+        "node_modules/@opentelemetry/api/build/src/context/context.js": {
+          "bytesInOutput": 488
+        },
+        "node_modules/@opentelemetry/api/build/src/diag/consoleLogger.js": {
+          "bytesInOutput": 481
+        },
+        "node_modules/@opentelemetry/api/build/src/metrics/NoopMeter.js": {
+          "bytesInOutput": 1761
+        },
+        "node_modules/@opentelemetry/api/build/src/metrics/Metric.js": {
+          "bytesInOutput": 192
+        },
+        "node_modules/@opentelemetry/api/build/src/propagation/TextMapPropagator.js": {
+          "bytesInOutput": 285
+        },
+        "node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js": {
+          "bytesInOutput": 288
+        },
+        "node_modules/@opentelemetry/api/build/src/api/context.js": {
+          "bytesInOutput": 692
+        },
+        "node_modules/@opentelemetry/api/build/src/trace/trace_flags.js": {
+          "bytesInOutput": 199
+        },
+        "node_modules/@opentelemetry/api/build/src/trace/invalid-span-constants.js": {
+          "bytesInOutput": 348
+        },
+        "node_modules/@opentelemetry/api/build/src/trace/NonRecordingSpan.js": {
+          "bytesInOutput": 439
+        },
+        "node_modules/@opentelemetry/api/build/src/trace/context-utils.js": {
+          "bytesInOutput": 679
+        },
+        "node_modules/@opentelemetry/api/build/src/trace/spancontext-utils.js": {
+          "bytesInOutput": 516
+        },
+        "node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js": {
+          "bytesInOutput": 753
+        },
+        "node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js": {
+          "bytesInOutput": 578
+        },
+        "node_modules/@opentelemetry/api/build/src/trace/NoopTracerProvider.js": {
+          "bytesInOutput": 198
+        },
+        "node_modules/@opentelemetry/api/build/src/trace/ProxyTracerProvider.js": {
+          "bytesInOutput": 512
+        },
+        "node_modules/@opentelemetry/api/build/src/trace/SamplingResult.js": {
+          "bytesInOutput": 279
+        },
+        "node_modules/@opentelemetry/api/build/src/trace/span_kind.js": {
+          "bytesInOutput": 281
+        },
+        "node_modules/@opentelemetry/api/build/src/trace/status.js": {
+          "bytesInOutput": 229
+        },
+        "node_modules/@opentelemetry/api/build/src/trace/internal/tracestate-validators.js": {
+          "bytesInOutput": 386
+        },
+        "node_modules/@opentelemetry/api/build/src/trace/internal/tracestate-impl.js": {
+          "bytesInOutput": 1056
+        },
+        "node_modules/@opentelemetry/api/build/src/trace/internal/utils.js": {
+          "bytesInOutput": 188
+        },
+        "node_modules/@opentelemetry/api/build/src/context-api.js": {
+          "bytesInOutput": 147
+        },
+        "node_modules/@opentelemetry/api/build/src/diag-api.js": {
+          "bytesInOutput": 135
+        },
+        "node_modules/@opentelemetry/api/build/src/metrics/NoopMeterProvider.js": {
+          "bytesInOutput": 238
+        },
+        "node_modules/@opentelemetry/api/build/src/api/metrics.js": {
+          "bytesInOutput": 540
+        },
+        "node_modules/@opentelemetry/api/build/src/metrics-api.js": {
+          "bytesInOutput": 148
+        },
+        "node_modules/@opentelemetry/api/build/src/propagation/NoopTextMapPropagator.js": {
+          "bytesInOutput": 207
+        },
+        "node_modules/@opentelemetry/api/build/src/baggage/context-helpers.js": {
+          "bytesInOutput": 480
+        },
+        "node_modules/@opentelemetry/api/build/src/api/propagation.js": {
+          "bytesInOutput": 928
+        },
+        "node_modules/@opentelemetry/api/build/src/propagation-api.js": {
+          "bytesInOutput": 160
+        },
+        "node_modules/@opentelemetry/api/build/src/api/trace.js": {
+          "bytesInOutput": 1005
+        },
+        "node_modules/@opentelemetry/api/build/src/trace-api.js": {
+          "bytesInOutput": 142
+        },
+        "node_modules/@opentelemetry/api/build/src/index.js": {
+          "bytesInOutput": 3557
+        },
+        "node_modules/flat/index.js": {
+          "bytesInOutput": 1675
+        },
+        "src/index.ts": {
+          "bytesInOutput": 3484
+        },
+        "src/logger.ts": {
+          "bytesInOutput": 756
+        }
+      },
+      "bytes": 32061
     }
   }
 }
