@@ -1,6 +1,6 @@
 {
   "name": "@baselime/lambda-node-opentelemetry",
-  "version": "0.2.15",
+  "version": "0.2.16",
   "description": "OpenTelemetry auto tracer for Node.JS based AWS Lambda functions",
   "types": "index.d.ts",
   "exports": {
@@ -53,6 +53,7 @@
     "aws-cdk-lib": "2.79.1",
     "constructs": "10.1.156",
     "esbuild": "^0.17.19",
+    "serverless-webpack": "^5.13.0",
     "sst": "^2.12.0",
     "typescript": "^5.2.2",
     "vite": "^4.3.9",

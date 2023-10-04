@@ -715,9 +715,12 @@
     }
   },
   "outputs": {
-    "dist/index.cjs": {
+    "dist/index.mjs": {
       "imports": [],
-      "exports": [],
+      "exports": [
+        "logger",
+        "wrap"
+      ],
       "entryPoint": "src/index.ts",
       "inputs": {
         "node_modules/@opentelemetry/api/build/src/platform/node/globalThis.js": {
@@ -865,13 +868,13 @@
           "bytesInOutput": 1675
         },
         "src/index.ts": {
-          "bytesInOutput": 3484
+          "bytesInOutput": 3417
         },
         "src/logger.ts": {
           "bytesInOutput": 756
         }
       },
-      "bytes": 32061
+      "bytes": 31936
     }
   }
 }

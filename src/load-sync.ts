@@ -32,5 +32,13 @@ export function loadSync(taskRoot: string, originalHandler: string) {
         }
         throw Error(`Could not load ${originalHandler}`);
     }
+
+    if(typeof lambda[functionName] !== 'function') {
+        if(typeof lambda.default === 'object' && typeof lambda.default[functionName] === 'function') {
+            return lambda.default[functionName];
+        }
+        console.log(lambda, originalHandler)
+        throw Error(`Handler path format not supported for OpenTelemetry Auto Instrumentation. Please contact Baselime \n ${originalHandler} \n ${JSON.stringify(lambda)}`)
+    }
     return lambda[functionName];
 }   

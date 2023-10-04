@@ -1,0 +1,23 @@
+service: trace-webpack-babel
+
+
+plugins:
+  - serverless-webpack
+    
+provider:
+  name: aws
+  runtime: nodejs14.x
+  timeout: 10
+  region: eu-west-2
+  architecture: arm64
+  versionFunctions: false
+  tags:
+    'baselime:tracing': true
+
+functions:
+    hello:
+      handler: ./handler.enum
+      events:
+        - httpApi:
+            method: get
+            path: /hello
