@@ -1,6 +1,6 @@
 {
   "name": "@baselime/lambda-node-opentelemetry",
-  "version": "0.2.11",
+  "version": "0.2.12",
   "description": "OpenTelemetry auto tracer for Node.JS based AWS Lambda functions",
   "types": "index.d.ts",
   "main": "index.js",
@@ -19,7 +19,7 @@
   "scripts": {
     "tsc": "tsc  --declaration --emitDeclarationOnly --p ./tsconfig.json",
     "build:handler": "npm run build:esm && npm run build:cjs",
-    "build:esm": "esbuild src/handler.mjs --bundle --minify --platform=node --target=node18 --  =dist/handler.mjs --metafile=meta.json --format=esm",
+    "build:esm": "esbuild src/handler.mjs --bundle --minify --platform=node --target=node18 --outfile=dist/handler.mjs --metafile=meta.json --format=esm",
     "build:cjs": "esbuild src/handler.cjs --bundle --minify --platform=node --target=node18 --outfile=dist/handler.cjs --metafile=meta.json --format=cjs",
     "distribute": "mkdir -p layer-dir/nodejs/node_modules/@baselime/lambda-node-opentelemetry && cp -r dist/* layer-dir/nodejs/node_modules/@baselime/lambda-node-opentelemetry && cp -r dist/* .",
     "build:tracer": "esbuild src/lambda-wrapper.ts --bundle --minify --platform=node --target=node18 --format=cjs --outfile=dist/lambda-wrapper.cjs --metafile=meta.json",
