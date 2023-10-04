@@ -5,9 +5,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [0.2.11] 2023-09-04
+
+- add cjs to extension for otel extension so it loads in all node environments
+- 
 ## [0.2.10] 2023-09-03
 
 - fix manual setup build
+  
 ## [0.2.8] 2023-09-03
 
 - don't enrich span for outgoing trace http post
