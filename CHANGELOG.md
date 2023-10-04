@@ -5,10 +5,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [0.2.13] 2023-09-04
+## [0.2.14] 2023-09-04
 
 - add cjs to extension for otel extension so it loads in all node environments
-- 
+- add esm build for wrapper
 ## [0.2.10] 2023-09-03
 
 - fix manual setup build
