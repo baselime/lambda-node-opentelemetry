@@ -22,7 +22,6 @@ export function LAYER({ stack }: StackContext) {
   
   layer.addPermission("layerPermission", {
     accountId: "*",
-    
   });
   layer.applyRemovalPolicy(RemovalPolicy.RETAIN);
   stack.addOutputs({
