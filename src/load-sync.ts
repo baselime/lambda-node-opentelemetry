@@ -6,7 +6,7 @@ function _tryRequire(path: string) {
     try {
         return require(path);
     } catch (err) {
-        if (err instanceof Error) {
+        if (err instanceof Error && !err.message.includes('Cannot find module')) {
             diagnostics.push(err)
         }
         return false;
@@ -26,10 +26,11 @@ export function loadSync(taskRoot: string, originalHandler: string) {
 
     const lambda = _tryRequire(functionPath) || _tryRequire(functionPath + '.cjs')
 
+    if (diagnostics.length > 0) {
+        process.stdout.write(`Diagnostics load for ${originalHandler}\n${diagnostics.map(d => JSON.stringify({ name: d.name, message: d.message, stack: d.stack })).join('\n')}\n`)
+    }
+
     if (!lambda) {
-        if (process.env.BASELIME_DEBUG && diagnostics.length > 0) {
-            process.stdout.write(`Diagnostics loadSync for ${originalHandler}\n${diagnostics.map(d => JSON.stringify({ name: d.name, message: d.message, stack: d.stack })).join('\n')}\n`)
-        }
         throw Error(`Could not load ${originalHandler}`);
     }
 
