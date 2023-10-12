@@ -1,5 +1,5 @@
 import { describe, expect, expectTypeOf, it } from 'vitest';
-import { loadSync } from '../src/loader';
+import { loadSync } from '../src/load-sync';
 import path from 'node:path';
  
 describe('load()', () => {
