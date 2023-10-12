@@ -15,7 +15,6 @@ import { existsSync } from "fs";
 import { arch } from "os"
 import { ClientRequest } from "http";
 import { parse } from 'querystring'
-import { logger } from "index";
 
 if (process.env.OTEL_LOG_LEVEL === "debug") {
 	api.diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.ALL);
