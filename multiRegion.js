@@ -11,7 +11,8 @@ export const config = {
         "ap-southeast-1",
         "ap-southeast-2",
         "ap-northeast-1",
-        "ca-central-1"
+        "ca-central-1",
+        "eu-north-1"
     ],
     "output": "md"
 }
