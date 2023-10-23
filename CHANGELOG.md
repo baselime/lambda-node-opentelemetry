@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Unreleased]
+
+- ensure .cjs files are imported
+- parse request bodys if the content type is json
+  
 ## [0.2.20] 2023-09-20
 
 - add eu-north-1

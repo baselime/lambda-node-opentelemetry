@@ -71,8 +71,7 @@ const instrumentations: Instrumentation[] = [
 	}),
 	new HttpInstrumentation({
 		requestHook: (span, request) => {
-
-			if (request instanceof ClientRequest && request.host !== 'sandbox' && request.host.includes('otel.baselime')) {
+			if (request instanceof ClientRequest && request.host !== 'sandbox' && !request.host.includes('otel.baselime') && !request.host.includes('.amazonaws.com')) {
 				const requestBodyChunks: string[] = [];
 				const oldWrite = request.write.bind(request);
 				request.write = (data: any) => {

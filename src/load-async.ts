@@ -23,8 +23,8 @@ export async function load(taskRoot: string, originalHandler: string) {
     const functionName = pathDetails.ext.slice(1);
 
     const functionPath = path.resolve(taskRoot, pathDetails.dir, pathDetails.name);
-    const lambda = await _tryImport(functionPath + '.js') || await _tryImport(functionPath + '.mjs');
-
+    const lambda = await _tryImport(functionPath + '.js') || await _tryImport(functionPath + '.mjs') || await _tryImport(functionPath + '.cjs');
+    
     if (diagnostics.length > 0) {
         process.stdout.write(`Diagnostics load for ${originalHandler}\n${diagnostics.map(d => JSON.stringify({ name: d.name, message: d.message, stack: d.stack })).join('\n')}\n`)
     }
@@ -39,5 +39,6 @@ export async function load(taskRoot: string, originalHandler: string) {
         }
         throw Error(`Handler path format not supported for OpenTelemetry Auto Instrumentation. Please contact Baselime \n ${originalHandler} \n ${JSON.stringify(lambda)}`)
     }
+
     return lambda[functionName];
 }

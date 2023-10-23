@@ -1,5 +1,5 @@
 import api, { trace, context, propagation, Context as OtelContext, ROOT_CONTEXT, Attributes } from "@opentelemetry/api";
-import { Handler, DynamoDBStreamEvent, S3Event, Callback } from "aws-lambda";
+import { Handler, DynamoDBStreamEvent, S3Event, APIGatewayProxyEventV2, APIGatewayProxyEvent, Callback } from "aws-lambda";
 import { flatten } from "flat"
 import { Context } from 'aws-lambda';
 
@@ -14,14 +14,18 @@ type FaasDocument = {
   name: string
 }
 let coldstart = true;
+const tracer = trace.getTracer('@baselime/baselime-lambda-wrapper', '1');
 
 export function wrap(handler: Handler) {
   return async function (event: any, lambda_context: Context, callback?: Callback) {
-    const tracer = trace.getTracer('@baselime/baselime-lambda-wrapper', '1');
     const service = detectService(event);
     const trigger = triggerToServiceType(service);
     const parent = determinParent(event, service);
     let document: FaasDocument | null = null;
+
+    if(trigger === "http") {
+      event = parseHttpEvent(event);
+    }
     if (trigger === 'datasource') {
       if (service === 'dynamodb') {
         document = getDynamodbStreamDocumentAttributes(event);
@@ -250,4 +254,18 @@ function getS3DocumentAttributes(event: S3Event): FaasDocument {
     operation,
     time: event.Records[0].eventTime,
   }
+}
+
+function parseHttpEvent(event: APIGatewayProxyEventV2 | APIGatewayProxyEvent) {
+  if(event.headers['content-type'] === 'application/json') {
+    event.body = JSON.parse(event.body || '{}');
+    return event;
+  }
+  
+  /**
+   * TODO: add support for other content types
+   */
+
+  return event;
+
 }
