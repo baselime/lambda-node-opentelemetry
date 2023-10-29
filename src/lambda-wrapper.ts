@@ -75,13 +75,21 @@ const instrumentations: Instrumentation[] = [
 				const requestBodyChunks: string[] = [];
 				const oldWrite = request.write.bind(request);
 				request.write = (data: any) => {
-					requestBodyChunks.push(decodeURIComponent(data.toString()));
+					try {
+						requestBodyChunks.push(decodeURIComponent(data.toString()));
+					} catch (e) {
+
+					}
 					return oldWrite(data);
 				};
 				const oldEnd = request.end.bind(request);
 				request.end = (data: any) => {
 					if (data) {
-						requestBodyChunks.push(decodeURIComponent(data.toString()));
+						try {
+							requestBodyChunks.push(decodeURIComponent(data.toString()));
+						} catch (e) {
+	
+						}
 					}
 					const headers = request.getHeaders();
 
@@ -96,8 +104,12 @@ const instrumentations: Instrumentation[] = [
 								requestData = body;
 							}
 						} else if (headers['content-type'].includes('application/x-www-form-urlencoded')) {
-							requestData = parse(body)
-						} else {
+							try {
+								requestData = parse(body);
+							} catch (e) {
+								console.error(e)
+								requestData = body;
+							}
 							requestData = body;
 						}
 					}
