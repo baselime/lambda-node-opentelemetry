@@ -12,7 +12,9 @@ export const handler = async (event, context) => {
     await eventbridge.putEvents({
         Entries: [{
             Source: 'baselime',
-            Detail: 'too many chickens'
+            Detail: JSON.stringify({ comment: "too many chickens" }),
+            DetailType: 'comment',
+            Resources: [],
         }]
     }).promise()
     const random = Math.random();
