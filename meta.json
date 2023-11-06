@@ -666,24 +666,8 @@
       "imports": [],
       "format": "cjs"
     },
-    "src/logger.ts": {
-      "bytes": 1607,
-      "imports": [
-        {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
-          "kind": "import-statement",
-          "original": "@opentelemetry/api"
-        },
-        {
-          "path": "node_modules/flat/index.js",
-          "kind": "import-statement",
-          "original": "flat"
-        }
-      ],
-      "format": "esm"
-    },
     "src/index.ts": {
-      "bytes": 7127,
+      "bytes": 7792,
       "imports": [
         {
           "path": "node_modules/@opentelemetry/api/build/src/index.js",
@@ -704,11 +688,6 @@
           "path": "aws-lambda",
           "kind": "import-statement",
           "external": true
-        },
-        {
-          "path": "src/logger.ts",
-          "kind": "import-statement",
-          "original": "./logger"
         }
       ],
       "format": "esm"
@@ -718,7 +697,6 @@
     "dist/index.mjs": {
       "imports": [],
       "exports": [
-        "logger",
         "wrap"
       ],
       "entryPoint": "src/index.ts",
@@ -868,13 +846,10 @@
           "bytesInOutput": 1675
         },
         "src/index.ts": {
-          "bytesInOutput": 3417
-        },
-        "src/logger.ts": {
-          "bytesInOutput": 756
+          "bytesInOutput": 3631
         }
       },
-      "bytes": 31936
+      "bytes": 31325
     }
   }
 }
