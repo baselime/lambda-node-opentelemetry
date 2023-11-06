@@ -266,7 +266,7 @@ function parseJSON(str: string) {
   }
 }
 function parseHttpEvent(event: APIGatewayProxyEventV2 | APIGatewayProxyEvent): HttpEvent {
-  if (event.headers['content-type'] === 'application/json') {
+  if (event.headers['content-type']?.toLowerCase() === 'application/json') {
     return {
       body: parseJSON(event.body || '{}'),
       headers: event.headers
@@ -281,5 +281,4 @@ function parseHttpEvent(event: APIGatewayProxyEventV2 | APIGatewayProxyEvent): H
     body: event.body,
     headers: event.headers
   };
-
 }
