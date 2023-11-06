@@ -17,6 +17,8 @@ function deployToRegion(region: string) {
     } catch (error) {
         console.log(error.stdout?.toString())
         console.log(error.stderr?.toString())
+
+        throw Error(`Failed to deploy - ${region} ${error.stderr?.toString() || error}`)
     }
 }
 
