@@ -13,6 +13,8 @@ type FaasDocument = {
   time: string
   name: string
 }
+
+type HttpEvent = { body: unknown, headers: { [key: string]: string | undefined } };
 let coldstart = true;
 const tracer = trace.getTracer('@baselime/baselime-lambda-wrapper', '1');
 
@@ -22,9 +24,9 @@ export function wrap(handler: Handler) {
     const trigger = triggerToServiceType(service);
     const parent = determinParent(event, service);
     let document: FaasDocument | null = null;
-
-    if(trigger === "http") {
-      event = parseHttpEvent(event);
+    let httpEvent: HttpEvent | undefined = undefined;
+    if (trigger === "http") {
+      httpEvent = parseHttpEvent(event);
     }
     if (trigger === 'datasource') {
       if (service === 'dynamodb') {
@@ -37,7 +39,7 @@ export function wrap(handler: Handler) {
     }
     const span = tracer.startSpan(lambda_context.functionName, {
       attributes: flatten({
-        event,
+        event: httpEvent || event,
         context: {
           functionName: lambda_context.functionName,
           functionVersion: lambda_context.functionVersion,
@@ -256,16 +258,21 @@ function getS3DocumentAttributes(event: S3Event): FaasDocument {
   }
 }
 
-function parseHttpEvent(event: APIGatewayProxyEventV2 | APIGatewayProxyEvent) {
-  if(event.headers['content-type'] === 'application/json') {
-    event.body = JSON.parse(event.body || '{}');
-    return event;
+function parseHttpEvent(event: APIGatewayProxyEventV2 | APIGatewayProxyEvent): HttpEvent {
+  if (event.headers['content-type'] === 'application/json') {
+    return {
+      body: JSON.parse(event.body || '{}'),
+      headers: event.headers
+    };
   }
-  
+
   /**
    * TODO: add support for other content types
    */
 
-  return event;
+  return {
+    body: event.body,
+    headers: event.headers
+  };
 
 }
