@@ -258,10 +258,17 @@ function getS3DocumentAttributes(event: S3Event): FaasDocument {
   }
 }
 
+function parseJSON(str: string) {
+  try {
+    return JSON.parse(str);
+  } catch (error) {
+    return str;
+  }
+}
 function parseHttpEvent(event: APIGatewayProxyEventV2 | APIGatewayProxyEvent): HttpEvent {
   if (event.headers['content-type'] === 'application/json') {
     return {
-      body: JSON.parse(event.body || '{}'),
+      body: parseJSON(event.body || '{}'),
       headers: event.headers
     };
   }
