@@ -100,14 +100,12 @@ const instrumentations: Instrumentation[] = [
 							try {
 								requestData = JSON.parse(body);
 							} catch (e) {
-								console.error(e)
 								requestData = body;
 							}
 						} else if (headers['content-type'].includes('application/x-www-form-urlencoded')) {
 							try {
 								requestData = parse(body);
 							} catch (e) {
-								console.error(e)
 								requestData = body;
 							}
 							requestData = body;

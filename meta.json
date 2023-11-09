@@ -667,7 +667,7 @@
       "format": "cjs"
     },
     "src/index.ts": {
-      "bytes": 7792,
+      "bytes": 7917,
       "imports": [
         {
           "path": "node_modules/@opentelemetry/api/build/src/index.js",
@@ -846,10 +846,10 @@
           "bytesInOutput": 1675
         },
         "src/index.ts": {
-          "bytesInOutput": 3631
+          "bytesInOutput": 3694
         }
       },
-      "bytes": 31325
+      "bytes": 31388
     }
   }
 }
