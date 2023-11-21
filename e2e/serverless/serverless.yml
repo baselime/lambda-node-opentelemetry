@@ -33,7 +33,7 @@ functions:
   hello:
     handler: src/main.handler
     events:
-      - schedule: rate(1 minute)
+      - schedule: rate(10 minutes)
     environment:
       API_URL: !GetAtt HttpApi.ApiEndpoint
   wait-for-it:
