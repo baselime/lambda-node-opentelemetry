@@ -6,7 +6,7 @@ async function _tryImport(path: string): Promise<false | Record<string, Handler>
     try {
         return await import(path);
     } catch (err) {
-        if (err instanceof Error && !err.message.includes('file exist?')) {
+        if (err instanceof Error && !err.message.includes('file exist?') && !err.message.includes("Cannot find module")) {
             diagnostics.push(err)
         }
         return false

@@ -68,6 +68,7 @@
     "@opentelemetry/instrumentation": "^0.40.0",
     "@opentelemetry/instrumentation-aws-lambda": "^0.35.2",
     "@opentelemetry/instrumentation-aws-sdk": "^0.34.2",
+    "@opentelemetry/instrumentation-fetch": "^0.45.1",
     "@opentelemetry/instrumentation-http": "^0.40.0",
     "@opentelemetry/sdk-trace-base": "^1.14.0",
     "@opentelemetry/sdk-trace-node": "^1.14.0",
