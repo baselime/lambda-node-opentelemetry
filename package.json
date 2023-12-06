@@ -65,7 +65,7 @@
   "dependencies": {
     "@opentelemetry/api": "^1.4.1",
     "@opentelemetry/exporter-trace-otlp-http": "^0.40.0",
-    "@opentelemetry/instrumentation": "^0.40.0",
+    "@opentelemetry/instrumentation": "^0.41.2",
     "@opentelemetry/instrumentation-aws-lambda": "^0.35.2",
     "@opentelemetry/instrumentation-aws-sdk": "^0.34.2",
     "@opentelemetry/instrumentation-fetch": "^0.45.1",
