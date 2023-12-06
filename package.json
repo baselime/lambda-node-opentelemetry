@@ -52,7 +52,7 @@
     "@tsconfig/node16": "^1.0.4",
     "@types/flat": "^5.0.2",
     "@types/node": "^20.1.7",
-    "aws-cdk-lib": "2.79.1",
+    "aws-cdk-lib": "2.80.0",
     "constructs": "10.1.156",
     "esbuild": "^0.17.19",
     "release-it": "^16.2.1",
