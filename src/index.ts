@@ -266,19 +266,27 @@ function parseJSON(str: string) {
   }
 }
 function parseHttpEvent(event: APIGatewayProxyEventV2 | APIGatewayProxyEvent): HttpEvent {
-  if (event.headers['content-type']?.toLowerCase() === 'application/json') {
+  try {
+    if (event.headers['content-type']?.toLowerCase() === 'application/json') {
+      return {
+        body: parseJSON(event.body || '{}'),
+        headers: event.headers
+      };
+    }
+  
+    /**
+     * TODO: add support for other content types
+     */
+  
     return {
-      body: parseJSON(event.body || '{}'),
+      body: event.body,
+      headers: event.headers
+    };
+  } catch (_) {
+    return {
+      body: event.body,
       headers: event.headers
     };
   }
-
-  /**
-   * TODO: add support for other content types
-   */
-
-  return {
-    body: event.body,
-    headers: event.headers
-  };
+  
 }

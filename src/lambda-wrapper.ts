@@ -88,29 +88,25 @@ const instrumentations: Instrumentation[] = [
 						try {
 							requestBodyChunks.push(decodeURIComponent(data.toString()));
 						} catch (e) {
-	
+
 						}
 					}
 					const headers = request.getHeaders();
 
 					const body: string = requestBodyChunks.join();
 					let requestData: unknown
-					if (headers['content-type'] && typeof headers['content-type'] === 'string') {
-						if (headers['content-type'].includes('application/json') || headers['content-type'].includes('application/x-amz-json')) {
-							try {
+					try {
+						if (headers['content-type'] && typeof headers['content-type'] === 'string') {
+							if (headers['content-type'].includes('application/json') || headers['content-type'].includes('application/x-amz-json')) {
 								requestData = JSON.parse(body);
-							} catch (e) {
-								requestData = body;
-							}
-						} else if (headers['content-type'].includes('application/x-www-form-urlencoded')) {
-							try {
+							} else if (headers['content-type'].includes('application/x-www-form-urlencoded')) {
 								requestData = parse(body);
-							} catch (e) {
-								requestData = body;
 							}
-							requestData = body;
 						}
+					} catch (_) {
+						requestData = body;
 					}
+
 
 					const httpReqData = {
 						request: {
