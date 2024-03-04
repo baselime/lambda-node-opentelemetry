@@ -26,10 +26,9 @@
     "build:esm": "esbuild src/handler.mjs --bundle --minify --platform=node --target=node18 --outfile=dist/handler.mjs --metafile=meta.json --format=esm",
     "build:cjs": "esbuild src/handler.cjs --bundle --minify --platform=node --target=node18 --outfile=dist/handler.cjs --metafile=meta.json --format=cjs",
     "distribute": "mkdir -p layer-dir/nodejs/node_modules/@baselime/lambda-node-opentelemetry && cp -r dist/* layer-dir/nodejs/node_modules/@baselime/lambda-node-opentelemetry",
-    "build:tracer": "esbuild src/lambda-wrapper.ts --bundle --minify --platform=node --target=node18 --format=cjs --outfile=dist/lambda-wrapper.cjs --metafile=meta.json",
+    "build:tracer": "esbuild src/lambda-wrapper.ts --bundle --minify --platform=node --target=node18 --format=cjs --outfile=dist/lambda-wrapper.cjs --metafile=meta.wrapper.json",
     "build:wrappercjs": "esbuild src/index.ts --bundle --minify --platform=node --target=node18 --format=cjs --outfile=dist/index.cjs --metafile=meta.json",
-    "build:wrapperesm": "esbuild src/index.ts --bundle --minify --platform=node --target=node18 --format=esm --outfile=dist/index.mjs --metafile=meta.json",
-    "build": "npm run build:handler && npm run build:tracer && npm run build:wrappercjs && npm run build:wrapperesm && npm run tsc && npm run distribute",
+    "build": "npm run build:handler && npm run build:tracer && npm run build:wrappercjs && npm run distribute",
     "deploy": "sst deploy",
     "deploy:uat": "npm run build && npx tsx multi-region-deploy.ts uat",
     "deploy:prod": "npm run build && npx tsx multi-region-deploy.ts prod",
@@ -63,6 +62,7 @@
     "vitest": "^0.32.2"
   },
   "dependencies": {
+    "@baselime/node-opentelemetry": "^0.4.3",
     "@opentelemetry/api": "^1.7.0",
     "@opentelemetry/exporter-trace-otlp-http": "^0.45.1",
     "@opentelemetry/instrumentation": "^0.45.1",

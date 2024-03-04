@@ -2,13 +2,14 @@ import path from "path";
 import { Handler } from "aws-lambda";
 let diagnostics: Error[] = []
 
-async function _tryImport(path: string): Promise<false | Record<string, Handler>> {
+async function _tryImport(path: string): Promise<false | Record<string, Handler | unknown>> {
     try {
         return await import(path);
     } catch (err) {
         if (err instanceof Error && !err.message.includes('file exist?') && !err.message.includes("Cannot find module")) {
             diagnostics.push(err)
         }
+        
         return false
     }
 }
@@ -34,8 +35,9 @@ export async function load(taskRoot: string, originalHandler: string) {
     }
    
     if(typeof lambda[functionName] !== 'function') {
-        if(typeof lambda.default === 'object' && typeof lambda.default[functionName] === 'function') {
-            return lambda.default[functionName];
+        const mod = lambda.default as Record<string, Handler | unknown> | undefined;
+        if(mod && typeof mod[functionName] === 'function') {
+            return mod[functionName];
         }
         throw Error(`Handler path format not supported for OpenTelemetry Auto Instrumentation. Please contact Baselime \n ${originalHandler} \n ${JSON.stringify(lambda)}`)
     }

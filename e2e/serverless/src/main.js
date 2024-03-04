@@ -41,8 +41,8 @@ exports.handler = async (e, context) => {
 
   await tiny.get({ url: 'https://react-rum.vercel.app/' });
 
-  await track("tiny.post", tiny.post, {
-    url: "https://enokbdj7ebl2r.x.pipedream.net",
+  await tiny.post({
+    url: "https://jsonplaceholder.typicode.com/posts",
     data: customer,
   });
 

@@ -14,4 +14,6 @@ if(!actualHandler) {
 
 const handler = loadSync(taskRoot, actualHandler);
 
-exports.handler = wrap(handler);
+exports.handler = wrap(handler, {
+    timeoutThreshold: 100
+});

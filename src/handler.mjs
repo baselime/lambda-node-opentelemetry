@@ -13,4 +13,6 @@ if(typeof actualHandler !== 'string') {
     throw Error('BASELIME_ACTUAL_HANDLER is not defined');
 }
 
-export const handler = wrap(await load(taskRoot, actualHandler));
+export const handler = wrap(await load(taskRoot, actualHandler), { 
+    timeoutThreshold: 100
+});
