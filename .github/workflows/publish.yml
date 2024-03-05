@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      packages: write
+      packages: read
       id-token: write
 
     steps:
@@ -22,9 +22,12 @@ jobs:
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
+      - run: |
+          echo "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}" >> .npmrc
+          echo "@baselime:registry=https://npm.pkg.github.com/" >> .npmrc
 
-      - name: Build and publish to npm registry
-        continue-on-error: true
+      - name: Build the package
+        continue-on-error: false
         run:
           npm ci &&
           npm run build
