@@ -26,10 +26,11 @@ provider:
           Action: 'events:PutEvents'
           Resource: '*'
   tags:
-    'baselime:tracing': true
+    'baselime:tracing': auto
   environment:
     AWS_SDK_INTERNALS: false
     BASELIME_REQUEST_CAPTURE: true
+    API_URL: !GetAtt HttpApi.ApiEndpoint
 functions:
   hello:
     handler: src/main.handler

@@ -27,10 +27,7 @@ jobs:
         continue-on-error: true
         run:
           npm ci &&
-          npm run build &&
-          npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          npm run build
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:

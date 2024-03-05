@@ -53,7 +53,7 @@
     "@types/node": "^20.1.7",
     "aws-cdk-lib": "2.80.0",
     "constructs": "10.1.156",
-    "esbuild": "^0.17.19",
+    "esbuild": "^0.20.1",
     "release-it": "^16.2.1",
     "serverless-webpack": "^5.13.0",
     "sst": "^2.12.0",

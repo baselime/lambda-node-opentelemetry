@@ -1,4 +1,4 @@
-const tiny = require("tiny-json-http");
+const { post, get } = require("tiny-json-http");
 const { context, trace, } = require("@opentelemetry/api");
 
 const { flattenObject } = require("./utils");
@@ -35,16 +35,20 @@ function trackAll(name, lib) {
 }
 
 exports.handler = async (e, context) => {
-  const { body: customer } = await tiny.get({
+  const { body: customer } = await get({
     url: `${process.env.API_URL}/hello`,
   });
 
-  await tiny.get({ url: 'https://react-rum.vercel.app/' });
+  // await tiny.get({ url: 'https://react-rum.vercel.app/' });
 
-  await tiny.post({
+  await post({
     url: "https://jsonplaceholder.typicode.com/posts",
-    data: customer,
+    data: {
+      name: 'John Doe',
+      age: 25,
+      email: 'john@dummyjson.com',
+    },
   });
 
-  return customer;
+
 };
