@@ -1,0 +1,68 @@
+#!/bin/bash
+cd "$(dirname "$0")"
+
+# Set the scripts permissions
+
+chmod +x ../layer-dir/baselime
+
+#Zip the build directory
+cd ../layer-dir
+zip -r ../node-tracing.zip .
+
+# Get the list of AWS regions
+REGIONS=$(aws ec2 describe-regions --output text --query "Regions[*].RegionName")
+echo $REGIONS
+
+
+upload_layer() {
+  echo "$region: started"
+  local region=$1
+  output=$(aws lambda publish-layer-version \
+    --region $region \
+    --layer-name baselime-node \
+    --description "Use Baselimes enhanced OpenTelemetry Distro to trace your AWS Lambda functions" \
+    --compatible-runtimes nodejs16.x nodejs18.x nodejs20.x \
+    --zip-file "fileb://../node-tracing.zip"
+  )
+
+
+
+  if [[ $? -eq 0 ]]; then
+    # Extract the version number from the output
+    version_number=$(echo "$output" | jq -r .Version)
+    name=$(echo "$output" | jq -r .LayerArn)
+    if [[ -n "$version_number" ]]; then
+      perm=$(aws lambda add-layer-version-permission \
+        --region $region \
+        --layer-name baselime-node \
+        --version-number $version_number \
+        --principal "*" \
+        --statement-id share-access \
+        --action lambda:GetLayerVersion
+        )
+    else
+      echo "failed to extract version number from publish output."
+    fi
+    layer_arn=$(echo "$output" | jq -r .LayerArn)
+    perm=$(aws ssm put-parameter \
+        --name "/$AWS_PROFILE/baselime/otel/tracer/node" \
+        --description "The ARN for our telemetry extension" \
+        --value "$name:$version_number" \
+        --type String \
+        --overwrite \
+        --region $region
+        )
+  else
+    echo "failed to publish Lambda layer."
+  fi
+  echo "$region: done"
+}
+
+for region in $REGIONS; do
+  upload_layer "$region" &
+done
+
+
+wait
+
+echo "Lambda layer uploaded to all regions."

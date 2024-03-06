@@ -3509,10 +3509,10 @@
           "bytesInOutput": 562
         },
         "node_modules/@opentelemetry/api/build/src/api/diag.js": {
-          "bytesInOutput": 1301
+          "bytesInOutput": 1302
         },
         "node_modules/@opentelemetry/api/build/src/baggage/internal/baggage-impl.js": {
-          "bytesInOutput": 593
+          "bytesInOutput": 591
         },
         "node_modules/@opentelemetry/api/build/src/baggage/internal/symbol.js": {
           "bytesInOutput": 177
@@ -3539,7 +3539,7 @@
           "bytesInOutput": 289
         },
         "node_modules/@opentelemetry/api/build/src/api/context.js": {
-          "bytesInOutput": 698
+          "bytesInOutput": 699
         },
         "node_modules/@opentelemetry/api/build/src/trace/trace_flags.js": {
           "bytesInOutput": 204
@@ -3581,7 +3581,7 @@
           "bytesInOutput": 392
         },
         "node_modules/@opentelemetry/api/build/src/trace/internal/tracestate-impl.js": {
-          "bytesInOutput": 1056
+          "bytesInOutput": 1057
         },
         "node_modules/@opentelemetry/api/build/src/trace/internal/utils.js": {
           "bytesInOutput": 188
@@ -3596,7 +3596,7 @@
           "bytesInOutput": 244
         },
         "node_modules/@opentelemetry/api/build/src/api/metrics.js": {
-          "bytesInOutput": 542
+          "bytesInOutput": 543
         },
         "node_modules/@opentelemetry/api/build/src/metrics-api.js": {
           "bytesInOutput": 148
@@ -3608,13 +3608,13 @@
           "bytesInOutput": 492
         },
         "node_modules/@opentelemetry/api/build/src/api/propagation.js": {
-          "bytesInOutput": 930
+          "bytesInOutput": 931
         },
         "node_modules/@opentelemetry/api/build/src/propagation-api.js": {
           "bytesInOutput": 160
         },
         "node_modules/@opentelemetry/api/build/src/api/trace.js": {
-          "bytesInOutput": 1014
+          "bytesInOutput": 1015
         },
         "node_modules/@opentelemetry/api/build/src/trace-api.js": {
           "bytesInOutput": 142
@@ -3716,7 +3716,7 @@
           "bytesInOutput": 392
         },
         "node_modules/@opentelemetry/core/build/src/trace/TraceState.js": {
-          "bytesInOutput": 1048
+          "bytesInOutput": 1049
         },
         "node_modules/@opentelemetry/core/build/src/trace/W3CTraceContextPropagator.js": {
           "bytesInOutput": 1377
@@ -3746,7 +3746,7 @@
           "bytesInOutput": 1411
         },
         "node_modules/@opentelemetry/core/build/src/utils/timeout.js": {
-          "bytesInOutput": 456
+          "bytesInOutput": 457
         },
         "node_modules/@opentelemetry/core/build/src/utils/url.js": {
           "bytesInOutput": 290
@@ -3770,7 +3770,7 @@
           "bytesInOutput": 488
         },
         "node_modules/@opentelemetry/propagation-utils/build/src/pubsub-propagation.js": {
-          "bytesInOutput": 2096
+          "bytesInOutput": 2094
         },
         "node_modules/@opentelemetry/propagation-utils/build/src/index.js": {
           "bytesInOutput": 215
@@ -3806,7 +3806,7 @@
           "bytesInOutput": 440
         },
         "node_modules/semver/internal/constants.js": {
-          "bytesInOutput": 352
+          "bytesInOutput": 350
         },
         "node_modules/semver/internal/debug.js": {
           "bytesInOutput": 192
@@ -3821,7 +3821,7 @@
           "bytesInOutput": 216
         },
         "node_modules/semver/classes/semver.js": {
-          "bytesInOutput": 3844
+          "bytesInOutput": 3837
         },
         "node_modules/semver/functions/parse.js": {
           "bytesInOutput": 151
@@ -3902,7 +3902,7 @@
           "bytesInOutput": 3600
         },
         "node_modules/semver/classes/range.js": {
-          "bytesInOutput": 5111
+          "bytesInOutput": 5110
         },
         "node_modules/semver/classes/comparator.js": {
           "bytesInOutput": 1769
@@ -4073,7 +4073,7 @@
           "bytesInOutput": 1319
         },
         "node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/aws-sdk.js": {
-          "bytesInOutput": 8964
+          "bytesInOutput": 8962
         },
         "node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/types.js": {
           "bytesInOutput": 79
@@ -4088,10 +4088,10 @@
           "bytesInOutput": 382
         },
         "node_modules/@baselime/node-opentelemetry/dist/index.js": {
-          "bytesInOutput": 244790
+          "bytesInOutput": 244788
         }
       },
-      "bytes": 424944
+      "bytes": 424934
     }
   }
 }
