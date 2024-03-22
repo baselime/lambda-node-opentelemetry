@@ -18,7 +18,7 @@ Once you've connected your AWS account to Baselime, add the `baselime:tracing` t
 
 &copy; Baselime Limited, 2023
 
-Distributed under MIT License (`The MIT License`).
+Distributed under Apache 2 License (`Apache-2.0`).
 
 See [LICENSE](LICENSE) for more information.
 
