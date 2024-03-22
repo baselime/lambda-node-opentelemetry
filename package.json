@@ -61,13 +61,8 @@
   "dependencies": {
     "@baselime/node-opentelemetry": "^0.4.3",
     "@opentelemetry/api": "^1.7.0",
-    "@opentelemetry/exporter-trace-otlp-http": "^0.45.1",
-    "@opentelemetry/instrumentation": "^0.45.1",
-    "@opentelemetry/instrumentation-aws-lambda": "^0.37.2",
-    "@opentelemetry/instrumentation-aws-sdk": "^0.37.0",
-    "@opentelemetry/instrumentation-http": "^0.45.1",
-    "@opentelemetry/sdk-trace-base": "^1.18.1",
-    "@opentelemetry/sdk-trace-node": "^1.18.1",
+    "@opentelemetry/instrumentation": "^0.49.1",
+    "@opentelemetry/instrumentation-aws-sdk": "^0.39.0",
     "flat": "^5.0.2"
   }
 }
