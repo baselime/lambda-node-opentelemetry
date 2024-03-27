@@ -29,9 +29,7 @@
     "build:tracer": "esbuild src/lambda-wrapper.ts --bundle --minify --platform=node --target=node18 --format=cjs --outfile=dist/lambda-wrapper.cjs --metafile=meta.wrapper.json",
     "build:wrappercjs": "esbuild src/index.ts --bundle --minify --platform=node --target=node18 --format=cjs --outfile=dist/index.cjs --metafile=meta.json",
     "build": "npm run build:handler && npm run build:tracer && npm run build:wrappercjs && npm run distribute",
-    "deploy": "sst deploy",
-    "deploy:uat": "npm run build && npx tsx multi-region-deploy.ts uat",
-    "deploy:prod": "npm run build && npx tsx multi-region-deploy.ts prod",
+    "deploy": "npm run build && ./scripts/publish",
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "release": "release-it"

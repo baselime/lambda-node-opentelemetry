@@ -3309,156 +3309,281 @@
       "imports": [],
       "format": "cjs"
     },
-    "node_modules/@baselime/node-opentelemetry/dist/index.js": {
-      "bytes": 247543,
+    "node_modules/@baselime/node-opentelemetry/dist/index.cjs": {
+      "bytes": 615063,
       "imports": [
         {
+          "path": "events",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "async_hooks",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "async_hooks",
+          "kind": "require-call",
+          "external": true
+        },
+        {
           "path": "perf_hooks",
-          "kind": "import-statement",
+          "kind": "require-call",
           "external": true
         },
         {
           "path": "child_process",
-          "kind": "import-statement",
+          "kind": "require-call",
           "external": true
         },
         {
           "path": "util",
-          "kind": "import-statement",
+          "kind": "require-call",
           "external": true
         },
         {
           "path": "fs",
-          "kind": "import-statement",
+          "kind": "require-call",
           "external": true
         },
         {
           "path": "fs",
-          "kind": "import-statement",
+          "kind": "require-call",
           "external": true
         },
         {
           "path": "process",
-          "kind": "import-statement",
+          "kind": "require-call",
           "external": true
         },
         {
           "path": "process",
-          "kind": "import-statement",
+          "kind": "require-call",
           "external": true
         },
         {
           "path": "os",
-          "kind": "import-statement",
+          "kind": "require-call",
           "external": true
         },
         {
           "path": "os",
-          "kind": "import-statement",
+          "kind": "require-call",
           "external": true
         },
         {
           "path": "os",
-          "kind": "import-statement",
-          "external": true
-        },
-        {
-          "path": "url",
-          "kind": "import-statement",
+          "kind": "require-call",
           "external": true
         },
         {
           "path": "http",
-          "kind": "import-statement",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "fs",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "util",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "http",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "util",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "fs",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "os",
+          "kind": "require-call",
           "external": true
         },
         {
           "path": "https",
-          "kind": "import-statement",
-          "external": true
-        },
-        {
-          "path": "zlib",
-          "kind": "import-statement",
-          "external": true
-        },
-        {
-          "path": "stream",
-          "kind": "import-statement",
-          "external": true
-        },
-        {
-          "path": "path",
-          "kind": "import-statement",
-          "external": true
-        },
-        {
-          "path": "util",
-          "kind": "import-statement",
-          "external": true
-        },
-        {
-          "path": "node_modules/shimmer/index.js",
-          "kind": "import-statement",
-          "original": "shimmer"
-        },
-        {
-          "path": "node_modules/shimmer/index.js",
-          "kind": "import-statement",
-          "original": "shimmer"
-        },
-        {
-          "path": "path",
-          "kind": "import-statement",
+          "kind": "require-call",
           "external": true
         },
         {
           "path": "fs",
-          "kind": "import-statement",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "util",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "os",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "fs",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "fs",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "os",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "tty",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "util",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "module",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "url",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "url",
+          "kind": "require-call",
           "external": true
         },
         {
           "path": "http",
-          "kind": "import-statement",
+          "kind": "require-call",
           "external": true
         },
         {
-          "path": "url",
-          "kind": "import-statement",
+          "path": "https",
+          "kind": "require-call",
           "external": true
         },
         {
-          "path": "url",
-          "kind": "import-statement",
-          "external": true
-        },
-        {
-          "path": "events",
-          "kind": "import-statement",
-          "external": true
-        },
-        {
-          "path": "querystring",
-          "kind": "import-statement",
+          "path": "zlib",
+          "kind": "require-call",
           "external": true
         },
         {
           "path": "stream",
-          "kind": "import-statement",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "util",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "fs",
+          "kind": "require-call",
           "external": true
         },
         {
           "path": "http",
-          "kind": "import-statement",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "url",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "url",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "events",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "querystring",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "stream",
+          "kind": "require-call",
           "external": true
         },
         {
           "path": "http",
-          "kind": "import-statement",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "http",
+          "kind": "require-call",
           "external": true
         }
       ],
-      "format": "esm"
+      "format": "cjs"
     },
     "src/lambda-wrapper.ts": {
       "bytes": 753,
@@ -3474,7 +3599,7 @@
           "original": "flat"
         },
         {
-          "path": "node_modules/@baselime/node-opentelemetry/dist/index.js",
+          "path": "node_modules/@baselime/node-opentelemetry/dist/index.cjs",
           "kind": "import-statement",
           "original": "@baselime/node-opentelemetry"
         }
@@ -3586,6 +3711,21 @@
           "external": true
         },
         {
+          "path": "events",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "async_hooks",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "async_hooks",
+          "kind": "require-call",
+          "external": true
+        },
+        {
           "path": "perf_hooks",
           "kind": "require-call",
           "external": true
@@ -3632,6 +3772,126 @@
         },
         {
           "path": "os",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "http",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "fs",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "util",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "http",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "util",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "fs",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "os",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "https",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "fs",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "util",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "os",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "fs",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "fs",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "os",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "tty",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "util",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "module",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "url",
           "kind": "require-call",
           "external": true
         },
@@ -3707,6 +3967,11 @@
         },
         {
           "path": "stream",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "http",
           "kind": "require-call",
           "external": true
         },
@@ -4278,7 +4543,7 @@
           "bytesInOutput": 833
         },
         "node_modules/resolve/lib/async.js": {
-          "bytesInOutput": 4267
+          "bytesInOutput": 4265
         },
         "node_modules/resolve/lib/core.json": {
           "bytesInOutput": 5081
@@ -4385,14 +4650,14 @@
         "node_modules/flat/index.js": {
           "bytesInOutput": 1675
         },
-        "src/lambda-wrapper.ts": {
-          "bytesInOutput": 382
+        "node_modules/@baselime/node-opentelemetry/dist/index.cjs": {
+          "bytesInOutput": 262747
         },
-        "node_modules/@baselime/node-opentelemetry/dist/index.js": {
-          "bytesInOutput": 244788
+        "src/lambda-wrapper.ts": {
+          "bytesInOutput": 430
         }
       },
-      "bytes": 469182
+      "bytes": 487187
     }
   }
 }

@@ -1,15 +1,15 @@
 {
   "inputs": {
-    "node_modules/@baselime/node-opentelemetry/dist/lambda.js": {
-      "bytes": 21030,
+    "node_modules/@baselime/node-opentelemetry/dist/lambda.cjs": {
+      "bytes": 41673,
       "imports": [],
-      "format": "esm"
+      "format": "cjs"
     },
     "src/index.ts": {
       "bytes": 81,
       "imports": [
         {
-          "path": "node_modules/@baselime/node-opentelemetry/dist/lambda.js",
+          "path": "node_modules/@baselime/node-opentelemetry/dist/lambda.cjs",
           "kind": "import-statement",
           "original": "@baselime/node-opentelemetry/lambda"
         }
@@ -23,14 +23,14 @@
       "exports": [],
       "entryPoint": "src/index.ts",
       "inputs": {
-        "src/index.ts": {
-          "bytesInOutput": 53
+        "node_modules/@baselime/node-opentelemetry/dist/lambda.cjs": {
+          "bytesInOutput": 18954
         },
-        "node_modules/@baselime/node-opentelemetry/dist/lambda.js": {
-          "bytesInOutput": 20856
+        "src/index.ts": {
+          "bytesInOutput": 89
         }
       },
-      "bytes": 21359
+      "bytes": 19700
     }
   }
 }
