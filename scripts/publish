@@ -8,7 +8,6 @@ chmod +x ../layer-dir/baselime
 #Zip the build directory
 cd ../layer-dir
 zip -r ../node-tracing.zip .
-
 # Get the list of AWS regions
 REGIONS=$(aws ec2 describe-regions --output text --query "Regions[*].RegionName")
 echo $REGIONS
@@ -45,7 +44,7 @@ upload_layer() {
     fi
     layer_arn=$(echo "$output" | jq -r .LayerArn)
     perm=$(aws ssm put-parameter \
-        --name "/$AWS_PROFILE/baselime/otel/tracer/node" \
+        --name "/$STAGE/baselime/otel/tracer/node" \
         --description "The ARN for our telemetry extension" \
         --value "$name:$version_number" \
         --type String \

@@ -37,7 +37,7 @@ jobs:
           aws-region: eu-west-1
           role-to-assume: arn:aws:iam::097948374213:role/github-actions-deploy
       - name: Deploy Layer
-        run: AWS_PROFILE=prod npm run deploy
+        run: STAGE=prod AWS_REGION=eu-west-1 npm run deploy
       
   create-release:
     needs: [publish-node-packages]
