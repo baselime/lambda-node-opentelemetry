@@ -22,3 +22,4 @@ handler.mjs
 
 # local env files
 .env*.local
+node-tracing.zip

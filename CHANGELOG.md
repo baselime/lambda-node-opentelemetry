@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Unreleased]
+
+* Fix: don't swallow lambda errors
+
 ## [0.5.4] - 2024-03-28
 
 * upgrade step function tracing
