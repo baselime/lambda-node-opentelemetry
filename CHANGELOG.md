@@ -5,6 +5,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Unreleased] 
+
+* AWS SDK Instrumentation - capture request info in pre-request hook
+
 ## [0.5.5] - 2024-03-28
 
 * Fix: don't swallow lambda errors
