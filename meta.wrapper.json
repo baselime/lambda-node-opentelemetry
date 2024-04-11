@@ -1,671 +1,671 @@
 {
   "inputs": {
-    "node_modules/@opentelemetry/api/build/src/platform/node/globalThis.js": {
-      "bytes": 961,
+    "node_modules/@opentelemetry/api/build/esm/platform/node/globalThis.js": {
+      "bytes": 857,
       "imports": [],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/platform/node/index.js": {
-      "bytes": 1276,
+    "node_modules/@opentelemetry/api/build/esm/platform/node/index.js": {
+      "bytes": 669,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/platform/node/globalThis.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/platform/node/globalThis.js",
+          "kind": "import-statement",
           "original": "./globalThis"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/platform/index.js": {
-      "bytes": 1270,
+    "node_modules/@opentelemetry/api/build/esm/platform/index.js": {
+      "bytes": 663,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/platform/node/index.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/platform/node/index.js",
+          "kind": "import-statement",
           "original": "./node"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/version.js": {
-      "bytes": 832,
+    "node_modules/@opentelemetry/api/build/esm/version.js": {
+      "bytes": 732,
       "imports": [],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/internal/semver.js": {
-      "bytes": 5207,
+    "node_modules/@opentelemetry/api/build/esm/internal/semver.js": {
+      "bytes": 5007,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/version.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/version.js",
+          "kind": "import-statement",
           "original": "../version"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/internal/global-utils.js": {
-      "bytes": 2838,
+    "node_modules/@opentelemetry/api/build/esm/internal/global-utils.js": {
+      "bytes": 2567,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/platform/index.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/platform/index.js",
+          "kind": "import-statement",
           "original": "../platform"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/version.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/version.js",
+          "kind": "import-statement",
           "original": "../version"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/internal/semver.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/internal/semver.js",
+          "kind": "import-statement",
           "original": "./semver"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/diag/ComponentLogger.js": {
-      "bytes": 2078,
+    "node_modules/@opentelemetry/api/build/esm/diag/ComponentLogger.js": {
+      "bytes": 3727,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/internal/global-utils.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/internal/global-utils.js",
+          "kind": "import-statement",
           "original": "../internal/global-utils"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/diag/types.js": {
-      "bytes": 2002,
+    "node_modules/@opentelemetry/api/build/esm/diag/types.js": {
+      "bytes": 1870,
       "imports": [],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/diag/internal/logLevelLogger.js": {
-      "bytes": 1791,
+    "node_modules/@opentelemetry/api/build/esm/diag/internal/logLevelLogger.js": {
+      "bytes": 1547,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/diag/types.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/diag/types.js",
+          "kind": "import-statement",
           "original": "../types"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/api/diag.js": {
-      "bytes": 4135,
+    "node_modules/@opentelemetry/api/build/esm/api/diag.js": {
+      "bytes": 5140,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/diag/ComponentLogger.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/diag/ComponentLogger.js",
+          "kind": "import-statement",
           "original": "../diag/ComponentLogger"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/diag/internal/logLevelLogger.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/diag/internal/logLevelLogger.js",
+          "kind": "import-statement",
           "original": "../diag/internal/logLevelLogger"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/diag/types.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/diag/types.js",
+          "kind": "import-statement",
           "original": "../diag/types"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/internal/global-utils.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/internal/global-utils.js",
+          "kind": "import-statement",
           "original": "../internal/global-utils"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/baggage/internal/baggage-impl.js": {
-      "bytes": 1770,
+    "node_modules/@opentelemetry/api/build/esm/baggage/internal/baggage-impl.js": {
+      "bytes": 3507,
       "imports": [],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/baggage/internal/symbol.js": {
-      "bytes": 898,
+    "node_modules/@opentelemetry/api/build/esm/baggage/internal/symbol.js": {
+      "bytes": 779,
       "imports": [],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/baggage/utils.js": {
-      "bytes": 1849,
+    "node_modules/@opentelemetry/api/build/esm/baggage/utils.js": {
+      "bytes": 1633,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/api/diag.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/api/diag.js",
+          "kind": "import-statement",
           "original": "../api/diag"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/baggage/internal/baggage-impl.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/baggage/internal/baggage-impl.js",
+          "kind": "import-statement",
           "original": "./internal/baggage-impl"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/baggage/internal/symbol.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/baggage/internal/symbol.js",
+          "kind": "import-statement",
           "original": "./internal/symbol"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/context/context.js": {
-      "bytes": 2305,
+    "node_modules/@opentelemetry/api/build/esm/context/context.js": {
+      "bytes": 2223,
       "imports": [],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/diag/consoleLogger.js": {
-      "bytes": 2217,
+    "node_modules/@opentelemetry/api/build/esm/diag/consoleLogger.js": {
+      "bytes": 2313,
       "imports": [],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/metrics/NoopMeter.js": {
-      "bytes": 4412,
+    "node_modules/@opentelemetry/api/build/esm/metrics/NoopMeter.js": {
+      "bytes": 6431,
       "imports": [],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/metrics/Metric.js": {
-      "bytes": 1008,
+    "node_modules/@opentelemetry/api/build/esm/metrics/Metric.js": {
+      "bytes": 882,
       "imports": [],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/propagation/TextMapPropagator.js": {
-      "bytes": 1258,
+    "node_modules/@opentelemetry/api/build/esm/propagation/TextMapPropagator.js": {
+      "bytes": 1150,
       "imports": [],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js": {
-      "bytes": 1178,
+    "node_modules/@opentelemetry/api/build/esm/context/NoopContextManager.js": {
+      "bytes": 2384,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/context/context.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/context/context.js",
+          "kind": "import-statement",
           "original": "./context"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/api/context.js": {
-      "bytes": 3032,
+    "node_modules/@opentelemetry/api/build/esm/api/context.js": {
+      "bytes": 4185,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/context/NoopContextManager.js",
+          "kind": "import-statement",
           "original": "../context/NoopContextManager"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/internal/global-utils.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/internal/global-utils.js",
+          "kind": "import-statement",
           "original": "../internal/global-utils"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/api/diag.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/api/diag.js",
+          "kind": "import-statement",
           "original": "./diag"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/trace/trace_flags.js": {
-      "bytes": 1066,
+    "node_modules/@opentelemetry/api/build/esm/trace/trace_flags.js": {
+      "bytes": 938,
       "imports": [],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/trace/invalid-span-constants.js": {
-      "bytes": 1135,
+    "node_modules/@opentelemetry/api/build/esm/trace/invalid-span-constants.js": {
+      "bytes": 943,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/trace_flags.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/trace_flags.js",
+          "kind": "import-statement",
           "original": "./trace_flags"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/trace/NonRecordingSpan.js": {
-      "bytes": 1976,
+    "node_modules/@opentelemetry/api/build/esm/trace/NonRecordingSpan.js": {
+      "bytes": 2307,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/invalid-span-constants.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/invalid-span-constants.js",
+          "kind": "import-statement",
           "original": "./invalid-span-constants"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/trace/context-utils.js": {
-      "bytes": 2588,
+    "node_modules/@opentelemetry/api/build/esm/trace/context-utils.js": {
+      "bytes": 2163,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/context/context.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/context/context.js",
+          "kind": "import-statement",
           "original": "../context/context"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/NonRecordingSpan.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/NonRecordingSpan.js",
+          "kind": "import-statement",
           "original": "./NonRecordingSpan"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/api/context.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/api/context.js",
+          "kind": "import-statement",
           "original": "../api/context"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/trace/spancontext-utils.js": {
-      "bytes": 2067,
+    "node_modules/@opentelemetry/api/build/esm/trace/spancontext-utils.js": {
+      "bytes": 1664,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/invalid-span-constants.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/invalid-span-constants.js",
+          "kind": "import-statement",
           "original": "./invalid-span-constants"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/NonRecordingSpan.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/NonRecordingSpan.js",
+          "kind": "import-statement",
           "original": "./NonRecordingSpan"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js": {
-      "bytes": 2823,
+    "node_modules/@opentelemetry/api/build/esm/trace/NoopTracer.js": {
+      "bytes": 2764,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/api/context.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/api/context.js",
+          "kind": "import-statement",
           "original": "../api/context"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/context-utils.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/context-utils.js",
+          "kind": "import-statement",
           "original": "../trace/context-utils"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/NonRecordingSpan.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/NonRecordingSpan.js",
+          "kind": "import-statement",
           "original": "./NonRecordingSpan"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/spancontext-utils.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/spancontext-utils.js",
+          "kind": "import-statement",
           "original": "./spancontext-utils"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js": {
-      "bytes": 1917,
+    "node_modules/@opentelemetry/api/build/esm/trace/ProxyTracer.js": {
+      "bytes": 1946,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/NoopTracer.js",
+          "kind": "import-statement",
           "original": "./NoopTracer"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/trace/NoopTracerProvider.js": {
-      "bytes": 1142,
+    "node_modules/@opentelemetry/api/build/esm/trace/NoopTracerProvider.js": {
+      "bytes": 1140,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/NoopTracer.js",
+          "kind": "import-statement",
           "original": "./NoopTracer"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/trace/ProxyTracerProvider.js": {
-      "bytes": 2094,
+    "node_modules/@opentelemetry/api/build/esm/trace/ProxyTracerProvider.js": {
+      "bytes": 2195,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/ProxyTracer.js",
+          "kind": "import-statement",
           "original": "./ProxyTracer"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/NoopTracerProvider.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/NoopTracerProvider.js",
+          "kind": "import-statement",
           "original": "./NoopTracerProvider"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/trace/SamplingResult.js": {
-      "bytes": 1671,
+    "node_modules/@opentelemetry/api/build/esm/trace/SamplingResult.js": {
+      "bytes": 1531,
       "imports": [],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/trace/span_kind.js": {
-      "bytes": 1872,
+    "node_modules/@opentelemetry/api/build/esm/trace/span_kind.js": {
+      "bytes": 1748,
       "imports": [],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/trace/status.js": {
-      "bytes": 719,
+    "node_modules/@opentelemetry/api/build/esm/trace/status.js": {
+      "bytes": 583,
       "imports": [],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/trace/internal/tracestate-validators.js": {
-      "bytes": 2027,
+    "node_modules/@opentelemetry/api/build/esm/trace/internal/tracestate-validators.js": {
+      "bytes": 1849,
       "imports": [],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/trace/internal/tracestate-impl.js": {
-      "bytes": 3980,
+    "node_modules/@opentelemetry/api/build/esm/trace/internal/tracestate-impl.js": {
+      "bytes": 4153,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/internal/tracestate-validators.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/internal/tracestate-validators.js",
+          "kind": "import-statement",
           "original": "./tracestate-validators"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/trace/internal/utils.js": {
-      "bytes": 961,
+    "node_modules/@opentelemetry/api/build/esm/trace/internal/utils.js": {
+      "bytes": 789,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/internal/tracestate-impl.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/internal/tracestate-impl.js",
+          "kind": "import-statement",
           "original": "./tracestate-impl"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/context-api.js": {
-      "bytes": 989,
+    "node_modules/@opentelemetry/api/build/esm/context-api.js": {
+      "bytes": 879,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/api/context.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/api/context.js",
+          "kind": "import-statement",
           "original": "./api/context"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/diag-api.js": {
-      "bytes": 1180,
+    "node_modules/@opentelemetry/api/build/esm/diag-api.js": {
+      "bytes": 1076,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/api/diag.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/api/diag.js",
+          "kind": "import-statement",
           "original": "./api/diag"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/metrics/NoopMeterProvider.js": {
-      "bytes": 1176,
+    "node_modules/@opentelemetry/api/build/esm/metrics/NoopMeterProvider.js": {
+      "bytes": 1148,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/metrics/NoopMeter.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/metrics/NoopMeter.js",
+          "kind": "import-statement",
           "original": "./NoopMeter"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/api/metrics.js": {
-      "bytes": 2231,
+    "node_modules/@opentelemetry/api/build/esm/api/metrics.js": {
+      "bytes": 2266,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/metrics/NoopMeterProvider.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/metrics/NoopMeterProvider.js",
+          "kind": "import-statement",
           "original": "../metrics/NoopMeterProvider"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/internal/global-utils.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/internal/global-utils.js",
+          "kind": "import-statement",
           "original": "../internal/global-utils"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/api/diag.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/api/diag.js",
+          "kind": "import-statement",
           "original": "./diag"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/metrics-api.js": {
-      "bytes": 989,
+    "node_modules/@opentelemetry/api/build/esm/metrics-api.js": {
+      "bytes": 879,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/api/metrics.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/api/metrics.js",
+          "kind": "import-statement",
           "original": "./api/metrics"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/propagation/NoopTextMapPropagator.js": {
-      "bytes": 1181,
+    "node_modules/@opentelemetry/api/build/esm/propagation/NoopTextMapPropagator.js": {
+      "bytes": 1288,
       "imports": [],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/baggage/context-helpers.js": {
-      "bytes": 2149,
+    "node_modules/@opentelemetry/api/build/esm/baggage/context-helpers.js": {
+      "bytes": 1828,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/api/context.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/api/context.js",
+          "kind": "import-statement",
           "original": "../api/context"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/context/context.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/context/context.js",
+          "kind": "import-statement",
           "original": "../context/context"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/api/propagation.js": {
-      "bytes": 3601,
+    "node_modules/@opentelemetry/api/build/esm/api/propagation.js": {
+      "bytes": 3752,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/internal/global-utils.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/internal/global-utils.js",
+          "kind": "import-statement",
           "original": "../internal/global-utils"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/propagation/NoopTextMapPropagator.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/propagation/NoopTextMapPropagator.js",
+          "kind": "import-statement",
           "original": "../propagation/NoopTextMapPropagator"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/propagation/TextMapPropagator.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/propagation/TextMapPropagator.js",
+          "kind": "import-statement",
           "original": "../propagation/TextMapPropagator"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/baggage/context-helpers.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/baggage/context-helpers.js",
+          "kind": "import-statement",
           "original": "../baggage/context-helpers"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/baggage/utils.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/baggage/utils.js",
+          "kind": "import-statement",
           "original": "../baggage/utils"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/api/diag.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/api/diag.js",
+          "kind": "import-statement",
           "original": "./diag"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/propagation-api.js": {
-      "bytes": 1021,
+    "node_modules/@opentelemetry/api/build/esm/propagation-api.js": {
+      "bytes": 903,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/api/propagation.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/api/propagation.js",
+          "kind": "import-statement",
           "original": "./api/propagation"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/api/trace.js": {
-      "bytes": 3114,
+    "node_modules/@opentelemetry/api/build/esm/api/trace.js": {
+      "bytes": 3047,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/internal/global-utils.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/internal/global-utils.js",
+          "kind": "import-statement",
           "original": "../internal/global-utils"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/ProxyTracerProvider.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/ProxyTracerProvider.js",
+          "kind": "import-statement",
           "original": "../trace/ProxyTracerProvider"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/spancontext-utils.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/spancontext-utils.js",
+          "kind": "import-statement",
           "original": "../trace/spancontext-utils"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/context-utils.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/context-utils.js",
+          "kind": "import-statement",
           "original": "../trace/context-utils"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/api/diag.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/api/diag.js",
+          "kind": "import-statement",
           "original": "./diag"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/trace-api.js": {
-      "bytes": 973,
+    "node_modules/@opentelemetry/api/build/esm/trace-api.js": {
+      "bytes": 867,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/api/trace.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/api/trace.js",
+          "kind": "import-statement",
           "original": "./api/trace"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
-    "node_modules/@opentelemetry/api/build/src/index.js": {
-      "bytes": 6440,
+    "node_modules/@opentelemetry/api/build/esm/index.js": {
+      "bytes": 2252,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/baggage/utils.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/baggage/utils.js",
+          "kind": "import-statement",
           "original": "./baggage/utils"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/context/context.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/context/context.js",
+          "kind": "import-statement",
           "original": "./context/context"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/diag/consoleLogger.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/diag/consoleLogger.js",
+          "kind": "import-statement",
           "original": "./diag/consoleLogger"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/diag/types.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/diag/types.js",
+          "kind": "import-statement",
           "original": "./diag/types"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/metrics/NoopMeter.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/metrics/NoopMeter.js",
+          "kind": "import-statement",
           "original": "./metrics/NoopMeter"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/metrics/Metric.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/metrics/Metric.js",
+          "kind": "import-statement",
           "original": "./metrics/Metric"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/propagation/TextMapPropagator.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/propagation/TextMapPropagator.js",
+          "kind": "import-statement",
           "original": "./propagation/TextMapPropagator"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/ProxyTracer.js",
+          "kind": "import-statement",
           "original": "./trace/ProxyTracer"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/ProxyTracerProvider.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/ProxyTracerProvider.js",
+          "kind": "import-statement",
           "original": "./trace/ProxyTracerProvider"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/SamplingResult.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/SamplingResult.js",
+          "kind": "import-statement",
           "original": "./trace/SamplingResult"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/span_kind.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/span_kind.js",
+          "kind": "import-statement",
           "original": "./trace/span_kind"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/status.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/status.js",
+          "kind": "import-statement",
           "original": "./trace/status"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/trace_flags.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/trace_flags.js",
+          "kind": "import-statement",
           "original": "./trace/trace_flags"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/internal/utils.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/internal/utils.js",
+          "kind": "import-statement",
           "original": "./trace/internal/utils"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/spancontext-utils.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/spancontext-utils.js",
+          "kind": "import-statement",
           "original": "./trace/spancontext-utils"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace/invalid-span-constants.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace/invalid-span-constants.js",
+          "kind": "import-statement",
           "original": "./trace/invalid-span-constants"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/context-api.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/context-api.js",
+          "kind": "import-statement",
           "original": "./context-api"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/diag-api.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/diag-api.js",
+          "kind": "import-statement",
           "original": "./diag-api"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/metrics-api.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/metrics-api.js",
+          "kind": "import-statement",
           "original": "./metrics-api"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/propagation-api.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/propagation-api.js",
+          "kind": "import-statement",
           "original": "./propagation-api"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/trace-api.js",
-          "kind": "require-call",
+          "path": "node_modules/@opentelemetry/api/build/esm/trace-api.js",
+          "kind": "import-statement",
           "original": "./trace-api"
         }
       ],
-      "format": "cjs"
+      "format": "esm"
     },
     "node_modules/@opentelemetry/core/build/src/trace/suppress-tracing.js": {
       "bytes": 1404,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         }
@@ -681,7 +681,7 @@
       "bytes": 3393,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         },
@@ -697,7 +697,7 @@
       "bytes": 3004,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         },
@@ -728,7 +728,7 @@
       "bytes": 2693,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         }
@@ -739,7 +739,7 @@
       "bytes": 2021,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         }
@@ -771,7 +771,7 @@
       "bytes": 9933,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         },
@@ -841,65 +841,65 @@
       "imports": [],
       "format": "cjs"
     },
-    "node_modules/@opentelemetry/core/node_modules/@opentelemetry/semantic-conventions/build/src/internal/utils.js": {
+    "node_modules/@opentelemetry/semantic-conventions/build/src/internal/utils.js": {
       "bytes": 1401,
       "imports": [],
       "format": "cjs"
     },
-    "node_modules/@opentelemetry/core/node_modules/@opentelemetry/semantic-conventions/build/src/trace/SemanticAttributes.js": {
+    "node_modules/@opentelemetry/semantic-conventions/build/src/trace/SemanticAttributes.js": {
       "bytes": 103504,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/core/node_modules/@opentelemetry/semantic-conventions/build/src/internal/utils.js",
+          "path": "node_modules/@opentelemetry/semantic-conventions/build/src/internal/utils.js",
           "kind": "require-call",
           "original": "../internal/utils"
         }
       ],
       "format": "cjs"
     },
-    "node_modules/@opentelemetry/core/node_modules/@opentelemetry/semantic-conventions/build/src/trace/index.js": {
+    "node_modules/@opentelemetry/semantic-conventions/build/src/trace/index.js": {
       "bytes": 1284,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/core/node_modules/@opentelemetry/semantic-conventions/build/src/trace/SemanticAttributes.js",
+          "path": "node_modules/@opentelemetry/semantic-conventions/build/src/trace/SemanticAttributes.js",
           "kind": "require-call",
           "original": "./SemanticAttributes"
         }
       ],
       "format": "cjs"
     },
-    "node_modules/@opentelemetry/core/node_modules/@opentelemetry/semantic-conventions/build/src/resource/SemanticResourceAttributes.js": {
+    "node_modules/@opentelemetry/semantic-conventions/build/src/resource/SemanticResourceAttributes.js": {
       "bytes": 48215,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/core/node_modules/@opentelemetry/semantic-conventions/build/src/internal/utils.js",
+          "path": "node_modules/@opentelemetry/semantic-conventions/build/src/internal/utils.js",
           "kind": "require-call",
           "original": "../internal/utils"
         }
       ],
       "format": "cjs"
     },
-    "node_modules/@opentelemetry/core/node_modules/@opentelemetry/semantic-conventions/build/src/resource/index.js": {
+    "node_modules/@opentelemetry/semantic-conventions/build/src/resource/index.js": {
       "bytes": 1292,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/core/node_modules/@opentelemetry/semantic-conventions/build/src/resource/SemanticResourceAttributes.js",
+          "path": "node_modules/@opentelemetry/semantic-conventions/build/src/resource/SemanticResourceAttributes.js",
           "kind": "require-call",
           "original": "./SemanticResourceAttributes"
         }
       ],
       "format": "cjs"
     },
-    "node_modules/@opentelemetry/core/node_modules/@opentelemetry/semantic-conventions/build/src/index.js": {
+    "node_modules/@opentelemetry/semantic-conventions/build/src/index.js": {
       "bytes": 1317,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/core/node_modules/@opentelemetry/semantic-conventions/build/src/trace/index.js",
+          "path": "node_modules/@opentelemetry/semantic-conventions/build/src/trace/index.js",
           "kind": "require-call",
           "original": "./trace"
         },
         {
-          "path": "node_modules/@opentelemetry/core/node_modules/@opentelemetry/semantic-conventions/build/src/resource/index.js",
+          "path": "node_modules/@opentelemetry/semantic-conventions/build/src/resource/index.js",
           "kind": "require-call",
           "original": "./resource"
         }
@@ -915,7 +915,7 @@
           "original": "../../version"
         },
         {
-          "path": "node_modules/@opentelemetry/core/node_modules/@opentelemetry/semantic-conventions/build/src/index.js",
+          "path": "node_modules/@opentelemetry/semantic-conventions/build/src/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/semantic-conventions"
         }
@@ -1004,7 +1004,7 @@
       "bytes": 3167,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         }
@@ -1031,7 +1031,7 @@
       "bytes": 4742,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         },
@@ -1057,7 +1057,7 @@
       "bytes": 1493,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         }
@@ -1068,7 +1068,7 @@
       "bytes": 1169,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         }
@@ -1079,7 +1079,7 @@
       "bytes": 1172,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         }
@@ -1090,7 +1090,7 @@
       "bytes": 3613,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         },
@@ -1116,7 +1116,7 @@
       "bytes": 2109,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         }
@@ -1171,10 +1171,10 @@
       "format": "cjs"
     },
     "node_modules/@opentelemetry/core/build/src/internal/exporter.js": {
-      "bytes": 1354,
+      "bytes": 1355,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         },
@@ -1351,7 +1351,7 @@
       "bytes": 6141,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         }
@@ -1369,59 +1369,11 @@
       ],
       "format": "cjs"
     },
-    "node_modules/@opentelemetry/semantic-conventions/build/src/trace/SemanticAttributes.js": {
-      "bytes": 36019,
-      "imports": [],
-      "format": "cjs"
-    },
-    "node_modules/@opentelemetry/semantic-conventions/build/src/trace/index.js": {
-      "bytes": 1284,
-      "imports": [
-        {
-          "path": "node_modules/@opentelemetry/semantic-conventions/build/src/trace/SemanticAttributes.js",
-          "kind": "require-call",
-          "original": "./SemanticAttributes"
-        }
-      ],
-      "format": "cjs"
-    },
-    "node_modules/@opentelemetry/semantic-conventions/build/src/resource/SemanticResourceAttributes.js": {
-      "bytes": 21521,
-      "imports": [],
-      "format": "cjs"
-    },
-    "node_modules/@opentelemetry/semantic-conventions/build/src/resource/index.js": {
-      "bytes": 1292,
-      "imports": [
-        {
-          "path": "node_modules/@opentelemetry/semantic-conventions/build/src/resource/SemanticResourceAttributes.js",
-          "kind": "require-call",
-          "original": "./SemanticResourceAttributes"
-        }
-      ],
-      "format": "cjs"
-    },
-    "node_modules/@opentelemetry/semantic-conventions/build/src/index.js": {
-      "bytes": 1317,
-      "imports": [
-        {
-          "path": "node_modules/@opentelemetry/semantic-conventions/build/src/trace/index.js",
-          "kind": "require-call",
-          "original": "./trace"
-        },
-        {
-          "path": "node_modules/@opentelemetry/semantic-conventions/build/src/resource/index.js",
-          "kind": "require-call",
-          "original": "./resource"
-        }
-      ],
-      "format": "cjs"
-    },
     "node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/MessageAttributes.js": {
       "bytes": 3573,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         }
@@ -1432,7 +1384,7 @@
       "bytes": 7486,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         },
@@ -1458,7 +1410,7 @@
       "bytes": 10929,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         },
@@ -1474,7 +1426,7 @@
       "bytes": 3328,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         },
@@ -1495,7 +1447,7 @@
       "bytes": 4261,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         },
@@ -1505,7 +1457,7 @@
           "original": "@opentelemetry/semantic-conventions"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         }
@@ -1694,7 +1646,7 @@
       "bytes": 1783,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         },
@@ -2597,7 +2549,7 @@
       "bytes": 4017,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         },
@@ -3084,7 +3036,7 @@
           "original": "import-in-the-middle"
         },
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         },
@@ -3210,7 +3162,7 @@
       "bytes": 3219,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         },
@@ -3236,7 +3188,7 @@
       "bytes": 21940,
       "imports": [
         {
-          "path": "node_modules/@opentelemetry/api/build/src/index.js",
+          "path": "node_modules/@opentelemetry/api/build/esm/index.js",
           "kind": "require-call",
           "original": "@opentelemetry/api"
         },
@@ -3310,7 +3262,7 @@
       "format": "cjs"
     },
     "node_modules/@baselime/node-opentelemetry/dist/index.cjs": {
-      "bytes": 615063,
+      "bytes": 672948,
       "imports": [
         {
           "path": "events",
@@ -3586,7 +3538,7 @@
       "format": "cjs"
     },
     "src/lambda-wrapper.ts": {
-      "bytes": 1357,
+      "bytes": 1356,
       "imports": [
         {
           "path": "node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/index.js",
@@ -3984,167 +3936,167 @@
       "exports": [],
       "entryPoint": "src/lambda-wrapper.ts",
       "inputs": {
-        "node_modules/@opentelemetry/api/build/src/platform/node/globalThis.js": {
-          "bytesInOutput": 162
+        "node_modules/@opentelemetry/api/build/esm/platform/node/globalThis.js": {
+          "bytesInOutput": 68
         },
-        "node_modules/@opentelemetry/api/build/src/platform/node/index.js": {
-          "bytesInOutput": 416
+        "node_modules/@opentelemetry/api/build/esm/platform/node/index.js": {
+          "bytesInOutput": 21
         },
-        "node_modules/@opentelemetry/api/build/src/platform/index.js": {
-          "bytesInOutput": 416
+        "node_modules/@opentelemetry/api/build/esm/platform/index.js": {
+          "bytesInOutput": 21
         },
-        "node_modules/@opentelemetry/api/build/src/version.js": {
-          "bytesInOutput": 116
+        "node_modules/@opentelemetry/api/build/esm/version.js": {
+          "bytesInOutput": 30
         },
-        "node_modules/@opentelemetry/api/build/src/internal/semver.js": {
-          "bytesInOutput": 788
+        "node_modules/@opentelemetry/api/build/esm/internal/semver.js": {
+          "bytesInOutput": 638
         },
-        "node_modules/@opentelemetry/api/build/src/internal/global-utils.js": {
-          "bytesInOutput": 1129
+        "node_modules/@opentelemetry/api/build/esm/internal/global-utils.js": {
+          "bytesInOutput": 879
         },
-        "node_modules/@opentelemetry/api/build/src/diag/ComponentLogger.js": {
-          "bytesInOutput": 556
+        "node_modules/@opentelemetry/api/build/esm/diag/ComponentLogger.js": {
+          "bytesInOutput": 1319
         },
-        "node_modules/@opentelemetry/api/build/src/diag/types.js": {
-          "bytesInOutput": 315
+        "node_modules/@opentelemetry/api/build/esm/diag/types.js": {
+          "bytesInOutput": 196
         },
-        "node_modules/@opentelemetry/api/build/src/diag/internal/logLevelLogger.js": {
-          "bytesInOutput": 562
+        "node_modules/@opentelemetry/api/build/esm/diag/internal/logLevelLogger.js": {
+          "bytesInOutput": 309
         },
-        "node_modules/@opentelemetry/api/build/src/api/diag.js": {
-          "bytesInOutput": 1302
+        "node_modules/@opentelemetry/api/build/esm/api/diag.js": {
+          "bytesInOutput": 1674
         },
-        "node_modules/@opentelemetry/api/build/src/baggage/internal/baggage-impl.js": {
-          "bytesInOutput": 591
+        "node_modules/@opentelemetry/api/build/esm/baggage/internal/baggage-impl.js": {
+          "bytesInOutput": 1465
         },
-        "node_modules/@opentelemetry/api/build/src/baggage/internal/symbol.js": {
-          "bytesInOutput": 177
+        "node_modules/@opentelemetry/api/build/esm/baggage/internal/symbol.js": {
+          "bytesInOutput": 53
         },
-        "node_modules/@opentelemetry/api/build/src/baggage/utils.js": {
-          "bytesInOutput": 504
+        "node_modules/@opentelemetry/api/build/esm/baggage/utils.js": {
+          "bytesInOutput": 292
         },
-        "node_modules/@opentelemetry/api/build/src/context/context.js": {
-          "bytesInOutput": 499
+        "node_modules/@opentelemetry/api/build/esm/context/context.js": {
+          "bytesInOutput": 402
         },
-        "node_modules/@opentelemetry/api/build/src/diag/consoleLogger.js": {
-          "bytesInOutput": 481
+        "node_modules/@opentelemetry/api/build/esm/diag/consoleLogger.js": {
+          "bytesInOutput": 436
         },
-        "node_modules/@opentelemetry/api/build/src/metrics/NoopMeter.js": {
-          "bytesInOutput": 1814
+        "node_modules/@opentelemetry/api/build/esm/metrics/NoopMeter.js": {
+          "bytesInOutput": 1975
         },
-        "node_modules/@opentelemetry/api/build/src/metrics/Metric.js": {
-          "bytesInOutput": 197
+        "node_modules/@opentelemetry/api/build/esm/metrics/Metric.js": {
+          "bytesInOutput": 87
         },
-        "node_modules/@opentelemetry/api/build/src/propagation/TextMapPropagator.js": {
-          "bytesInOutput": 291
+        "node_modules/@opentelemetry/api/build/esm/propagation/TextMapPropagator.js": {
+          "bytesInOutput": 164
         },
-        "node_modules/@opentelemetry/api/build/src/context/NoopContextManager.js": {
-          "bytesInOutput": 289
+        "node_modules/@opentelemetry/api/build/esm/context/NoopContextManager.js": {
+          "bytesInOutput": 855
         },
-        "node_modules/@opentelemetry/api/build/src/api/context.js": {
-          "bytesInOutput": 699
+        "node_modules/@opentelemetry/api/build/esm/api/context.js": {
+          "bytesInOutput": 1222
         },
-        "node_modules/@opentelemetry/api/build/src/trace/trace_flags.js": {
-          "bytesInOutput": 204
+        "node_modules/@opentelemetry/api/build/esm/trace/trace_flags.js": {
+          "bytesInOutput": 91
         },
-        "node_modules/@opentelemetry/api/build/src/trace/invalid-span-constants.js": {
-          "bytesInOutput": 358
+        "node_modules/@opentelemetry/api/build/esm/trace/invalid-span-constants.js": {
+          "bytesInOutput": 135
         },
-        "node_modules/@opentelemetry/api/build/src/trace/NonRecordingSpan.js": {
-          "bytesInOutput": 439
+        "node_modules/@opentelemetry/api/build/esm/trace/NonRecordingSpan.js": {
+          "bytesInOutput": 529
         },
-        "node_modules/@opentelemetry/api/build/src/trace/context-utils.js": {
-          "bytesInOutput": 695
+        "node_modules/@opentelemetry/api/build/esm/trace/context-utils.js": {
+          "bytesInOutput": 370
         },
-        "node_modules/@opentelemetry/api/build/src/trace/spancontext-utils.js": {
-          "bytesInOutput": 526
+        "node_modules/@opentelemetry/api/build/esm/trace/spancontext-utils.js": {
+          "bytesInOutput": 240
         },
-        "node_modules/@opentelemetry/api/build/src/trace/NoopTracer.js": {
-          "bytesInOutput": 754
+        "node_modules/@opentelemetry/api/build/esm/trace/NoopTracer.js": {
+          "bytesInOutput": 621
         },
-        "node_modules/@opentelemetry/api/build/src/trace/ProxyTracer.js": {
-          "bytesInOutput": 578
-        },
-        "node_modules/@opentelemetry/api/build/src/trace/NoopTracerProvider.js": {
-          "bytesInOutput": 198
-        },
-        "node_modules/@opentelemetry/api/build/src/trace/ProxyTracerProvider.js": {
-          "bytesInOutput": 512
-        },
-        "node_modules/@opentelemetry/api/build/src/trace/SamplingResult.js": {
-          "bytesInOutput": 279
-        },
-        "node_modules/@opentelemetry/api/build/src/trace/span_kind.js": {
-          "bytesInOutput": 281
-        },
-        "node_modules/@opentelemetry/api/build/src/trace/status.js": {
-          "bytesInOutput": 229
-        },
-        "node_modules/@opentelemetry/api/build/src/trace/internal/tracestate-validators.js": {
-          "bytesInOutput": 392
-        },
-        "node_modules/@opentelemetry/api/build/src/trace/internal/tracestate-impl.js": {
-          "bytesInOutput": 1057
-        },
-        "node_modules/@opentelemetry/api/build/src/trace/internal/utils.js": {
-          "bytesInOutput": 188
-        },
-        "node_modules/@opentelemetry/api/build/src/context-api.js": {
-          "bytesInOutput": 148
-        },
-        "node_modules/@opentelemetry/api/build/src/diag-api.js": {
-          "bytesInOutput": 136
-        },
-        "node_modules/@opentelemetry/api/build/src/metrics/NoopMeterProvider.js": {
-          "bytesInOutput": 244
-        },
-        "node_modules/@opentelemetry/api/build/src/api/metrics.js": {
+        "node_modules/@opentelemetry/api/build/esm/trace/ProxyTracer.js": {
           "bytesInOutput": 543
         },
-        "node_modules/@opentelemetry/api/build/src/metrics-api.js": {
+        "node_modules/@opentelemetry/api/build/esm/trace/NoopTracerProvider.js": {
+          "bytesInOutput": 117
+        },
+        "node_modules/@opentelemetry/api/build/esm/trace/ProxyTracerProvider.js": {
+          "bytesInOutput": 475
+        },
+        "node_modules/@opentelemetry/api/build/esm/trace/SamplingResult.js": {
           "bytesInOutput": 148
         },
-        "node_modules/@opentelemetry/api/build/src/propagation/NoopTextMapPropagator.js": {
-          "bytesInOutput": 207
+        "node_modules/@opentelemetry/api/build/esm/trace/span_kind.js": {
+          "bytesInOutput": 174
         },
-        "node_modules/@opentelemetry/api/build/src/baggage/context-helpers.js": {
-          "bytesInOutput": 492
+        "node_modules/@opentelemetry/api/build/esm/trace/status.js": {
+          "bytesInOutput": 104
         },
-        "node_modules/@opentelemetry/api/build/src/api/propagation.js": {
-          "bytesInOutput": 931
+        "node_modules/@opentelemetry/api/build/esm/trace/internal/tracestate-validators.js": {
+          "bytesInOutput": 271
         },
-        "node_modules/@opentelemetry/api/build/src/propagation-api.js": {
-          "bytesInOutput": 160
+        "node_modules/@opentelemetry/api/build/esm/trace/internal/tracestate-impl.js": {
+          "bytesInOutput": 1115
         },
-        "node_modules/@opentelemetry/api/build/src/api/trace.js": {
-          "bytesInOutput": 1015
+        "node_modules/@opentelemetry/api/build/esm/trace/internal/utils.js": {
+          "bytesInOutput": 53
         },
-        "node_modules/@opentelemetry/api/build/src/trace-api.js": {
-          "bytesInOutput": 142
+        "node_modules/@opentelemetry/api/build/esm/context-api.js": {
+          "bytesInOutput": 44
         },
-        "node_modules/@opentelemetry/api/build/src/index.js": {
-          "bytesInOutput": 3558
+        "node_modules/@opentelemetry/api/build/esm/diag-api.js": {
+          "bytesInOutput": 41
+        },
+        "node_modules/@opentelemetry/api/build/esm/metrics/NoopMeterProvider.js": {
+          "bytesInOutput": 125
+        },
+        "node_modules/@opentelemetry/api/build/esm/api/metrics.js": {
+          "bytesInOutput": 452
+        },
+        "node_modules/@opentelemetry/api/build/esm/metrics-api.js": {
+          "bytesInOutput": 44
+        },
+        "node_modules/@opentelemetry/api/build/esm/propagation/NoopTextMapPropagator.js": {
+          "bytesInOutput": 178
+        },
+        "node_modules/@opentelemetry/api/build/esm/baggage/context-helpers.js": {
+          "bytesInOutput": 241
+        },
+        "node_modules/@opentelemetry/api/build/esm/api/propagation.js": {
+          "bytesInOutput": 791
+        },
+        "node_modules/@opentelemetry/api/build/esm/propagation-api.js": {
+          "bytesInOutput": 44
+        },
+        "node_modules/@opentelemetry/api/build/esm/api/trace.js": {
+          "bytesInOutput": 795
+        },
+        "node_modules/@opentelemetry/api/build/esm/trace-api.js": {
+          "bytesInOutput": 44
+        },
+        "node_modules/@opentelemetry/api/build/esm/index.js": {
+          "bytesInOutput": 806
         },
         "node_modules/@opentelemetry/core/build/src/trace/suppress-tracing.js": {
-          "bytesInOutput": 432
+          "bytesInOutput": 441
         },
         "node_modules/@opentelemetry/core/build/src/baggage/constants.js": {
           "bytesInOutput": 528
         },
         "node_modules/@opentelemetry/core/build/src/baggage/utils.js": {
-          "bytesInOutput": 1232
+          "bytesInOutput": 1241
         },
         "node_modules/@opentelemetry/core/build/src/baggage/propagation/W3CBaggagePropagator.js": {
-          "bytesInOutput": 912
+          "bytesInOutput": 921
         },
         "node_modules/@opentelemetry/core/build/src/common/anchored-clock.js": {
           "bytesInOutput": 326
         },
         "node_modules/@opentelemetry/core/build/src/common/attributes.js": {
-          "bytesInOutput": 849
+          "bytesInOutput": 858
         },
         "node_modules/@opentelemetry/core/build/src/common/logging-error-handler.js": {
-          "bytesInOutput": 429
+          "bytesInOutput": 438
         },
         "node_modules/@opentelemetry/core/build/src/common/global-error-handler.js": {
           "bytesInOutput": 283
@@ -4156,7 +4108,7 @@
           "bytesInOutput": 247
         },
         "node_modules/@opentelemetry/core/build/src/utils/environment.js": {
-          "bytesInOutput": 5611
+          "bytesInOutput": 5620
         },
         "node_modules/@opentelemetry/core/build/src/platform/node/environment.js": {
           "bytesInOutput": 228
@@ -4179,22 +4131,22 @@
         "node_modules/@opentelemetry/core/build/src/version.js": {
           "bytesInOutput": 117
         },
-        "node_modules/@opentelemetry/core/node_modules/@opentelemetry/semantic-conventions/build/src/internal/utils.js": {
+        "node_modules/@opentelemetry/semantic-conventions/build/src/internal/utils.js": {
           "bytesInOutput": 256
         },
-        "node_modules/@opentelemetry/core/node_modules/@opentelemetry/semantic-conventions/build/src/trace/SemanticAttributes.js": {
+        "node_modules/@opentelemetry/semantic-conventions/build/src/trace/SemanticAttributes.js": {
           "bytesInOutput": 24623
         },
-        "node_modules/@opentelemetry/core/node_modules/@opentelemetry/semantic-conventions/build/src/trace/index.js": {
+        "node_modules/@opentelemetry/semantic-conventions/build/src/trace/index.js": {
           "bytesInOutput": 416
         },
-        "node_modules/@opentelemetry/core/node_modules/@opentelemetry/semantic-conventions/build/src/resource/SemanticResourceAttributes.js": {
+        "node_modules/@opentelemetry/semantic-conventions/build/src/resource/SemanticResourceAttributes.js": {
           "bytesInOutput": 12114
         },
-        "node_modules/@opentelemetry/core/node_modules/@opentelemetry/semantic-conventions/build/src/resource/index.js": {
+        "node_modules/@opentelemetry/semantic-conventions/build/src/resource/index.js": {
           "bytesInOutput": 416
         },
-        "node_modules/@opentelemetry/core/node_modules/@opentelemetry/semantic-conventions/build/src/index.js": {
+        "node_modules/@opentelemetry/semantic-conventions/build/src/index.js": {
           "bytesInOutput": 428
         },
         "node_modules/@opentelemetry/core/build/src/platform/node/sdk-info.js": {
@@ -4219,7 +4171,7 @@
           "bytesInOutput": 226
         },
         "node_modules/@opentelemetry/core/build/src/propagation/composite.js": {
-          "bytesInOutput": 749
+          "bytesInOutput": 758
         },
         "node_modules/@opentelemetry/core/build/src/internal/validators.js": {
           "bytesInOutput": 392
@@ -4228,25 +4180,25 @@
           "bytesInOutput": 1049
         },
         "node_modules/@opentelemetry/core/build/src/trace/W3CTraceContextPropagator.js": {
-          "bytesInOutput": 1377
+          "bytesInOutput": 1386
         },
         "node_modules/@opentelemetry/core/build/src/trace/IdGenerator.js": {
           "bytesInOutput": 79
         },
         "node_modules/@opentelemetry/core/build/src/trace/rpc-metadata.js": {
-          "bytesInOutput": 487
+          "bytesInOutput": 496
         },
         "node_modules/@opentelemetry/core/build/src/trace/sampler/AlwaysOffSampler.js": {
-          "bytesInOutput": 251
+          "bytesInOutput": 260
         },
         "node_modules/@opentelemetry/core/build/src/trace/sampler/AlwaysOnSampler.js": {
-          "bytesInOutput": 256
+          "bytesInOutput": 265
         },
         "node_modules/@opentelemetry/core/build/src/trace/sampler/ParentBasedSampler.js": {
-          "bytesInOutput": 1505
+          "bytesInOutput": 1514
         },
         "node_modules/@opentelemetry/core/build/src/trace/sampler/TraceIdRatioBasedSampler.js": {
-          "bytesInOutput": 685
+          "bytesInOutput": 694
         },
         "node_modules/@opentelemetry/core/build/src/utils/lodash.merge.js": {
           "bytesInOutput": 907
@@ -4270,7 +4222,7 @@
           "bytesInOutput": 560
         },
         "node_modules/@opentelemetry/core/build/src/internal/exporter.js": {
-          "bytesInOutput": 262
+          "bytesInOutput": 271
         },
         "node_modules/@opentelemetry/core/build/src/index.js": {
           "bytesInOutput": 841
@@ -4279,40 +4231,25 @@
           "bytesInOutput": 488
         },
         "node_modules/@opentelemetry/propagation-utils/build/src/pubsub-propagation.js": {
-          "bytesInOutput": 2094
+          "bytesInOutput": 2103
         },
         "node_modules/@opentelemetry/propagation-utils/build/src/index.js": {
           "bytesInOutput": 215
         },
-        "node_modules/@opentelemetry/semantic-conventions/build/src/trace/SemanticAttributes.js": {
-          "bytesInOutput": 8722
-        },
-        "node_modules/@opentelemetry/semantic-conventions/build/src/trace/index.js": {
-          "bytesInOutput": 416
-        },
-        "node_modules/@opentelemetry/semantic-conventions/build/src/resource/SemanticResourceAttributes.js": {
-          "bytesInOutput": 4426
-        },
-        "node_modules/@opentelemetry/semantic-conventions/build/src/resource/index.js": {
-          "bytesInOutput": 416
-        },
-        "node_modules/@opentelemetry/semantic-conventions/build/src/index.js": {
-          "bytesInOutput": 428
-        },
         "node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/MessageAttributes.js": {
-          "bytesInOutput": 1361
+          "bytesInOutput": 1370
         },
         "node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/sqs.js": {
-          "bytesInOutput": 2913
+          "bytesInOutput": 2922
         },
         "node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/dynamodb.js": {
-          "bytesInOutput": 5004
+          "bytesInOutput": 5013
         },
         "node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/sns.js": {
-          "bytesInOutput": 1131
+          "bytesInOutput": 1140
         },
         "node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/lambda.js": {
-          "bytesInOutput": 1506
+          "bytesInOutput": 1524
         },
         "node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/services/ServicesExtensions.js": {
           "bytesInOutput": 811
@@ -4363,232 +4300,232 @@
           "bytesInOutput": 735
         },
         "node_modules/@opentelemetry/instrumentation/build/src/autoLoader.js": {
-          "bytesInOutput": 498
+          "bytesInOutput": 507
         },
         "node_modules/semver/internal/constants.js": {
-          "bytesInOutput": 350
+          "bytesInOutput": 351
         },
         "node_modules/semver/internal/debug.js": {
-          "bytesInOutput": 192
+          "bytesInOutput": 193
         },
         "node_modules/semver/internal/re.js": {
           "bytesInOutput": 3437
         },
         "node_modules/semver/internal/parse-options.js": {
-          "bytesInOutput": 124
-        },
-        "node_modules/semver/internal/identifiers.js": {
-          "bytesInOutput": 216
-        },
-        "node_modules/semver/classes/semver.js": {
-          "bytesInOutput": 3837
-        },
-        "node_modules/semver/functions/parse.js": {
-          "bytesInOutput": 151
-        },
-        "node_modules/semver/functions/valid.js": {
-          "bytesInOutput": 97
-        },
-        "node_modules/semver/functions/clean.js": {
           "bytesInOutput": 125
         },
+        "node_modules/semver/internal/identifiers.js": {
+          "bytesInOutput": 217
+        },
+        "node_modules/semver/classes/semver.js": {
+          "bytesInOutput": 3838
+        },
+        "node_modules/semver/functions/parse.js": {
+          "bytesInOutput": 152
+        },
+        "node_modules/semver/functions/valid.js": {
+          "bytesInOutput": 98
+        },
+        "node_modules/semver/functions/clean.js": {
+          "bytesInOutput": 126
+        },
         "node_modules/semver/functions/inc.js": {
-          "bytesInOutput": 191
+          "bytesInOutput": 192
         },
         "node_modules/semver/functions/diff.js": {
-          "bytesInOutput": 404
+          "bytesInOutput": 405
         },
         "node_modules/semver/functions/major.js": {
-          "bytesInOutput": 75
+          "bytesInOutput": 76
         },
         "node_modules/semver/functions/minor.js": {
-          "bytesInOutput": 75
+          "bytesInOutput": 76
         },
         "node_modules/semver/functions/patch.js": {
-          "bytesInOutput": 75
+          "bytesInOutput": 76
         },
         "node_modules/semver/functions/prerelease.js": {
-          "bytesInOutput": 121
+          "bytesInOutput": 122
         },
         "node_modules/semver/functions/compare.js": {
-          "bytesInOutput": 92
+          "bytesInOutput": 93
         },
         "node_modules/semver/functions/rcompare.js": {
-          "bytesInOutput": 69
-        },
-        "node_modules/semver/functions/compare-loose.js": {
-          "bytesInOutput": 68
-        },
-        "node_modules/semver/functions/compare-build.js": {
-          "bytesInOutput": 132
-        },
-        "node_modules/semver/functions/sort.js": {
-          "bytesInOutput": 82
-        },
-        "node_modules/semver/functions/rsort.js": {
-          "bytesInOutput": 82
-        },
-        "node_modules/semver/functions/gt.js": {
-          "bytesInOutput": 71
-        },
-        "node_modules/semver/functions/lt.js": {
-          "bytesInOutput": 71
-        },
-        "node_modules/semver/functions/eq.js": {
-          "bytesInOutput": 73
-        },
-        "node_modules/semver/functions/neq.js": {
-          "bytesInOutput": 73
-        },
-        "node_modules/semver/functions/gte.js": {
-          "bytesInOutput": 72
-        },
-        "node_modules/semver/functions/lte.js": {
-          "bytesInOutput": 72
-        },
-        "node_modules/semver/functions/cmp.js": {
-          "bytesInOutput": 519
-        },
-        "node_modules/semver/functions/coerce.js": {
-          "bytesInOutput": 701
-        },
-        "node_modules/yallist/iterator.js": {
-          "bytesInOutput": 145
-        },
-        "node_modules/yallist/yallist.js": {
-          "bytesInOutput": 4689
-        },
-        "node_modules/semver/node_modules/lru-cache/index.js": {
-          "bytesInOutput": 3600
-        },
-        "node_modules/semver/classes/range.js": {
-          "bytesInOutput": 5110
-        },
-        "node_modules/semver/classes/comparator.js": {
-          "bytesInOutput": 1769
-        },
-        "node_modules/semver/functions/satisfies.js": {
-          "bytesInOutput": 111
-        },
-        "node_modules/semver/ranges/to-comparators.js": {
-          "bytesInOutput": 127
-        },
-        "node_modules/semver/ranges/max-satisfying.js": {
-          "bytesInOutput": 211
-        },
-        "node_modules/semver/ranges/min-satisfying.js": {
-          "bytesInOutput": 210
-        },
-        "node_modules/semver/ranges/min-version.js": {
-          "bytesInOutput": 554
-        },
-        "node_modules/semver/ranges/valid.js": {
-          "bytesInOutput": 112
-        },
-        "node_modules/semver/ranges/outside.js": {
-          "bytesInOutput": 683
-        },
-        "node_modules/semver/ranges/gtr.js": {
-          "bytesInOutput": 73
-        },
-        "node_modules/semver/ranges/ltr.js": {
-          "bytesInOutput": 73
-        },
-        "node_modules/semver/ranges/intersects.js": {
-          "bytesInOutput": 107
-        },
-        "node_modules/semver/ranges/simplify.js": {
-          "bytesInOutput": 431
-        },
-        "node_modules/semver/ranges/subset.js": {
-          "bytesInOutput": 2148
-        },
-        "node_modules/semver/index.js": {
-          "bytesInOutput": 958
-        },
-        "node_modules/shimmer/index.js": {
-          "bytesInOutput": 1546
-        },
-        "node_modules/@opentelemetry/instrumentation/build/src/instrumentation.js": {
-          "bytesInOutput": 1242
-        },
-        "node_modules/resolve/lib/homedir.js": {
-          "bytesInOutput": 444
-        },
-        "node_modules/resolve/lib/caller.js": {
-          "bytesInOutput": 198
-        },
-        "node_modules/path-parse/index.js": {
-          "bytesInOutput": 1005
-        },
-        "node_modules/resolve/lib/node-modules-paths.js": {
-          "bytesInOutput": 549
-        },
-        "node_modules/resolve/lib/normalize-options.js": {
-          "bytesInOutput": 60
-        },
-        "node_modules/function-bind/implementation.js": {
-          "bytesInOutput": 963
-        },
-        "node_modules/function-bind/index.js": {
-          "bytesInOutput": 85
-        },
-        "node_modules/hasown/index.js": {
-          "bytesInOutput": 134
-        },
-        "node_modules/is-core-module/core.json": {
-          "bytesInOutput": 5081
-        },
-        "node_modules/is-core-module/index.js": {
-          "bytesInOutput": 833
-        },
-        "node_modules/resolve/lib/async.js": {
-          "bytesInOutput": 4265
-        },
-        "node_modules/resolve/lib/core.json": {
-          "bytesInOutput": 5081
-        },
-        "node_modules/resolve/lib/core.js": {
-          "bytesInOutput": 155
-        },
-        "node_modules/resolve/lib/is-core.js": {
           "bytesInOutput": 70
         },
+        "node_modules/semver/functions/compare-loose.js": {
+          "bytesInOutput": 69
+        },
+        "node_modules/semver/functions/compare-build.js": {
+          "bytesInOutput": 133
+        },
+        "node_modules/semver/functions/sort.js": {
+          "bytesInOutput": 83
+        },
+        "node_modules/semver/functions/rsort.js": {
+          "bytesInOutput": 83
+        },
+        "node_modules/semver/functions/gt.js": {
+          "bytesInOutput": 72
+        },
+        "node_modules/semver/functions/lt.js": {
+          "bytesInOutput": 72
+        },
+        "node_modules/semver/functions/eq.js": {
+          "bytesInOutput": 74
+        },
+        "node_modules/semver/functions/neq.js": {
+          "bytesInOutput": 74
+        },
+        "node_modules/semver/functions/gte.js": {
+          "bytesInOutput": 73
+        },
+        "node_modules/semver/functions/lte.js": {
+          "bytesInOutput": 73
+        },
+        "node_modules/semver/functions/cmp.js": {
+          "bytesInOutput": 520
+        },
+        "node_modules/semver/functions/coerce.js": {
+          "bytesInOutput": 702
+        },
+        "node_modules/yallist/iterator.js": {
+          "bytesInOutput": 146
+        },
+        "node_modules/yallist/yallist.js": {
+          "bytesInOutput": 4690
+        },
+        "node_modules/semver/node_modules/lru-cache/index.js": {
+          "bytesInOutput": 3601
+        },
+        "node_modules/semver/classes/range.js": {
+          "bytesInOutput": 5111
+        },
+        "node_modules/semver/classes/comparator.js": {
+          "bytesInOutput": 1770
+        },
+        "node_modules/semver/functions/satisfies.js": {
+          "bytesInOutput": 112
+        },
+        "node_modules/semver/ranges/to-comparators.js": {
+          "bytesInOutput": 128
+        },
+        "node_modules/semver/ranges/max-satisfying.js": {
+          "bytesInOutput": 212
+        },
+        "node_modules/semver/ranges/min-satisfying.js": {
+          "bytesInOutput": 211
+        },
+        "node_modules/semver/ranges/min-version.js": {
+          "bytesInOutput": 555
+        },
+        "node_modules/semver/ranges/valid.js": {
+          "bytesInOutput": 113
+        },
+        "node_modules/semver/ranges/outside.js": {
+          "bytesInOutput": 684
+        },
+        "node_modules/semver/ranges/gtr.js": {
+          "bytesInOutput": 74
+        },
+        "node_modules/semver/ranges/ltr.js": {
+          "bytesInOutput": 74
+        },
+        "node_modules/semver/ranges/intersects.js": {
+          "bytesInOutput": 108
+        },
+        "node_modules/semver/ranges/simplify.js": {
+          "bytesInOutput": 432
+        },
+        "node_modules/semver/ranges/subset.js": {
+          "bytesInOutput": 2149
+        },
+        "node_modules/semver/index.js": {
+          "bytesInOutput": 959
+        },
+        "node_modules/shimmer/index.js": {
+          "bytesInOutput": 1547
+        },
+        "node_modules/@opentelemetry/instrumentation/build/src/instrumentation.js": {
+          "bytesInOutput": 1251
+        },
+        "node_modules/resolve/lib/homedir.js": {
+          "bytesInOutput": 445
+        },
+        "node_modules/resolve/lib/caller.js": {
+          "bytesInOutput": 199
+        },
+        "node_modules/path-parse/index.js": {
+          "bytesInOutput": 1006
+        },
+        "node_modules/resolve/lib/node-modules-paths.js": {
+          "bytesInOutput": 550
+        },
+        "node_modules/resolve/lib/normalize-options.js": {
+          "bytesInOutput": 61
+        },
+        "node_modules/function-bind/implementation.js": {
+          "bytesInOutput": 964
+        },
+        "node_modules/function-bind/index.js": {
+          "bytesInOutput": 86
+        },
+        "node_modules/hasown/index.js": {
+          "bytesInOutput": 135
+        },
+        "node_modules/is-core-module/core.json": {
+          "bytesInOutput": 5082
+        },
+        "node_modules/is-core-module/index.js": {
+          "bytesInOutput": 834
+        },
+        "node_modules/resolve/lib/async.js": {
+          "bytesInOutput": 4266
+        },
+        "node_modules/resolve/lib/core.json": {
+          "bytesInOutput": 5082
+        },
+        "node_modules/resolve/lib/core.js": {
+          "bytesInOutput": 156
+        },
+        "node_modules/resolve/lib/is-core.js": {
+          "bytesInOutput": 71
+        },
         "node_modules/resolve/lib/sync.js": {
-          "bytesInOutput": 2938
+          "bytesInOutput": 2939
         },
         "node_modules/resolve/index.js": {
-          "bytesInOutput": 88
+          "bytesInOutput": 89
         },
         "node_modules/ms/index.js": {
-          "bytesInOutput": 1395
+          "bytesInOutput": 1396
         },
         "node_modules/debug/src/common.js": {
-          "bytesInOutput": 2074
+          "bytesInOutput": 2075
         },
         "node_modules/debug/src/browser.js": {
           "bytesInOutput": 2565
         },
         "node_modules/has-flag/index.js": {
-          "bytesInOutput": 180
+          "bytesInOutput": 181
         },
         "node_modules/supports-color/index.js": {
-          "bytesInOutput": 1682
+          "bytesInOutput": 1683
         },
         "node_modules/debug/src/node.js": {
           "bytesInOutput": 1977
         },
         "node_modules/debug/src/index.js": {
-          "bytesInOutput": 137
+          "bytesInOutput": 138
         },
         "node_modules/module-details-from-path/index.js": {
-          "bytesInOutput": 296
+          "bytesInOutput": 297
         },
         "node_modules/require-in-the-middle/package.json": {
-          "bytesInOutput": 1141
+          "bytesInOutput": 1142
         },
         "node_modules/require-in-the-middle/index.js": {
-          "bytesInOutput": 3428
+          "bytesInOutput": 3429
         },
         "node_modules/@opentelemetry/instrumentation/build/src/platform/node/ModuleNameTrie.js": {
           "bytesInOutput": 827
@@ -4600,10 +4537,10 @@
           "bytesInOutput": 422
         },
         "node_modules/import-in-the-middle/index.js": {
-          "bytesInOutput": 923
+          "bytesInOutput": 924
         },
         "node_modules/@opentelemetry/instrumentation/build/src/platform/node/instrumentation.js": {
-          "bytesInOutput": 3518
+          "bytesInOutput": 3527
         },
         "node_modules/@opentelemetry/instrumentation/build/src/platform/node/normalize.js": {
           "bytesInOutput": 212
@@ -4633,13 +4570,13 @@
           "bytesInOutput": 972
         },
         "node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/utils.js": {
-          "bytesInOutput": 1319
+          "bytesInOutput": 1328
         },
         "node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/propwrap.js": {
           "bytesInOutput": 943
         },
         "node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/aws-sdk.js": {
-          "bytesInOutput": 8911
+          "bytesInOutput": 8920
         },
         "node_modules/@opentelemetry/instrumentation-aws-sdk/build/src/types.js": {
           "bytesInOutput": 79
@@ -4648,16 +4585,16 @@
           "bytesInOutput": 428
         },
         "node_modules/flat/index.js": {
-          "bytesInOutput": 1675
+          "bytesInOutput": 1676
         },
         "node_modules/@baselime/node-opentelemetry/dist/index.cjs": {
-          "bytesInOutput": 262747
+          "bytesInOutput": 279988
         },
         "src/lambda-wrapper.ts": {
           "bytesInOutput": 823
         }
       },
-      "bytes": 487580
+      "bytes": 485833
     }
   }
 }

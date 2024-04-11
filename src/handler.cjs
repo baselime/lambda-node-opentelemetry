@@ -15,5 +15,7 @@ if(!actualHandler) {
 const handler = loadSync(taskRoot, actualHandler);
 
 exports.handler = wrap(handler, {
-    timeoutThreshold: 100
+    timeoutThreshold: 100,
+    captureEvent: !!process.env.BASELIME_CAPTURE_EVENT,
+    captureResponse: !!process.env.BASELIME_CAPTURE_RESPONSE,
 });

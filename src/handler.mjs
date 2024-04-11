@@ -14,5 +14,7 @@ if(typeof actualHandler !== 'string') {
 }
 
 export const handler = wrap(await load(taskRoot, actualHandler), { 
-    timeoutThreshold: 100
+    timeoutThreshold: 100,
+    captureEvent: !!process.env.BASELIME_CAPTURE_EVENT,
+    captureResponse: !!process.env.BASELIME_CAPTURE_RESPONSE,
 });
